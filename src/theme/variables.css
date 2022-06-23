@@ -234,3 +234,10 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
+#container1{
+  background-image: url("./../assets/Fondo-UNIB.E.jpg");
+  background-repeat: no-repeat;
+  background-position:  50% 50%;
+  background-size: cover;
+}

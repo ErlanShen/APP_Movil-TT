@@ -1,0 +1,30 @@
+.flex-cart {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+     width: 100%;
+     
+}
+
+.title {
+     text-transform: uppercase ;
+     text-align: center;
+     font-weight: bold;
+}
+
+.text-gris {
+     text-transform: initial;
+     color: rgb(45, 45, 45);
+     text-decoration: underline;
+}
+
+.text-checkbox {
+     text-align: end;
+     size: 2rem;
+     color: rgb(79, 79, 79);
+}
+
+#carta {
+     background-color: rgba(189, 189, 189, 0.701);
+}
