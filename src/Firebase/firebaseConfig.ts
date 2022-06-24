@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
-import * as firebase from "firebase/app";
+
+import firebase from 'firebase';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,15 +17,27 @@ const config = {
 };
 // Initialize Firebase
 export default firebase.initializeApp(config);
-/* export async function loginUser(email: string, password: string) {
+
+export async function loginUser(email: string, password: string) {
   
-     //const email = `${email}@`
+     const miemail = `${email}@gmail.com`
      try {
-          const response = await firebase.auth().signInWithEmailAndPassword(email, password);
+          const response = await firebase.auth().signInWithEmailAndPassword(miemail, password);
           console.log(response);
           return true;
      } catch (error) {
-          console.log(error);
           return false;
      }
-} */
+}
+
+export async function registerUser(email: string, password: string) {
+     const miemail = `${email}@gmail.com`
+
+     try {
+          const response = await firebase.auth().createUserWithEmailAndPassword(miemail, password);
+          console.log(response);
+          return true;
+     } catch (error) {
+          return false;
+     }
+}
