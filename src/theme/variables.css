@@ -241,3 +241,15 @@ http://ionicframework.com/docs/theming/ */
   background-position:  50% 50%;
   background-size: cover;
 }
+
+#buttoncenter{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tjustify{
+  text-align: justify;
+}

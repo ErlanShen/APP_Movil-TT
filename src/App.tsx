@@ -7,6 +7,13 @@ import Menu from './components/Menu';
 import Page from './pages/Page';
 import Login from './Authenticate/Login';
 import Register from './Authenticate/Register';
+import Home from './pages/Home/Home';
+import Cualitativo from './pages/Rutas-Metodologicas/Enfoque/Cualitativo';
+import Cuantitativo from './pages/Rutas-Metodologicas/Enfoque/Cuantitativo';
+import Positivista from './pages/Rutas-Metodologicas/Paradigma/Positivista';
+import Interpretativo from './pages/Rutas-Metodologicas/Paradigma/Interpretativo';
+import SocioCritico from './pages/Rutas-Metodologicas/Paradigma/Socio-Crítico';
+import SocioContruccionista from './pages/Rutas-Metodologicas/Paradigma/Socio-Construccionista';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,6 +52,33 @@ const App: React.FC = () => {
             <Route path="/register">
               <Register />
             </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/cualitativo">
+              <Cualitativo />
+            </Route>
+
+            <Route path="/cuantitativo">
+              <Cuantitativo />
+            </Route>
+
+            <Route path="/positivista">
+              <Positivista />
+            </Route>
+
+            <Route path="/interpretativo">
+              <Interpretativo />
+            </Route>
+
+            <Route path="/Socio-Crítico">
+              <SocioCritico/>
+            </Route>
+
+            <Route path="/Socio-Construccionista">
+              <SocioContruccionista />
+            </Route>
+
             <Route path="/page/:name">
               <Page />
             </Route>
