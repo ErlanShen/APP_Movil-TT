@@ -1,6 +1,6 @@
 .login {
      width: 100%;
-     height: 100%;
+     margin: auto;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -9,6 +9,12 @@
 
 .login1 {
      text-align: center;
-     background-color: #f4f5f823;
+     background-color: #ffffff00;
+}
 
+#fondo {
+     background-image: url("./../assets/Fondo-UNIB.E.jpg");
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     background-size: cover;
 }

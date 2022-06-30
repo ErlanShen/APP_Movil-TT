@@ -26,33 +26,35 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { AuthProvider } from './context/authContext';
 
 setupIonicReact();
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonSplitPane contentId="main">
-        <Menu />
-          <IonRouterOutlet id="main">
-            <Route path="">
-              <Redirect to="/login" />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/page/:name">
-              <Page />
-            </Route>
+    <div>
+      <AuthProvider>
+          <IonApp>
+            <IonReactRouter>
+              <IonSplitPane contentId="main">
+                <Menu />
+                <IonRouterOutlet id="main">
+                  <Route path="/" />
+                  <Route path="/login" component={Login} exact={true} />
+                  <Route path="/register" component={Register} exact={true} />
+                  <Route path="">
+                    <Redirect to="/login" />
+                  </Route>
+                  <Route path="/page/:name">
+                    <Page />
+                  </Route>
+                </IonRouterOutlet>
+              </IonSplitPane>
+            </IonReactRouter>
+          </IonApp>
+      </AuthProvider>
+    </div>
 
-          </IonRouterOutlet>
-        </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
   );
 };
 
