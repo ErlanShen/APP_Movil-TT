@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput } from '@ionic/react';
 
 import './Login.css'; // Import the CSS file
 import { useHistory } from 'react-router';
@@ -7,26 +7,24 @@ import { useAuth } from '../context/authContext';
 
 const Login: React.FC = () => {
 
-  const [user, setUser] = useState({
-    email: '',
-    password: '',
-  });
+
+  const [correo, setCorreo] = useState('');
+  const [contrasenia, setContrasenia] = useState('');
+
   const history = useHistory();
   const { loginUser } = useAuth();
   const [error, setError] = useState();
 
-  const handlerChange = (e: any) => {
-    setUser({ ...user, [e.target.name]: e.target.value })
-  }
+
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await loginUser(user.email, user.password);
-      history.push('/page/:id');
+      await loginUser(correo, contrasenia);
+      history.push('/page/:name');
     } catch (error: any) {
       /* if (error.code === 'auth/email-already-in-use') {
         setError("Correo ya está en uso");
-      }  */
+      } */
       setError(error.message);
     }
   }
@@ -43,19 +41,15 @@ const Login: React.FC = () => {
           <IonCardContent>
             <form onSubmit={handlerSubmit}>
 
-              <label htmlFor="email">Correo electronico</label>
-              <input type="email" id='email' onChange={handlerChange} />
-              <label htmlFor="password">Contraseña</label>
-              <input type='password' name='password' id='password' onChange={handlerChange} />
 
-              {/* <IonItem>
+              <IonItem>
                 <IonLabel position="floating">Correo Electronico</IonLabel>
-                <IonInput type="email" name='email' id='email' onChange={handlerChange}></IonInput>
+                <IonInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput type="password" name='password' id='password' onChange={handlerChange}></IonInput>
-              </IonItem> */}
+                <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
+              </IonItem>
 
               {/*  <IonItem>
                 <IonLabel>
@@ -68,11 +62,12 @@ const Login: React.FC = () => {
                 <p className="text-gris">Olvide mi Correo/Contraseña</p>
               </IonButton> */}
 
-              <button type='submit'>Iniciar Sesión</button>
+              {/* <button type='submit'>Iniciar Sesión</button> */}
             </form>
 
             <IonCol>
-              <IonButton color="warning" shape="round" fill="outline" routerLink="/register">Crear cuenta</IonButton>
+              <IonButton onClick={handlerSubmit} >Iniciar Sesión</IonButton>
+              <IonButton color="warning" routerLink="/register">Crear cuenta</IonButton>
             </IonCol>
 
 

@@ -39,7 +39,7 @@ export const App: React.FC = () => {
               <IonSplitPane contentId="main">
                 <Menu />
                 <IonRouterOutlet id="main">
-                  <Route path="/" />
+                  <Route path="/page/:name" />
                   <Route path="/login" component={Login} exact={true} />
                   <Route path="/register" component={Register} exact={true} />
                   <Route path="">
