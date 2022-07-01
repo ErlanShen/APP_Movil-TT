@@ -1,8 +1,8 @@
 
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateCurrentUser } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, firestore } from "../Firebase/firebaseConfig";
+import { auth, firestore } from "../database/firebaseConfig";
 //
 
 // 
@@ -18,12 +18,20 @@ export const useAuth = () => {
 export function AuthProvider({ children }) {
 
      const [user, setUser] = useState("")
+     const [loading, setLoading] = useState(true);
      const fire = firestore
+
      const registerUser = (name, email, password) =>
           createUserWithEmailAndPassword(auth, email, password)
                .then((usuarioFire) => {
                     const docuRef = doc(fire, `Usuarios/${usuarioFire.user.uid}`);
-                    return setDoc(docuRef, {  nombre: name, corre: email, contrasenia:password });
+                    return setDoc(docuRef, {
+                         uid: usuarioFire.user.uid,
+                         email: usuarioFire.user.email,
+                         emailVerified: usuarioFire.user.emailVerified,
+                         displayName: name,
+                         photoURL: "",
+                    });
                });
 
      const loginUser = (email, password) =>
@@ -31,12 +39,14 @@ export function AuthProvider({ children }) {
 
      useEffect(() => {
           onAuthStateChanged(auth, (currentUser) => {
-               setUser(currentUser)
-          })
+               setUser(currentUser);
+               setLoading(false);
+          });
+
      })
 
      const logOutUser = () => signOut(auth)
 
 
-     return <authContext.Provider value={{ registerUser, loginUser, logOutUser, user }}>{children}</authContext.Provider>;
+     return <authContext.Provider value={{ registerUser, loginUser, logOutUser, user, loading }}>{children}</authContext.Provider>;
 };

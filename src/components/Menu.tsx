@@ -11,7 +11,7 @@ import {
   IonNote,
 } from '@ionic/react';
 
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
@@ -65,21 +65,25 @@ const labels = ['Notes', 'Reminders'];
 
 const Menu: React.FC = () => {
 
-  const { user, logOutUser } = useAuth();
-  const history = useHistory();
+  const { user, logOutUser, loading } = useAuth();
   const location = useLocation();
+
   const handleLogOut = async () => {
     await logOutUser();
-    history.push('/login');
   }
 
+  if (loading) { 
+    return  <div className="container"><strong>Loading...</strong></div>;
+  }
 
   return (
+
     <IonMenu contentId="main" type="overlay">
       <IonContent>
+        
         <IonList id="inbox-list">
-          <IonListHeader>Name</IonListHeader>
-          <IonNote>emial</IonNote>
+          <IonListHeader>title</IonListHeader>
+          <IonNote>welcome </IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

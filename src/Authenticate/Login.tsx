@@ -20,7 +20,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       await loginUser(correo, contrasenia);
-      history.push('/page/:name');
+      history.push('/page/Inbox');
     } catch (error: any) {
       /* if (error.code === 'auth/email-already-in-use') {
         setError("Correo ya está en uso");
@@ -40,7 +40,6 @@ const Login: React.FC = () => {
           </IonCardHeader>
           <IonCardContent>
             <form onSubmit={handlerSubmit}>
-
 
               <IonItem>
                 <IonLabel position="floating">Correo Electronico</IonLabel>
