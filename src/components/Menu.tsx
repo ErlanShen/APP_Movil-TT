@@ -24,14 +24,14 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Inbox',
-    url: '/page/Inbox',
+    title: 'Inicio',
+    url: '/page/home',
     iosIcon: mailOutline,
     mdIcon: mailSharp
   },
   {
-    title: 'Outbox',
-    url: '/page/Outbox',
+    title: 'Rutas Metodologicas',
+    url: '/home',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp
   },
@@ -53,12 +53,7 @@ const appPages: AppPage[] = [
     iosIcon: trashOutline,
     mdIcon: trashSharp
   },
-  {
-    title: 'Spam',
-    url: '/page/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
-  }
+
 ];
 
 const labels = ['Notes', 'Reminders'];
@@ -82,8 +77,8 @@ const Menu: React.FC = () => {
       <IonContent>
         
         <IonList id="inbox-list">
-          <IonListHeader>title</IonListHeader>
-          <IonNote>welcome </IonNote>
+          <IonListHeader>Bienvenido {user.name}</IonListHeader>
+          <IonNote>{user.email}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

@@ -20,7 +20,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       await loginUser(correo, contrasenia);
-      history.push('/page/Inbox');
+      history.push('/page/Home');
     } catch (error: any) {
       /* if (error.code === 'auth/email-already-in-use') {
         setError("Correo ya está en uso");

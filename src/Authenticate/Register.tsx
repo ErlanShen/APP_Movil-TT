@@ -7,7 +7,7 @@ import { useAuth } from '../context/authContext';
 
 const Register: React.FC = () => {
 
-  const [name, setName] = useState('');
+  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
@@ -28,7 +28,7 @@ const Register: React.FC = () => {
     e.preventDefault();
     setError(error);
     try {
-      await registerUser(name, email, password);
+      await registerUser(displayName, email, password);
       history.push('/login');
     } catch (error: any) {
       /* if (error.code === 'auth/email-already-in-use') {
@@ -54,7 +54,7 @@ const Register: React.FC = () => {
             <form onSubmit={handlerSubmit}>
               <IonItem>
                 <IonLabel position="floating">Nombre de Usuario</IonLabel>
-                <IonInput type="text" name='name' id='name' onIonChange={(e: any) => setName(e.target.value)} />
+                <IonInput type="text" name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Correo Electronico</IonLabel>
