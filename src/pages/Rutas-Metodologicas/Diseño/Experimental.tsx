@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton,IonBackButton,IonButtons  } from '@ionic/react';
+=======
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton } from '@ionic/react';
+>>>>>>> origin/nicolas
 import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
 
  const Experimental: React.FC = () => {
@@ -7,10 +11,14 @@ import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
     <IonPage>
       <IonHeader>
         <IonToolbar>
+<<<<<<< HEAD
         <IonButtons slot="start">
           <IonBackButton />
         </IonButtons>
           <IonTitle>Expeimental</IonTitle>
+=======
+          <IonTitle>CardExamples</IonTitle>
+>>>>>>> origin/nicolas
         </IonToolbar>
       </IonHeader>
       <IonContent>

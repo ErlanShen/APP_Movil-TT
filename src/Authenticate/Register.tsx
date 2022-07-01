@@ -1,61 +1,47 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonButton, IonInput } from '@ionic/react';
-
-
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonCol, IonItem, IonInput } from '@ionic/react';
 import './Register.css'; // Import the CSS file
-import { toast } from '../components/toast';
-import { registerUser } from '../Firebase/firebaseConfig';
+import { useHistory } from 'react-router-dom'
+import { useAuth } from '../context/authContext';
+
 
 const Register: React.FC = () => {
 
-  /* const [user, setUser] = useState(''); */
+  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [cPassword,setcPassword] = useState('');
+  const history = useHistory();
+  const { registerUser } = useAuth();
+  const [error, setError] = useState();
+  /* const [rol, setRol] = useState('student'); */
 
-  /* const users = firebase.firestore().collection('usuarios');
+  /* async function registerUsuario(email: string, password: string, rol: string) {
+    const infoUsuario = await createUserWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        return response
+      });
+    setDoc(docuRef, { corre: email, rol: rol });
+  } */
 
 
-  function register() {
-    let Personal = {
-        userPersonal: user,
-        emailPersonal: email,
-        passwordPersonal: password
-    }
-    
-    users.where('userUsuario', '==', user).get()
-    .then((snapshot) => {
-        if (snapshot.size < 1){
-            users.doc().set(Personal);
-            toast('Usuario creado');
-            navigation.navigate('login');
-        }else {
-            alert('El usuario ya esta registrado ')
-        }
-     }).catch(() => {
-          alert('Error al registrar')
-     });
-     
-    users.doc().set(Personal); 
-    NavigationRoute.navigate('Login') 
-
-}*/
-  async function register() {
-    // validation 
-    if (password !== cPassword) {
-      return toast('Passwords do not match');
-    }
-    if (email.trim() === '' || password.trim() === '') {
-      return toast('Please enter all fields');      
-    }
-
-    const res = await registerUser(email, password);
-    if (res) {
-      toast('Registered Successfully');
+  const handlerSubmit = async (e: any) => {
+    e.preventDefault();
+    setError(error);
+    try {
+      await registerUser(displayName, email, password);
+      history.push('/login');
+    } catch (error: any) {
+      /* if (error.code === 'auth/email-already-in-use') {
+        setError("Correo ya está en uso");
+      } else if (error.code === 'auth/invalid-email') {
+        setError('Correo no es válido');
+      } */
+      setError(error.message);
     }
   }
-  return ( 
 
+
+  return (
 
     <IonPage className="flex-cart">
       <IonContent>
@@ -63,30 +49,45 @@ const Register: React.FC = () => {
           <IonCardHeader>
             <IonCardTitle>Formulario registro</IonCardTitle>
           </IonCardHeader>
-
+          {error && <p>{error}</p>}
           <IonCardContent>
-            {/* <IonItem>
-              <IonLabel position="floating">Nombre de Usuario</IonLabel>
-              <IonInput type='text' onIonChange={(e: any) => setUser(e.target.value)}></IonInput>
-            </IonItem> */}
-            <IonItem> 
-              <IonLabel position="floating">Correo</IonLabel>
-              <IonInput type='email' onIonChange={(e: any) => setEmail(e.target.value)}></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="floating">Contraseña</IonLabel>
-              <IonInput type='password' onIonChange={(e: any) => setPassword(e.target.value)}></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="floating">Confirmar Contraseña</IonLabel>
-              <IonInput type='password' onIonChange={(e: any) => setcPassword(e.target.value)}></IonInput>
-            </IonItem> 
+            <form onSubmit={handlerSubmit}>
+              <IonItem>
+                <IonLabel position="floating">Nombre de Usuario</IonLabel>
+                <IonInput type="text" name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
+              </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Correo Electronico</IonLabel>
+                <IonInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
+              </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Contraseña</IonLabel>
+                <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
+              </IonItem>
+              {/* 
+              <IonItem>
+                <IonLabel position="floating">Confirmar Contraseña</IonLabel>
+                <IonInput type='password' name='cPassword' id='cPassword' onChange={handlerChange}></IonInput>
+              </IonItem> */}
+              <hr />
+              {/* <IonList>
+                <IonItem>
+                  <IonLabel>Asignar Rol:</IonLabel>
+                  <IonSelect interface="popover" id='rol' onChange={(e: any) => setRol(e.target.value)}>
+                    <IonSelectOption value="admin">Admin</IonSelectOption>
+                    <IonSelectOption value="user">Usuario</IonSelectOption>
+                  </IonSelect>
+                </IonItem>
+              </IonList>  */}
+            </form>
 
-
-            <IonButton color="primary" shape="round" onClick={register}>Registrarte</IonButton>
-            <IonButton color="dark" fill="clear" routerLink="/login">
-              <p className="text-gris">Ya tengo una cuenta!</p>
-            </IonButton>
+            <hr />
+            <IonCol className="ion-align-self-center">
+              <IonButton shape="round" onClick={handlerSubmit}>Registrar</IonButton>
+              <IonButton color="dark" fill="clear" routerLink="/login">
+                <p className="text-gris">Ya tengo una cuenta!</p>
+              </IonButton>
+            </IonCol>
 
           </IonCardContent>
         </IonCard>

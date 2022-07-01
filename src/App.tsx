@@ -35,18 +35,21 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { AuthProvider } from './context/authContext';
 
 
 setupIonicReact();
 
 const App: React.FC = () => {
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonSplitPane contentId="main">
-        <Menu />
+    <div>
+      <AuthProvider>
+        <IonApp>
+          <IonReactRouter>
+          <IonSplitPane contentId="main">
+          <Menu />
           <IonRouterOutlet id="main">
-            <Route path="">
+            <Route path="/page/:name">
               <Redirect to="/login" />
             </Route>
             <Route path="/login">
@@ -96,8 +99,12 @@ const App: React.FC = () => {
 
           </IonRouterOutlet>
         </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
+
+          </IonReactRouter>
+        </IonApp>
+      </AuthProvider>
+    </div>
+
   );
 };
 

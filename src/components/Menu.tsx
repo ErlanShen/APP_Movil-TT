@@ -1,4 +1,5 @@
 import {
+  IonButton,
   IonContent,
   IonIcon,
   IonItem,
@@ -13,7 +14,7 @@ import {
 import { useLocation } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import './Menu.css';
-
+import { useAuth } from '../context/authContext';
 interface AppPage {
   url: string;
   iosIcon: string;
@@ -23,14 +24,14 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Inbox',
-    url: '/page/Inbox',
+    title: 'Inicio',
+    url: '/page/home',
     iosIcon: mailOutline,
     mdIcon: mailSharp
   },
   {
-    title: 'Outbox',
-    url: '/page/Outbox',
+    title: 'Rutas Metodologicas',
+    url: '/home',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp
   },
@@ -52,25 +53,32 @@ const appPages: AppPage[] = [
     iosIcon: trashOutline,
     mdIcon: trashSharp
   },
-  {
-    title: 'Spam',
-    url: '/page/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
-  }
+
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const labels = ['Notes', 'Reminders'];
 
 const Menu: React.FC = () => {
+
+  const { user, logOutUser, loading } = useAuth();
   const location = useLocation();
 
+  const handleLogOut = async () => {
+    await logOutUser();
+  }
+
+  if (loading) { 
+    return  <div className="container"><strong>Loading...</strong></div>;
+  }
+
   return (
+
     <IonMenu contentId="main" type="overlay">
       <IonContent>
+        
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>Bienvenido {user.name}</IonListHeader>
+          <IonNote>{user.email}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -91,6 +99,10 @@ const Menu: React.FC = () => {
               <IonLabel>{label}</IonLabel>
             </IonItem>
           ))}
+        </IonList>
+
+        <IonList >
+          <IonButton color="primary" shape="round" onClick={handleLogOut}>Cerrar sesion</IonButton>
         </IonList>
       </IonContent>
     </IonMenu>

@@ -30,8 +30,13 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard,IonCardHe
             <IonCardTitle> ¿Quieres manipular variables?</IonCardTitle>
           </IonCardHeader >
             <IonCardContent id='buttoncenter'>
+<<<<<<< HEAD
             <IonButton size="small" color="tertiary" routerLink="/experimental"> Si</IonButton>
             <IonButton size="small" color="tertiary" routerLink="/no-experimental"> No</IonButton>
+=======
+            <IonButton size="small" color="tertiary" routerLink="/interpretativo"> Si</IonButton>
+            <IonButton size="small" color="tertiary" routerLink="/socio-construccionista"> No</IonButton>
+>>>>>>> origin/nicolas
           </IonCardContent>
       </IonCardContent>
         </IonCard>

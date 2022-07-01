@@ -12,7 +12,11 @@ import { IonContent,  IonPage,IonToolbar,IonHeader, IonTitle,  IonCard,  IonCard
       <IonContent>
         <IonCard>
           <IonItem>
+<<<<<<< HEAD
             <IonLabel>¿Cuál de los siguientes enfoques corresponde a su investigación?</IonLabel>
+=======
+            <strong> ¿Cuál de los siguientes enfoques corresponde a su investigación? </strong>
+>>>>>>> origin/nicolas
           </IonItem>
           <IonCardContent>
           <IonButton expand="full" color="warning" routerLink="/cuantitativo">A) Prioriza la medición objetiva.</IonButton>
