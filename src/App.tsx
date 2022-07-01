@@ -14,6 +14,8 @@ import Positivista from './pages/Rutas-Metodologicas/Paradigma/Positivista';
 import Interpretativo from './pages/Rutas-Metodologicas/Paradigma/Interpretativo';
 import SocioCritico from './pages/Rutas-Metodologicas/Paradigma/Socio-Crítico';
 import SocioContruccionista from './pages/Rutas-Metodologicas/Paradigma/Socio-Construccionista';
+import Experimental from './pages/Rutas-Metodologicas/Diseño/Experimental';
+import NoExperimental from './pages/Rutas-Metodologicas/Diseño/No experimental';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,6 +35,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
 
 setupIonicReact();
 
@@ -77,6 +80,14 @@ const App: React.FC = () => {
 
             <Route path="/Socio-Construccionista">
               <SocioContruccionista />
+            </Route>
+
+            <Route path="/Experimental">
+              <Experimental />
+            </Route>
+
+            <Route path="/No-Experimental">
+              <NoExperimental />
             </Route>
 
             <Route path="/page/:name">

@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@capacitor/android": "3.5.0",
-    "@capacitor/app": "^1.1.1",
+    "@awesome-cordova-plugins/firebase": "^5.43.0",
+    "@capacitor/app": "1.1.1",
     "@capacitor/core": "3.5.0",
     "@capacitor/haptics": "^1.1.4",
     "@capacitor/keyboard": "^1.2.2",
@@ -20,6 +21,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "cordova-plugin-firebase": "^2.0.5",
     "firebase": "^7.24.0",
     "ionicons": "^5.4.0",
     "react": "^17.0.1",
@@ -67,8 +69,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "3.5.0",
-    "@types/firebase": "^3.2.1"
+    "@capacitor/cli": "3.5.0"
   },
   "description": "An Ionic project"
 }
