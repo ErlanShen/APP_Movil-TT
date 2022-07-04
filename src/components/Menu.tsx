@@ -11,8 +11,8 @@ import {
   IonNote,
 } from '@ionic/react';
 
-import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { useLocation,useHistory  } from 'react-router-dom';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp } from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
 interface AppPage {
@@ -58,13 +58,18 @@ const appPages: AppPage[] = [
 
 const labels = ['Notes', 'Reminders'];
 
+
+
 const Menu: React.FC = () => {
 
-  const { user, logOutUser, loading } = useAuth();
+  const { logOutUser, loading } = useAuth( );
   const location = useLocation();
+  const history = useHistory();
+
 
   const handleLogOut = async () => {
     await logOutUser();
+    history.push("/login")
   }
 
   if (loading) { 
@@ -77,8 +82,8 @@ const Menu: React.FC = () => {
       <IonContent>
         
         <IonList id="inbox-list">
-          <IonListHeader>Bienvenido {user.name}</IonListHeader>
-          <IonNote>{user.email}</IonNote>
+          <IonListHeader>Bienvenido </IonListHeader>
+          <IonNote>email</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

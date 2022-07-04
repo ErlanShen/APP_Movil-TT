@@ -253,3 +253,11 @@ http://ionicframework.com/docs/theming/ */
 #tjustify{
   text-align: justify;
 }
+
+#tcenter{
+  text-align: center;
+}
+
+#talign {
+    white-space: initial;
+}

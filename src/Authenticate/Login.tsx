@@ -65,7 +65,7 @@ const Login: React.FC = () => {
             </form>
 
             <IonCol>
-              <IonButton onClick={handlerSubmit} >Iniciar Sesión</IonButton>
+              <IonButton onClick={handlerSubmit}  >Iniciar Sesión</IonButton>
               <IonButton color="warning" routerLink="/register">Crear cuenta</IonButton>
             </IonCol>
 
