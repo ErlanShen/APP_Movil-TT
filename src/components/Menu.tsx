@@ -8,13 +8,18 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
-  IonNote,
 } from '@ionic/react';
 
+<<<<<<< HEAD
 import { useLocation,useHistory  } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp } from 'ionicons/icons';
+=======
+import { useLocation, useHistory } from 'react-router-dom';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp } from 'ionicons/icons';
+>>>>>>> nicolas
 import './Menu.css';
 import { useAuth } from '../context/authContext';
+
 interface AppPage {
   url: string;
   iosIcon: string;
@@ -26,8 +31,8 @@ const appPages: AppPage[] = [
   {
     title: 'Inicio',
     url: '/page/home',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: homeOutline,
+    mdIcon: homeSharp
   },
   {
     title: 'Rutas Metodologicas',
@@ -65,25 +70,39 @@ const Menu: React.FC = () => {
   const { logOutUser, loading } = useAuth( );
   const location = useLocation();
   const history = useHistory();
+<<<<<<< HEAD
 
 
   const handleLogOut = async () => {
     await logOutUser();
     history.push("/login")
+=======
+  const handleLogOut = async () => {
+    await logOutUser();
+    history.push('/login');
+>>>>>>> nicolas
   }
 
-  if (loading) { 
-    return  <div className="container"><strong>Loading...</strong></div>;
+  if (loading) {
+    return <div className="container"><strong>Loading...</strong></div>;
   }
+  console.log(user);
+
 
   return (
 
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-        
+
         <IonList id="inbox-list">
+<<<<<<< HEAD
           <IonListHeader>Bienvenido </IonListHeader>
           <IonNote>email</IonNote>
+=======
+          <IonListHeader>Bienvenido</IonListHeader>
+          {/* <IonNote> {user.displayName}</IonNote>
+          <IonNote> {user.email}</IonNote> */}
+>>>>>>> nicolas
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -97,7 +116,7 @@ const Menu: React.FC = () => {
         </IonList>
 
         <IonList id="labels-list">
-          <IonListHeader>Labels</IonListHeader>
+          <IonListHeader>Recientes</IonListHeader>
           {labels.map((label, index) => (
             <IonItem lines="none" key={index}>
               <IonIcon slot="start" icon={bookmarkOutline} />

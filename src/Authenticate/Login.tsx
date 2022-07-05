@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonCheckbox, IonIcon, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle } from '@ionic/react';
 
-import './Login.css'; // Import the CSS file
+import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
 import { useAuth } from '../context/authContext';
+import { presentToast } from '../components/toast';
 
 const Login: React.FC = () => {
 
@@ -12,7 +13,7 @@ const Login: React.FC = () => {
   const [contrasenia, setContrasenia] = useState('');
 
   const history = useHistory();
-  const { loginUser } = useAuth();
+  const { loginUser, loginWithGoogle } = useAuth();
   const [error, setError] = useState();
 
 
@@ -22,24 +23,36 @@ const Login: React.FC = () => {
       await loginUser(correo, contrasenia);
       history.push('/page/Home');
     } catch (error: any) {
-      /* if (error.code === 'auth/email-already-in-use') {
-        setError("Correo ya está en uso");
-      } */
+      if (error.code === 'auth/email-already-in-use') {
+        presentToast("Correo ya está en uso");
+      }
       setError(error.message);
     }
+  }
+
+  const handlerGoogleSignIn = async() => {
+    await loginWithGoogle();
+    history.push('/page/Home');
   }
 
   return (
 
     <IonPage id='container1'>
       <IonContent className="login1 login">
-        {error && <p>{error}</p>}
+      <IonHeader>
+      <IonToolbar color="light">
+        <IonButtons slot="start">
+          <IonBackButton defaultHref={`/`} />
+        </IonButtons>
+        <IonTitle>Inicio de Sesión</IonTitle>
+      </IonToolbar>
+    </IonHeader>
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>Inicio de Sesión</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handlerSubmit} className="form">
 
               <IonItem>
                 <IonLabel position="floating">Correo Electronico</IonLabel>
@@ -50,23 +63,27 @@ const Login: React.FC = () => {
                 <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
 
-              {/*  <IonItem>
+              <IonItem>
                 <IonLabel>
                   <p className="text-checkbox">Recordarme</p>
                 </IonLabel>
                 <IonCheckbox color="warning" slot="end" checked></IonCheckbox>
               </IonItem>
-
-              <IonButton color="dark" fill="clear" >
-                <p className="text-gris">Olvide mi Correo/Contraseña</p>
-              </IonButton> */}
-
-              {/* <button type='submit'>Iniciar Sesión</button> */}
+              <IonButton color="dark" fill="clear" routerLink="/reset-password">
+                <p className="text-gris">Olvide mi correo/contraseña</p>
+              </IonButton>
             </form>
 
+<<<<<<< HEAD
             <IonCol>
               <IonButton onClick={handlerSubmit}  >Iniciar Sesión</IonButton>
+=======
+            <IonCol className="below-form">
+              <IonButton onClick={handlerSubmit} >Iniciar Sesión</IonButton>
+>>>>>>> nicolas
               <IonButton color="warning" routerLink="/register">Crear cuenta</IonButton>
+              <IonButton color="light" onClick={handlerGoogleSignIn}>
+              <IonIcon name="logo-google"></IonIcon>Iniciar Sesión con Google</IonButton>
             </IonCol>
 
 
