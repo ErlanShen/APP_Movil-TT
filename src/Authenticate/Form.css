@@ -4,11 +4,11 @@
      align-items: center;
      height: 100%;
      width: 100%;
-     
+
 }
 
 .title {
-     text-transform: uppercase ;
+     text-transform: uppercase;
      text-align: center;
      font-weight: bold;
 }
@@ -27,4 +27,30 @@
 
 #carta {
      background-color: rgba(189, 189, 189, 0.701);
+}
+
+.form .below-form {
+     padding: 15px 0;
+     text-align: center;
+}
+
+.form ion-button {
+     margin: 16px 16px 0 16px auto;
+     align-items: center;
+     justify-content: center;
+
+}
+
+.form a {
+     display: block;
+     margin-bottom: 15px;
+}
+
+.form a.create {
+     font-size: 18px;
+}
+
+.form a:last-child {
+     color: #aaa;
+     text-decoration: none;
 }

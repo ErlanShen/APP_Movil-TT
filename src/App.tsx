@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import Page from './pages/Page';
 import Login from './Authenticate/Login';
 import Register from './Authenticate/Register';
+import ResetPassword from './Authenticate/ResetPassword';
 import Home from './pages/Home/Home';
 import Cualitativo from './pages/Rutas-Metodologicas/Enfoque/Cualitativo';
 import Cuantitativo from './pages/Rutas-Metodologicas/Enfoque/Cuantitativo';
@@ -34,6 +35,8 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { AuthProvider } from './context/authContext';
+import { ProtectedRouter } from './context/ProtectedRouter';
+
 
 setupIonicReact();
 
@@ -42,11 +45,13 @@ const App: React.FC = () => {
     <div>
       <AuthProvider>
         <IonApp>
+         
           <IonReactRouter>
           <IonSplitPane contentId="main">
-          <Menu />
+          <Menu/>
           <IonRouterOutlet id="main">
-            <Route path="/page/:name">
+           
+            <Route path="/">
               <Redirect to="/login" />
             </Route>
             <Route path="/login">
@@ -55,6 +60,11 @@ const App: React.FC = () => {
             <Route path="/register">
               <Register />
             </Route>
+            <Route path="/reset-password">
+              <ResetPassword />
+            </Route>
+
+
             <Route path="/home">
               <Home />
             </Route>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent,  IonPage,IonToolbar,IonHeader, IonTitle,  IonCard,  IonCardContent, IonItem,  IonLabel, IonButton } from '@ionic/react';
+import { IonContent,  IonPage,IonToolbar,IonHeader, IonTitle,  IonCard,  IonCardContent, IonItem, IonButton } from '@ionic/react';
 
  const Home: React.FC = () => {
   return (

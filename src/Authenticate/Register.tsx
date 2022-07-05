@@ -1,42 +1,73 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonCol, IonItem, IonInput } from '@ionic/react';
-import './Register.css'; // Import the CSS file
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonCol, IonItem, IonInput, IonList, IonSelect, IonSelectOption } from '@ionic/react';
+import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
+import { presentToast } from '../components/toast';
+import AlertMessage from '../components/alert';
 
+const carrers = [
+  {
+    id: 1,
+    name: "Turismo"
+  },
+  {
+    id: 2,
+    name: "Producción"
+  },
+  {
+    id: 3,
+    name: "Software"
+  },
+  {
+    id: 4,
+    name: "Nutrición"
+  },
+  {
+    id: 5,
+    name: "Economía"
+  },
+  {
+    id: 6,
+    name: "Enfermería"
+  },
+  {
+    id: 7,
+    name: "Derecho"
+  },
+  {
+    id: 8,
+    name: "Gastronomía"
+  },
+];
 
 const Register: React.FC = () => {
 
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [carrera, setCarrera] = useState('');
   const history = useHistory();
-  const { registerUser } = useAuth();
+  const { registerUser, sendEmail } = useAuth();
   const [error, setError] = useState();
-  /* const [rol, setRol] = useState('student'); */
 
-  /* async function registerUsuario(email: string, password: string, rol: string) {
-    const infoUsuario = await createUserWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        return response
-      });
-    setDoc(docuRef, { corre: email, rol: rol });
-  } */
 
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
+    console.log(displayName, email, password, carrera);
     try {
-      await registerUser(displayName, email, password);
+      await registerUser(displayName, email, password, carrera);
       history.push('/login');
     } catch (error: any) {
       /* if (error.code === 'auth/email-already-in-use') {
-        setError("Correo ya está en uso");
+        presentToast("Correo ya está en uso");
       } else if (error.code === 'auth/invalid-email') {
-        setError('Correo no es válido');
+        presentToast('Correo no es válido');
       } */
-      setError(error.message);
+      error(error.message);
+      sendEmail()
     }
   }
 
@@ -53,32 +84,29 @@ const Register: React.FC = () => {
           <IonCardContent>
             <form onSubmit={handlerSubmit}>
               <IonItem>
-                <IonLabel position="floating">Nombre de Usuario</IonLabel>
+                <IonLabel position="floating">Nombre de usuario</IonLabel>
                 <IonInput type="text" name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
               </IonItem>
               <IonItem>
-                <IonLabel position="floating">Correo Electronico</IonLabel>
+                <IonLabel position="floating">Correo electrónico</IonLabel>
                 <IonInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
                 <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
               </IonItem>
-              {/* 
-              <IonItem>
-                <IonLabel position="floating">Confirmar Contraseña</IonLabel>
-                <IonInput type='password' name='cPassword' id='cPassword' onChange={handlerChange}></IonInput>
-              </IonItem> */}
+              
               <hr />
-              {/* <IonList>
+              <IonList>
                 <IonItem>
-                  <IonLabel>Asignar Rol:</IonLabel>
-                  <IonSelect interface="popover" id='rol' onChange={(e: any) => setRol(e.target.value)}>
-                    <IonSelectOption value="admin">Admin</IonSelectOption>
-                    <IonSelectOption value="user">Usuario</IonSelectOption>
+                  <IonLabel>Seleccione carrera:</IonLabel>
+                  <IonSelect interface="popover" onIonChange={ev => setCarrera(JSON.stringify(ev.detail.value))}>
+                    {carrers.map(carrer => (
+                      <IonSelectOption key={carrer.id} value={carrer}>{carrer.name}</IonSelectOption>
+                    ))}
                   </IonSelect>
                 </IonItem>
-              </IonList>  */}
+              </IonList>
             </form>
 
             <hr />
