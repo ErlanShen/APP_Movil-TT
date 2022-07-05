@@ -1,6 +1,8 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+import { AuthProvider } from './context/authContext';
+
 
 /* Router */
 import Menu from './components/Menu';
@@ -24,7 +26,7 @@ import Exploratorio from './pages/Rutas-Metodologicas/Nivel/Exploratorio';
 import Cuasiexperimentos from './pages/Rutas-Metodologicas/Diseño/Experimental/Cuasiexperimentos';
 import Experimentospuros from './pages/Rutas-Metodologicas/Diseño/Experimental/Experimentos-puros';
 import Preexperimento from './pages/Rutas-Metodologicas/Diseño/Experimental/Preexperimento';
-
+import Transaccional from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Transaccional';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,8 +46,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { AuthProvider } from './context/authContext';
-import Transaccional from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Transaccional';
+
 
 
 
