@@ -58,9 +58,11 @@ const appPages: AppPage[] = [
 
 const labels = ['Notes', 'Reminders'];
 
+
+
 const Menu: React.FC = () => {
 
-  const { user, logOutUser, loading } = useAuth();
+  const { logOutUser, loading } = useAuth( );
   const location = useLocation();
   const history = useHistory();
   const handleLogOut = async () => {
@@ -71,7 +73,7 @@ const Menu: React.FC = () => {
   if (loading) {
     return <div className="container"><strong>Loading...</strong></div>;
   }
-  console.log(user);
+  
 
 
   return (

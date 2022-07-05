@@ -12,11 +12,11 @@ import { IonContent,  IonPage,IonToolbar,IonHeader, IonTitle,  IonCard,  IonCard
       <IonContent>
         <IonCard>
           <IonItem>
-            <strong> ¿Cuál de los siguientes enfoques corresponde a su investigación? </strong>
+         <IonLabel id='talign'>  ¿Cuál de los siguientes enfoques corresponde a su investigación? </IonLabel> 
           </IonItem>
           <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/cuantitativo">A) Prioriza la medición objetiva.</IonButton>
-          <IonButton expand="full"  color="warning" routerLink="/cualitativo">B) Se basa en la subjetividad.</IonButton>
+          <IonButton expand="full" color="warning" routerLink="/cuantitativo"> Prioriza la medición objetiva.</IonButton>
+          <IonButton expand="full"  color="warning" routerLink="/cualitativo">  Se basa en la subjetividad.</IonButton>
       </IonCardContent>
         </IonCard>
       </IonContent>
