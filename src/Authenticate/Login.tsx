@@ -6,6 +6,7 @@ import { useHistory } from 'react-router';
 import { useAuth } from '../context/authContext';
 import { presentToast } from '../components/toast';
 
+
 const Login: React.FC = () => {
 
 
@@ -74,13 +75,8 @@ const Login: React.FC = () => {
               </IonButton>
             </form>
 
-<<<<<<< HEAD
-            <IonCol>
-              <IonButton onClick={handlerSubmit}  >Iniciar Sesión</IonButton>
-=======
             <IonCol className="below-form">
               <IonButton onClick={handlerSubmit} >Iniciar Sesión</IonButton>
->>>>>>> nicolas
               <IonButton color="warning" routerLink="/register">Crear cuenta</IonButton>
               <IonButton color="light" onClick={handlerGoogleSignIn}>
               <IonIcon name="logo-google"></IonIcon>Iniciar Sesión con Google</IonButton>

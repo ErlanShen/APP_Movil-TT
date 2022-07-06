@@ -1,12 +1,12 @@
 import React from 'react';
-import { IonContent,  IonPage,IonToolbar,IonHeader, IonTitle,  IonCard,  IonCardContent, IonItem, IonButton } from '@ionic/react';
+import { IonContent,  IonPage,IonToolbar,IonHeader, IonTitle,  IonCard,  IonCardContent, IonItem, IonButton, IonLabel } from '@ionic/react';
 
  const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Rutas Metodologicas</IonTitle>
+          <IonTitle  id='tcenter'>Rutas Metodologicas</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

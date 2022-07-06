@@ -14,7 +14,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardH
       <IonContent>
         <IonCard>
         <IonCardHeader>
-          <IonCardTitle id='buttoncenter'>Cuasiexperimentos</IonCardTitle>
+          <IonCardTitle id='buttoncenter'>Cuasi-Experimental</IonCardTitle>
         </IonCardHeader>
         <IonCardContent id='tjustify'>
           Asume la objetividad como única vía  para  alcanzar  el  conocimiento,  

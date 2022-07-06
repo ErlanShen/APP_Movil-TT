@@ -227,7 +227,7 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-item-background: #1e1e1e;
 
-    --ion-toolbar-background: #1f1f1f;
+    --ion-toolbar-background: #1d2545;
 
     --ion-tab-bar-background: #1f1f1f;
 
@@ -261,3 +261,8 @@ http://ionicframework.com/docs/theming/ */
 #talign {
     white-space: initial;
 }
+
+#tbut{
+  white-space: normal;
+}
+

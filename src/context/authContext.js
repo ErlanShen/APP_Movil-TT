@@ -3,9 +3,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "../database/firebaseConfig";
-//
 
-// 
 export const authContext = createContext();
 
 export const useAuth = () => {
@@ -25,11 +23,11 @@ export function AuthProvider({ children }) {
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
                     const user = usuarioFire.user;
-                    const docuRef = doc(fire, `Usuarios/${usuarioFire.user.uid}`);
+                    const docuRef = doc(fire, `Usuarios/${user.uid}`);
                     return setDoc(docuRef, {
-                         uid: user.user.uid,
-                         email: user.user.email,
-                         emailVerified: user.user.emailVerified,
+                         uid: user.uid,
+                         email: user.email,
+                         emailVerified: user.emailVerified,
                          displayName: name,
                          photoURL: user.photoURL,
                          rol: "usuario",
@@ -37,7 +35,7 @@ export function AuthProvider({ children }) {
                     });
                });
      const sendEmail = () =>
-          user.user.sendEmailVerification()
+          user.sendEmailVerification()
 
      const loginUser = (email, password) =>
           signInWithEmailAndPassword(auth, email, password);

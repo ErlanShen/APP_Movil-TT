@@ -3,8 +3,7 @@ import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardConte
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
-import { presentToast } from '../components/toast';
-import AlertMessage from '../components/alert';
+
 
 const carrers = [
   {
