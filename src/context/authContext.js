@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
                          displayName: name,
                          photoURL: user.photoURL,
                          rol: "usuario",
-                         carrera: carrera,
+                         carrera: carrera.name
                     });
                });
      const sendEmail = () =>

@@ -99,7 +99,7 @@ const Register: React.FC = () => {
               <IonList>
                 <IonItem>
                   <IonLabel>Seleccione carrera:</IonLabel>
-                  <IonSelect interface="popover" onIonChange={ev => setCarrera(JSON.stringify(ev.detail.value))}>
+                  <IonSelect interface="popover" onIonChange={(e: any) => setCarrera(e.target.value)}>
                     {carrers.map(carrer => (
                       <IonSelectOption key={carrer.id} value={carrer}>{carrer.name}</IonSelectOption>
                     ))}

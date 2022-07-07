@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard,IonCardSu
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar id='title-toolbar'>
         <IonButtons slot="start">
           <IonBackButton />
         </IonButtons>
