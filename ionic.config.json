@@ -1,0 +1,8 @@
+{
+  "name": "App Ruta Metodologica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "a0e792eb"
+}

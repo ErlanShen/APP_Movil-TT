@@ -1,0 +1,20 @@
+.login {
+     width: 100%;
+     margin: auto;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+}
+
+.login1 {
+     text-align: center;
+     background-color: #ffffff00;
+}
+
+#fondo {
+     background-image: url("./../assets/Fondo-UNIB.E.jpg");
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     background-size: cover;
+}
