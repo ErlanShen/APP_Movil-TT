@@ -3,9 +3,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "../database/firebaseConfig";
-//
 
-// 
 export const authContext = createContext();
 
 export const useAuth = () => {
@@ -21,7 +19,7 @@ export function AuthProvider({ children }) {
      const [loading, setLoading] = useState(true);
      const fire = firestore
      
-     const registerUser = (name, email, password) =>
+     const registerUser = (name, email, password, carrera) =>
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
                     const user = usuarioFire.user;
@@ -32,7 +30,8 @@ export function AuthProvider({ children }) {
                          emailVerified: user.emailVerified,
                          displayName: name,
                          photoURL: user.photoURL,
-                         rol: "usuario"
+                         rol: "usuario",
+                         carrera: carrera.name
                     });
                });
      const sendEmail = () =>

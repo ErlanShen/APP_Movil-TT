@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton, IonCardSubtitle } from '@ionic/react';
 
 
  const SocioCritico: React.FC = () => {
@@ -20,7 +20,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardH
             <IonCardContent>
             Descripcion Socio-Critico 
           </IonCardContent>
-            <IonCardTitle id='tcenter'>Investigación Acción Participativa</IonCardTitle>
+
+            <IonCardTitle id='tcenter'> Diseño  </IonCardTitle>
+            <IonCardSubtitle>Investigación Acción Participativa  </IonCardSubtitle>
           </IonCardHeader>
 
           <IonCardContent id='tjustify'>

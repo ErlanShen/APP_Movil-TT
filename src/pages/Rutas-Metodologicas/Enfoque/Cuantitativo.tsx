@@ -4,11 +4,11 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardH
   return (
     <IonPage >
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar id='title-toolbar'>
         <IonButtons slot="start">
           <IonBackButton />
         </IonButtons>
-          <IonTitle>Enfoque</IonTitle>
+          <IonTitle >Enfoque</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

@@ -1,18 +1,31 @@
+
 import React from 'react';
-import { IonContent,  IonPage,  IonCard,  IonCardContent, IonItem,  IonLabel, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard,IonCardSubtitle,IonCardHeader, IonCardTitle, IonCardContent,  IonButton,IonBackButton,IonButtons } from '@ionic/react';
 
  const SocioContruccionista: React.FC = () => {
   return (
     <IonPage>
+      <IonHeader>
+        <IonToolbar>
+        <IonButtons slot="start">
+          <IonBackButton />
+        </IonButtons>
+          <IonTitle>Paradigma</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         <IonCard>
-          <IonItem>
-            <IonLabel>¿Quieres reconstruir la realidad?</IonLabel>
-          </IonItem>
+        <IonCardHeader>
+            <IonCardTitle id='tcenter'>Socio Contruccionista</IonCardTitle>
+              <IonCardContent id='tjustify'>
+                Descripcion Socio Contruccionista
+              </IonCardContent>
+            <IonCardSubtitle>Especifica que quieres?</IonCardSubtitle>
+        </IonCardHeader>
+          
           <IonCardContent>
           <IonButton expand="full" color="warning" routerLink="/narrativo">Narrativo</IonButton>
-          <IonButton expand="full"  color="warning" routerLink="/teoriafundamentada">Teoría Fundamentada</IonButton>
-      </IonCardContent>
+          <IonButton expand="full"  color="warning" routerLink="/teoriafundamentada">Teoría Fundamentada</IonButton></IonCardContent>
         </IonCard>
       </IonContent>
     </IonPage>
@@ -20,3 +33,4 @@ import { IonContent,  IonPage,  IonCard,  IonCardContent, IonItem,  IonLabel, Io
 };
 
 export default SocioContruccionista;
+

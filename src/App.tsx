@@ -1,6 +1,8 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+import { AuthProvider } from './context/authContext';
+
 
 /* Router */
 import Menu from './components/Menu';
@@ -26,7 +28,16 @@ import Cuasiexperimentos from './pages/Rutas-Metodologicas/Diseño/Experimental/
 import Experimentospuros from './pages/Rutas-Metodologicas/Diseño/Experimental/Experimentos-puros';
 import Preexperimento from './pages/Rutas-Metodologicas/Diseño/Experimental/Preexperimento';
 import Transaccional from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Transaccional';
-
+import EstudiodeCaso from './pages/Rutas-Metodologicas/Diseño/Cualitativo/EstudiodeCaso';
+import Etnográfico from './pages/Rutas-Metodologicas/Diseño/Cualitativo/Etnográfico';
+import Fenomenológico from './pages/Rutas-Metodologicas/Diseño/Cualitativo/Fenomenológico';
+import Hermenéutico from './pages/Rutas-Metodologicas/Diseño/Cualitativo/Hermenéutico';
+import Teoriafundamentada from './pages/Rutas-Metodologicas/Diseño/Cualitativo/teoriafundamentada';
+import Narrativo from './pages/Rutas-Metodologicas/Diseño/Cualitativo/narrativo';
+import Tendencia from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Tendencia';
+import Panel from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Panel';
+import EvoluciondeGrupo from './pages/Rutas-Metodologicas/Diseño/NoExperimental/EvoluciondeGrupo';
+import Longitudinal from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Longitudinal';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -45,10 +56,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { AuthProvider } from './context/authContext';
-import { ProtectedRouter } from './context/ProtectedRouter';
-
-
 
 
 
@@ -139,6 +146,12 @@ const App: React.FC = () => {
               <Transaccional />
             </Route>
 
+            <Route path="/longitudinal">
+              <Longitudinal />
+            </Route>
+
+
+
             <Route path="/cuasiexperimentos">
               <Cuasiexperimentos />
             </Route>
@@ -150,6 +163,44 @@ const App: React.FC = () => {
             <Route path="/preexperimento">
               <Preexperimento />
             </Route>
+
+            <Route path="/estudiodecaso">
+              <EstudiodeCaso />
+            </Route>
+
+            <Route path="/etnográfico">
+              <Etnográfico />
+            </Route>
+
+            <Route path="/fenomenológico">
+              <Fenomenológico />
+            </Route>
+
+
+            <Route path="/hermenéutico">
+              <Hermenéutico />
+            </Route>
+
+            <Route path="/teoriafundamentada">
+              <Teoriafundamentada />
+            </Route>
+
+            <Route path="/narrativo">
+              < Narrativo />
+            </Route>
+
+            <Route path="/tendencia">
+              < Tendencia />
+            </Route>
+
+            <Route path="/panel">
+              < Panel />
+            </Route>
+
+            <Route path="/evoluciondegrupo">
+              < EvoluciondeGrupo />
+            </Route>
+
             <Route path="/page/:name">
               <Page />
             </Route>

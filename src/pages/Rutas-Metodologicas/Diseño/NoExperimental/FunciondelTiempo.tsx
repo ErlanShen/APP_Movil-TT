@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonAccordion, IonAccordionGroup,IonItem, IonLabel,IonPage,IonHeader,IonToolbar,IonButtons,IonBackButton,IonTitle, IonContent, IonCard, IonCardTitle} from '@ionic/react';
+import { IonAccordion, IonAccordionGroup,IonItem, IonLabel,IonPage,IonHeader,IonToolbar,IonButtons,IonBackButton,IonTitle, IonContent, IonCard, IonCardTitle, IonCardContent} from '@ionic/react';
 import { caretDownCircle } from 'ionicons/icons';
 function FunciondelTiempo() {
   return (
@@ -9,13 +9,18 @@ function FunciondelTiempo() {
             <IonButtons slot="start">
             <IonBackButton />
             </IonButtons>
-                <IonTitle>Longitudinal</IonTitle>
+                <IonTitle>Diseño</IonTitle>
+                <IonCardContent id='tjustify'>
+              Las investigaciones cualitativas suelen producir preguntas antes, durante o después de la recolección y análisis de los datos.
+               La acción indagatoria se mueve de manera dinámica entre los hechos y su interpretación, y resulta un proceso más bien “circular” 
+               en el que la secuencia no siempre es la misma, puede variar en cada estudio.
+              </IonCardContent>
         </IonToolbar>
     </IonHeader>
     <IonContent>
     <IonCard>
         <IonCardTitle>
-        <IonCardTitle id='buttoncenter'> ¿En funcion del tiempo quieres? </IonCardTitle>
+        <IonCardTitle id='buttoncenter'> Función del Tiempo</IonCardTitle>
         </IonCardTitle>
     <IonAccordionGroup>
          <IonAccordion value="first" toggleIcon={caretDownCircle} toggleIconSlot="start">

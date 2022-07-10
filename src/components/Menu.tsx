@@ -16,7 +16,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, paperPlaneOutline, paperPlaneSharp} from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
 
@@ -70,7 +70,6 @@ const Menu: React.FC = () => {
   if (loading) {
     return <div className="container"><strong>Loading...</strong></div>;
   }
-
 
   return (
 

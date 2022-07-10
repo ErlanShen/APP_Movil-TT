@@ -4,6 +4,7 @@ import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
 
+
 const carrers = [
   { name: "Turismo" },
   { name: "Producción" },
@@ -86,7 +87,7 @@ const Register: React.FC = () => {
               <IonList>
                 <IonItem>
                   <IonLabel>Seleccione carrera:</IonLabel>
-                  <IonSelect interface="popover" onIonChange={ev => setCarrera(JSON.stringify(ev.detail.value))}>
+                  <IonSelect interface="popover" onIonChange={(e: any) => setCarrera(e.target.value)}>
                     {carrers.map(carrer => (
                       <IonSelectOption key={carrer.name} value={carrer}>{carrer.name}</IonSelectOption>
                     ))}
