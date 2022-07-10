@@ -106,7 +106,6 @@ const Register: React.FC = () => {
               </IonCol>
               <IonCol />
             </IonRow>
-
               
           </IonCardContent>
         </IonCard>
