@@ -20,24 +20,23 @@ export function AuthProvider({ children }) {
      const [user, setUser] = useState(null)
      const [loading, setLoading] = useState(true);
      const fire = firestore
-
-     const registerUser = (name, email, password, carrera) =>
+     
+     const registerUser = (name, email, password) =>
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
                     const user = usuarioFire.user;
-                    const docuRef = doc(fire, `Usuarios/${usuarioFire.user.uid}`);
+                    const docuRef = doc(fire, `Usuarios/${user.uid}`);
                     return setDoc(docuRef, {
-                         uid: user.user.uid,
-                         email: user.user.email,
-                         emailVerified: user.user.emailVerified,
+                         uid: user.uid,
+                         email: user.email,
+                         emailVerified: user.emailVerified,
                          displayName: name,
                          photoURL: user.photoURL,
-                         rol: "usuario",
-                         carrera: carrera,
+                         rol: "usuario"
                     });
                });
      const sendEmail = () =>
-          user.user.sendEmailVerification()
+          user.sendEmailVerification()
 
      const loginUser = (email, password) =>
           signInWithEmailAndPassword(auth, email, password);
@@ -54,7 +53,6 @@ export function AuthProvider({ children }) {
                     displayName: user.displayName,
                     photoURL: user.photoURL,
                     rol: "usuario",
-                    carrera: null,
                });
           });
      }

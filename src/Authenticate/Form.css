@@ -13,9 +13,9 @@
      font-weight: bold;
 }
 
-.text-gris {
+.text {
      text-transform: initial;
-     color: rgb(45, 45, 45);
+     color: rgb(53, 80, 251);
      text-decoration: underline;
 }
 
@@ -25,9 +25,6 @@
      color: rgb(79, 79, 79);
 }
 
-#carta {
-     background-color: rgba(189, 189, 189, 0.701);
-}
 
 .form .below-form {
      padding: 15px 0;
@@ -38,7 +35,7 @@
      margin: 16px 16px 0 16px auto;
      align-items: center;
      justify-content: center;
-
+     text-transform: none;
 }
 
 .form a {

@@ -3,7 +3,7 @@ import { IonButton, IonContent, useIonAlert } from '@ionic/react';
 
 function AlertMessage() {
   const [presentAlert] = useIonAlert();
-
+  
   return (
     <IonContent>
       <IonButton onClick={() => presentAlert({

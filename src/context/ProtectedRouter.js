@@ -11,5 +11,5 @@ export function ProtectedRouter({ children }) {
 
      if (!user) { return history.push("/login") };
 
-     return <>{children}</>;
+     return <span>{children}</span>;
 }

@@ -1,3 +1,4 @@
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
 import './ExploreContainer.css';
 
 interface ContainerProps {
@@ -12,7 +13,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <p>Esta aplicacion te ayuda a crear tu ruta medologigica para el desarrollo de trabajos de investigacion</p>
       <hr />
       <p>Para empezar, selecciona una opcion del menu</p>
+
     </div>
+
   );
 };
 
