@@ -12,11 +12,10 @@ import {
   IonRefresher,
   IonRefresherContent,
   IonToggle,
-  IonToolbar,
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, paperPlaneOutline, paperPlaneSharp} from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp} from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
 
@@ -67,6 +66,13 @@ const Menu: React.FC = () => {
     history.push('/login');
   }
 
+ 
+
+  const toggleDarkModeHandler = () => {
+    document.body.classList.toggle("dark");
+  };
+
+
   if (loading) {
     return <div className="container"><strong>Loading...</strong></div>;
   }
@@ -108,6 +114,15 @@ const Menu: React.FC = () => {
             <IonToggle slot="end"></IonToggle>
           </IonItem>
 
+          <IonList >
+          <IonItem>
+            <IonIcon
+              slot="start" icon={moon} className="component-icon component-icon-dark" />
+            <IonLabel>Dark Mode</IonLabel>
+            <IonToggle slot="end" name="darkMode" onIonChange={toggleDarkModeHandler} />
+          </IonItem>
+        </IonList>
+
 
         </IonList>
       </IonContent>
@@ -117,9 +132,7 @@ const Menu: React.FC = () => {
         </IonList>
       </IonFooter>
       <IonFooter>
-      <IonToolbar>
         <IonButton color="dark" fill='outline' shape="round" onClick={handleLogOut} id="bcenter" >Cerrar sesion</IonButton>
-      </IonToolbar>
     </IonFooter>
     </IonMenu>
   );
