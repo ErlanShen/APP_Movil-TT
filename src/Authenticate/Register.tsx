@@ -51,7 +51,7 @@ const Register: React.FC = () => {
   const alerta = () => presentAlert({
     header: 'Se a creado una nueva cuenta',
     subHeader: 'Correo de confirmación enviado',
-    message: 'Se ah enviado un correo para confirmar la cuenta revise su bandeja de entrada o spam',
+    message: 'Se ha enviado un correo para confirmar la cuenta revise su bandeja de entrada o spam',
     buttons: [{ text: 'Ok', handler: () => history.push('/login') }],
   })
 

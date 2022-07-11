@@ -14,20 +14,20 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard,IonCardHe
       </IonHeader>
       <IonContent>
         <IonCard>
-        <IonCardHeader>
+          <IonCardHeader>
             <IonCardTitle id='tcenter'>Transaccional</IonCardTitle>
               <IonCardContent id='tjustify'>
               Las investigaciones cualitativas suelen producir preguntas antes, durante o después de la recolección y análisis de los datos.
                La acción indagatoria se mueve de manera dinámica entre los hechos y su interpretación, y resulta un proceso más bien “circular” 
                en el que la secuencia no siempre es la misma, puede variar en cada estudio.
               </IonCardContent>
-        </IonCardHeader>
+          </IonCardHeader>
           
           <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/correlacional"> Correlacional</IonButton>
-          <IonButton expand="full"  color="warning" routerLink="/descriptivo"> Descriptivo</IonButton>
-          <IonButton expand="full" color="warning" routerLink="/exploratorio"> Exploratorio</IonButton>
-      </IonCardContent>
+            <IonButton expand="full" color="warning" routerLink="/correlacional"> Correlacional</IonButton>
+            <IonButton expand="full"  color="warning" routerLink="/descriptivo"> Descriptivo</IonButton>
+            <IonButton expand="full" color="warning" routerLink="/exploratorio"> Exploratorio</IonButton>
+          </IonCardContent>
         </IonCard>
       </IonContent>
     </IonPage>
