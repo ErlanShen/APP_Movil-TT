@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonCheckbox, IonIcon, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow } from '@ionic/react';
 
 import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
 import { useAuth } from '../context/authContext';
-import { presentToast } from '../components/toast';
+import { logoGoogle } from 'ionicons/icons';
+import { Link } from 'react-router-dom';
 
 
 const Login: React.FC = () => {
@@ -12,11 +13,11 @@ const Login: React.FC = () => {
 
   const [correo, setCorreo] = useState('');
   const [contrasenia, setContrasenia] = useState('');
-
   const history = useHistory();
   const { loginUser, loginWithGoogle } = useAuth();
   const [error, setError] = useState();
-
+  //checkbox
+  const [checked, setChecked] = useState(false);
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
@@ -25,29 +26,29 @@ const Login: React.FC = () => {
       history.push('/page/Home');
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        presentToast("Correo ya está en uso");
+        console.log("Correo ya está en uso");
       }
       setError(error.message);
     }
   }
 
-  const handlerGoogleSignIn = async() => {
+  const handlerGoogleSignIn = async () => {
     await loginWithGoogle();
     history.push('/page/Home');
   }
 
+
   return (
 
     <IonPage id='container1'>
-      <IonContent className="login1 login">
+
       <IonHeader>
-      <IonToolbar color="light">
-        <IonButtons slot="start">
-          <IonBackButton defaultHref={`/`} />
-        </IonButtons>
-        <IonTitle>Inicio de Sesión</IonTitle>
-      </IonToolbar>
-    </IonHeader>
+          <IonToolbar>
+            <IonTitle>UNIB.E</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+
+      <IonContent className="flex-cart login1 login form">
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>Inicio de Sesión</IonCardTitle>
@@ -57,34 +58,39 @@ const Login: React.FC = () => {
 
               <IonItem>
                 <IonLabel position="floating">Correo Electronico</IonLabel>
-                <IonInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
+                <IonInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} clearInput clearOnEdit/>
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
                 <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
+              <hr />
 
-              <IonItem>
-                <IonLabel>
-                  <p className="text-checkbox">Recordarme</p>
-                </IonLabel>
-                <IonCheckbox color="warning" slot="end" checked></IonCheckbox>
-              </IonItem>
-              <IonButton color="dark" fill="clear" routerLink="/reset-password">
-                <p className="text-gris">Olvide mi correo/contraseña</p>
-              </IonButton>
+              <div className="below-form text">
+                <Link to='/reset-password' >Olvide mi contraseña</Link>
+              </div>
+
+              {/* <IonItem lines='none'>
+                <IonLabel>Recordarme: {JSON.stringify(checked)}</IonLabel>
+                <IonCheckbox checked={checked} onIonChange={e => setChecked(e.detail.checked)} slot="start" />
+              </IonItem> */}
+
             </form>
-
-            <IonCol className="below-form">
-              <IonButton onClick={handlerSubmit} >Iniciar Sesión</IonButton>
-              <IonButton color="warning" routerLink="/register">Crear cuenta</IonButton>
-              <IonButton color="light" onClick={handlerGoogleSignIn}>
-              <IonIcon name="logo-google"></IonIcon>Iniciar Sesión con Google</IonButton>
-            </IonCol>
-
-
+            <IonRow>
+              <IonCol/>
+              <IonCol size='9' className="below-form">
+                <IonButton color="warning" onClick={handlerSubmit} id='tbut'>Iniciar sesión</IonButton>
+                <IonButton color='secondary' onClick={handlerGoogleSignIn} id='tbut' >
+                  <IonIcon icon={logoGoogle} size="large" slot="start" color='light' />
+                  Iniciar sesión con Google
+                </IonButton>
+                <IonButton routerLink="/register" fill='outline' color='dark' id='tbut'>Crear cuenta</IonButton>
+              </IonCol>
+              <IonCol/>
+            </IonRow>
           </IonCardContent>
         </IonCard>
+        {error && <p>{error}</p>}
       </IonContent>
 
 

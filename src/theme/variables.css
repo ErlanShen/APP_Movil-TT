@@ -4,12 +4,12 @@ http://ionicframework.com/docs/theming/ */
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #92949c;
+  --ion-color-primary: #2650f9;
   --ion-color-primary-rgb: 146, 148, 156;
-  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 0, 0, 0;
-  --ion-color-primary-shade: #808289;
-  --ion-color-primary-tint: #9d9fa6;
+  --ion-color-primary-shade: #283f93;
+  --ion-color-primary-tint: #2f57e4;
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -76,7 +76,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: default) {
   /*
    * Dark Colors
    * -------------------------------------------
@@ -235,12 +235,12 @@ http://ionicframework.com/docs/theming/ */
   }
 }
 
-#container1{
+/* #container1{
   background-image: url("./../assets/Fondo-UNIB.E.jpg");
   background-repeat: no-repeat;
   background-position:  50% 50%;
   background-size: cover;
-}
+} */
 
 #buttoncenter{
   width: 100%;
@@ -250,6 +250,7 @@ http://ionicframework.com/docs/theming/ */
   align-items: center;
 }
 
+
 #tjustify{
   text-align: justify;
 }
@@ -258,11 +259,21 @@ http://ionicframework.com/docs/theming/ */
   text-align: center;
 }
 
-#talign {
+#talign{
     white-space: initial;
 }
 
 #tbut{
   white-space: normal;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: large;
+  
 }
-
+ion-toolbar ion-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  font-family: 'Times New Roman', Times, serif;
+}

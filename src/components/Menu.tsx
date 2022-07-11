@@ -1,6 +1,7 @@
 import {
   IonButton,
   IonContent,
+  IonFooter,
   IonIcon,
   IonItem,
   IonLabel,
@@ -8,10 +9,14 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
+  IonRefresher,
+  IonRefresherContent,
+  IonToggle,
+  IonToolbar,
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, paperPlaneOutline, paperPlaneSharp} from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
 
@@ -36,33 +41,25 @@ const appPages: AppPage[] = [
     mdIcon: paperPlaneSharp
   },
   {
-    title: 'Favorites',
+    title: 'Favoritos',
     url: '/page/Favorites',
     iosIcon: heartOutline,
     mdIcon: heartSharp
   },
   {
-    title: 'Archived',
+    title: 'Archivados',
     url: '/page/Archived',
     iosIcon: archiveOutline,
     mdIcon: archiveSharp
-  },
-  {
-    title: 'Trash',
-    url: '/page/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
   },
 
 ];
 
 const labels = ['Notes', 'Reminders'];
 
-
-
 const Menu: React.FC = () => {
 
-  const { logOutUser, loading } = useAuth( );
+  const { logOutUser, loading } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const handleLogOut = async () => {
@@ -73,8 +70,6 @@ const Menu: React.FC = () => {
   if (loading) {
     return <div className="container"><strong>Loading...</strong></div>;
   }
-
-
 
   return (
 
@@ -107,12 +102,30 @@ const Menu: React.FC = () => {
           ))}
         </IonList>
 
-        <IonList >
-          <IonButton color="primary" shape="round" onClick={handleLogOut}>Cerrar sesion</IonButton>
+        <IonList>
+          <IonItem>
+            <IonLabel>Tema</IonLabel>
+            <IonToggle slot="end"></IonToggle>
+          </IonItem>
+
+
         </IonList>
       </IonContent>
+      <IonFooter>
+        <IonList>
+          
+        </IonList>
+      </IonFooter>
+      <IonFooter>
+      <IonToolbar>
+        <IonButton color="dark" fill='outline' shape="round" onClick={handleLogOut} id="bcenter" >Cerrar sesion</IonButton>
+      </IonToolbar>
+    </IonFooter>
     </IonMenu>
   );
 };
+<IonRefresher slot="fixed">
+  <IonRefresherContent />
+</IonRefresher>
 
 export default Menu;

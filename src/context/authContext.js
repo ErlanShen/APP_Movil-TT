@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
      const [user, setUser] = useState(null)
      const [loading, setLoading] = useState(true);
      const fire = firestore
-
+     
      const registerUser = (name, email, password, carrera) =>
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
@@ -52,7 +52,6 @@ export function AuthProvider({ children }) {
                     displayName: user.displayName,
                     photoURL: user.photoURL,
                     rol: "usuario",
-                    carrera: null,
                });
           });
      }

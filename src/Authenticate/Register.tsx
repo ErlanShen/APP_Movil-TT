@@ -1,43 +1,19 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonCol, IonItem, IonInput, IonList, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol } from '@ionic/react';
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
 
 
 const carrers = [
-  {
-    id: 1,
-    name: "Turismo"
-  },
-  {
-    id: 2,
-    name: "Producción"
-  },
-  {
-    id: 3,
-    name: "Software"
-  },
-  {
-    id: 4,
-    name: "Nutrición"
-  },
-  {
-    id: 5,
-    name: "Economía"
-  },
-  {
-    id: 6,
-    name: "Enfermería"
-  },
-  {
-    id: 7,
-    name: "Derecho"
-  },
-  {
-    id: 8,
-    name: "Gastronomía"
-  },
+  { name: "Turismo" },
+  { name: "Producción" },
+  { name: "Software" },
+  { name: "Nutrición" },
+  { name: "Economía" },
+  { name: "Enfermería" },
+  { name: "Derecho" },
+  { name: "Gastronomía" },
 ];
 
 const Register: React.FC = () => {
@@ -47,39 +23,51 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [carrera, setCarrera] = useState('');
   const history = useHistory();
-  const { registerUser, sendEmail } = useAuth();
-  const [error, setError] = useState();
+  const { registerUser } = useAuth();
+  const [error, setError] = useState(null);
 
-
-
+  const [presentAlert] = useIonAlert();
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
-    console.log(displayName, email, password, carrera);
     try {
       await registerUser(displayName, email, password, carrera);
       history.push('/login');
     } catch (error: any) {
-      /* if (error.code === 'auth/email-already-in-use') {
-        presentToast("Correo ya está en uso");
-      } else if (error.code === 'auth/invalid-email') {
-        presentToast('Correo no es válido');
-      } */
-      error(error.message);
-      sendEmail()
+      if (error.code === 'auth/email-already-in-use') {
+        /*   setError("Correo ya está en uso");
+        } else if (error.code === 'auth/invalid-email') {
+          setError('Correo no es válido');
+        } */
+        setError(error.message);
+      }
+      return false;
     }
   }
 
+  const alerta = () => presentAlert({
+    header: 'Se a creado una nueva cuenta',
+    subHeader: 'Correo de confirmación enviado',
+    message: 'Se ah enviado un correo para confirmar la cuenta revise su bandeja de entrada o spam',
+    buttons: ['OK']
+  })
 
   return (
 
-    <IonPage className="flex-cart">
+    <IonPage className="flex-cart form">
+      <IonHeader>
+        <IonToolbar color="light">
+          <IonButtons slot="start">
+            <IonBackButton defaultHref={`/`} />
+          </IonButtons>
+          <IonTitle>UNIB.E</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>Formulario registro</IonCardTitle>
           </IonCardHeader>
-          {error && <p>{error}</p>}
           <IonCardContent>
             <form onSubmit={handlerSubmit}>
               <IonItem>
@@ -94,14 +82,14 @@ const Register: React.FC = () => {
                 <IonLabel position="floating">Contraseña</IonLabel>
                 <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
               </IonItem>
-              
+
               <hr />
               <IonList>
                 <IonItem>
                   <IonLabel>Seleccione carrera:</IonLabel>
                   <IonSelect interface="popover" onIonChange={(e: any) => setCarrera(e.target.value)}>
                     {carrers.map(carrer => (
-                      <IonSelectOption key={carrer.id} value={carrer}>{carrer.name}</IonSelectOption>
+                      <IonSelectOption key={carrer.name} value={carrer}>{carrer.name}</IonSelectOption>
                     ))}
                   </IonSelect>
                 </IonItem>
@@ -109,13 +97,16 @@ const Register: React.FC = () => {
             </form>
 
             <hr />
-            <IonCol className="ion-align-self-center">
-              <IonButton shape="round" onClick={handlerSubmit}>Registrar</IonButton>
-              <IonButton color="dark" fill="clear" routerLink="/login">
-                <p className="text-gris">Ya tengo una cuenta!</p>
-              </IonButton>
-            </IonCol>
-
+            <IonRow>
+              <IonCol />
+              <IonCol size='10' className="below-form">
+                <IonButton color='warning' onClick={handlerSubmit}  id='tbut'>Registrar</IonButton>
+                <IonButton  size='small' color="dark" fill="clear" routerLink="/login" id='tbut'>
+                  <p className="below-form text">Ya tengo una cuenta!</p></IonButton>
+              </IonCol>
+              <IonCol />
+            </IonRow>
+              
           </IonCardContent>
         </IonCard>
       </IonContent>
