@@ -17,7 +17,8 @@ import {
   IonCardContent,
   IonButtons,
   IonBackButton,
-  useIonAlert
+  useIonAlert,
+  IonImg
 } from "@ionic/react";
 
 import { Link, useHistory } from 'react-router-dom';
@@ -51,7 +52,7 @@ export const ResetPassword: React.FC = () => {
       <IonContent className="login1 login form">
 
       <IonHeader>
-        <IonToolbar color="light">
+        <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref={`/`} />
           </IonButtons>
@@ -59,8 +60,9 @@ export const ResetPassword: React.FC = () => {
         </IonToolbar>
       </IonHeader>
         <IonCard>
+        <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
-            <IonCardTitle>Restablecer Contraseña</IonCardTitle>
+            <IonCardTitle className='title'>Restablecer Contraseña</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <form onSubmit={handlerSubmit} className="form">
@@ -69,7 +71,7 @@ export const ResetPassword: React.FC = () => {
                   <IonLabel position="floating">Correo Electronico</IonLabel>
                   <IonInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} clearInput clearOnEdit />
                 </IonItem>
-                <IonButton fill="clear" type="submit">Confirmar</IonButton>
+                <IonButton id='tbut' fill="outline" type="submit">Confirmar</IonButton>
               </IonList>
             </form>
 

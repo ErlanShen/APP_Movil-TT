@@ -117,9 +117,6 @@ const Menu: React.FC = () => {
             <IonToggle slot="end" name="darkMode" onIonChange={toggleDarkModeHandler} />
           </IonItem>
         </IonList>
-
-
-        
       </IonContent>
       <IonFooter>
         <IonList>

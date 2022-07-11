@@ -8,8 +8,9 @@
 }
 
 .title {
-     text-transform: uppercase;
+     text-transform: none;
      text-align: center;
+     justify-content: center;
      font-weight: bold;
 }
 
@@ -50,4 +51,15 @@
 .form a:last-child {
      color: #aaa;
      text-decoration: none;
+}
+.imagen{
+     width: 35%;
+     height: 35%;
+     margin: 0 auto;
+     display: block;
+     padding-top: 0.5rem;
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+
 }

@@ -78,7 +78,7 @@ http://ionicframework.com/docs/theming/ */
   
 }
 
-@media (prefers-color-scheme: default) {
+@media (prefers-color-scheme: defined) {
   /*
    * Dark Colors
    * -------------------------------------------
@@ -229,7 +229,8 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-item-background: #1e1e1e;
 
-    --ion-toolbar-background: #1d2545;
+    --ion-toolbar-background: #1f1f1f;
+    --ion-toolbar-font-weight: bold;
 
     --ion-tab-bar-background: #1f1f1f;
 
@@ -374,12 +375,12 @@ body.dark {
 
 
 
-/* #container1{
-  background-image: url("./../assets/Fondo-UNIB.E.jpg");
+#container1{
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Fondo-UNIB.E.jpg?alt=media&token=3704db01-17a9-4950-89cc-3dc51a08a043");
   background-repeat: no-repeat;
   background-position:  50% 50%;
   background-size: cover;
-} */
+}
 
 #buttoncenter{
   width: 100%;
@@ -413,7 +414,7 @@ ion-toolbar ion-title {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   font-family: 'Times New Roman', Times, serif;
   color: white;
 }

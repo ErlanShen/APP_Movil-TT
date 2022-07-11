@@ -48,7 +48,7 @@ const Toast: React.FC = () => {
 };
 export default Toast;
 
-export async function presentToast(message: string, duration = 2500, color = 'primary') {
+export function toast(message: string, duration = 2500, color = 'warning') {
   const toast = document.createElement('ion-toast');
   toast.message = message;
   toast.duration = duration;

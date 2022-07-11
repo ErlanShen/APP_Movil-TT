@@ -34,6 +34,7 @@ export function AuthProvider({ children }) {
                          carrera: carrera.name
                     });
                });
+
      const sendEmail = () =>
           user.sendEmailVerification()
 
@@ -66,5 +67,5 @@ export function AuthProvider({ children }) {
      const logOutUser = () => signOut(auth)
 
 
-     return <authContext.Provider value={{ registerUser, loginUser, logOutUser, loginWithGoogle,sendEmail, user, loading }}>{children}</authContext.Provider>;
+     return <authContext.Provider value={{ registerUser, loginUser, logOutUser, loginWithGoogle, sendEmail, user, loading }}>{children}</authContext.Provider>;
 };
