@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg } from '@ionic/react';
 
 import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
@@ -22,8 +22,10 @@ const Login: React.FC = () => {
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await loginUser(correo, contrasenia);
+      const res = await loginUser(correo, contrasenia);
       history.push('/page/Home');
+      console.log(`${res ? 'Login Success' : 'Login Failed'}`);
+
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         console.log("Correo ya está en uso");
@@ -43,26 +45,27 @@ const Login: React.FC = () => {
     <IonPage id='container1'>
 
       <IonHeader>
-          <IonToolbar>
-            <IonTitle>UNIB.E</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+        <IonToolbar>
+          <IonTitle>UNIB.E</IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
       <IonContent className="flex-cart login1 login form">
         <IonCard>
+        <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
-            <IonCardTitle>Inicio de Sesión</IonCardTitle>
+            <IonCardTitle className='title'>Inicio de Sesión</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <form onSubmit={handlerSubmit} className="form">
 
               <IonItem>
                 <IonLabel position="floating">Correo Electronico</IonLabel>
-                <IonInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} clearInput clearOnEdit/>
+                <IonInput required clearInput clearOnEdit type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
+                <IonInput required clearInput clearOnEdit type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
               <hr />
 
@@ -77,7 +80,7 @@ const Login: React.FC = () => {
 
             </form>
             <IonRow>
-              <IonCol/>
+              <IonCol />
               <IonCol size='9' className="below-form">
                 <IonButton color="warning" onClick={handlerSubmit} id='tbut'>Iniciar sesión</IonButton>
                 <IonButton color='secondary' onClick={handlerGoogleSignIn} id='tbut' >
@@ -86,7 +89,7 @@ const Login: React.FC = () => {
                 </IonButton>
                 <IonButton routerLink="/register" fill='outline' color='dark' id='tbut'>Crear cuenta</IonButton>
               </IonCol>
-              <IonCol/>
+              <IonCol />
             </IonRow>
           </IonCardContent>
         </IonCard>

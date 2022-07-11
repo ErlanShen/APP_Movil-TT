@@ -12,7 +12,6 @@ import {
   IonRefresher,
   IonRefresherContent,
   IonToggle,
-  IonToolbar,
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
@@ -117,9 +116,7 @@ const Menu: React.FC = () => {
         </IonList>
       </IonFooter>
       <IonFooter>
-      <IonToolbar>
         <IonButton color="dark" fill='outline' shape="round" onClick={handleLogOut} id="bcenter" >Cerrar sesion</IonButton>
-      </IonToolbar>
     </IonFooter>
     </IonMenu>
   );

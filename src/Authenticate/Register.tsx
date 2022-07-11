@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg } from '@ionic/react';
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
@@ -23,21 +23,24 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [carrera, setCarrera] = useState('');
   const history = useHistory();
-  const { registerUser } = useAuth();
-  const [error, setError] = useState(null);
+  const { registerUser, sendEmail } = useAuth();
+  const [error, setError] = useState('');
 
   const [presentAlert] = useIonAlert();
+
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
     try {
-      await registerUser(displayName, email, password, carrera);
-      history.push('/login');
+      const res = await registerUser(displayName, email, password, carrera);
+      console.log(`${res ? 'Register Success' : 'Register Failed'}`);
+      alerta();
+      sendEmail(email);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        /*   setError("Correo ya está en uso");
+        /*   toast("Correo ya está en uso");
         } else if (error.code === 'auth/invalid-email') {
-          setError('Correo no es válido');
+          toast('Correo no es válido');
         } */
         setError(error.message);
       }
@@ -49,14 +52,14 @@ const Register: React.FC = () => {
     header: 'Se a creado una nueva cuenta',
     subHeader: 'Correo de confirmación enviado',
     message: 'Se ah enviado un correo para confirmar la cuenta revise su bandeja de entrada o spam',
-    buttons: ['OK']
+    buttons: [{ text: 'Ok', handler: () => history.push('/login') }],
   })
 
   return (
 
     <IonPage className="flex-cart form">
-      <IonHeader>
-        <IonToolbar color="light">
+      <IonHeader id='color-background'>
+        <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref={`/`} />
           </IonButtons>
@@ -65,22 +68,23 @@ const Register: React.FC = () => {
       </IonHeader>
       <IonContent>
         <IonCard>
+          <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
-            <IonCardTitle>Formulario registro</IonCardTitle>
+            <IonCardTitle className='title'>Formulario registro</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <form onSubmit={handlerSubmit}>
               <IonItem>
                 <IonLabel position="floating">Nombre de usuario</IonLabel>
-                <IonInput type="text" name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
+                <IonInput required clearInput clearOnEdit inputMode='text'   type="text" name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Correo electrónico</IonLabel>
-                <IonInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
+                <IonInput required clearInput clearOnEdit inputmode="email" pattern='[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' placeholder='email123@ejemplo.com' type='email' name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
+                <IonInput required clearInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
               </IonItem>
 
               <hr />
@@ -100,15 +104,16 @@ const Register: React.FC = () => {
             <IonRow>
               <IonCol />
               <IonCol size='10' className="below-form">
-                <IonButton color='warning' onClick={handlerSubmit}  id='tbut'>Registrar</IonButton>
-                <IonButton  size='small' color="dark" fill="clear" routerLink="/login" id='tbut'>
+                <IonButton color='warning' onClick={handlerSubmit} id='tbut'>Registrar</IonButton>
+                <IonButton size='small' color="dark" fill="clear" routerLink="/login" id='tbut'>
                   <p className="below-form text">Ya tengo una cuenta!</p></IonButton>
               </IonCol>
               <IonCol />
             </IonRow>
-              
+
           </IonCardContent>
         </IonCard>
+        {error && <p className="error">{error}</p>}
       </IonContent>
     </IonPage>
 
