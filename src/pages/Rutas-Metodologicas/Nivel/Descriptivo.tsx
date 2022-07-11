@@ -1,40 +1,34 @@
 import React from 'react';
-import { 
-  IonAccordion, 
-  IonAccordionGroup,
-  IonItem, 
-  IonLabel,
-  IonButton
-} from '@ionic/react';
-function Explicativo() {
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardTitle, IonCardContent,IonBackButton,IonButtons, IonButton} from '@ionic/react';
+ const Descriptivo: React.FC = () => {
   return (
-    <IonAccordionGroup>
-      <IonAccordion value="first">
-        <IonItem slot="header" color="light">
-          <IonLabel>First Accordion</IonLabel>
-        </IonItem>
-        <div className="ion-padding" slot="content">
-        <IonButton expand="full" routerLink="/interpretativo">A</IonButton>
-          First Content
-        </div>
-      </IonAccordion>
-      <IonAccordion value="second">
-        <IonItem slot="header" color="light">
-          <IonLabel>Second Accordion</IonLabel>
-        </IonItem>
-        <div className="ion-padding" slot="content">
-          Second Content
-        </div>
-      </IonAccordion>
-      <IonAccordion value="third">
-        <IonItem slot="header" color="light" >
-          <IonLabel>Third Accordion</IonLabel>
-        </IonItem>
-        <div className="ion-padding" slot="content" >
-          Third Content
-        </div>
-      </IonAccordion>
-    </IonAccordionGroup>
+    <IonPage >
+      <IonHeader>
+        <IonToolbar>
+        <IonButtons slot="start">
+          <IonBackButton />
+        </IonButtons>
+          <IonTitle>Nivel</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonCard>
+        <IonCardHeader>
+          <IonCardTitle id='buttoncenter'>Descriptivo </IonCardTitle>
+            <IonCardContent id='tjustify'>
+              Se  encarga  de buscar  las  causas  o  motivos  por  los  cuales  ocurre  un  fenómeno, conllevando  al  entendimiento  del mismo, 
+              Para ello,  se  formula  una hipótesis causal, la cual es aceptada o rechazada a partir de pruebas estadísticas.  
+            </IonCardContent>
+        </IonCardHeader>
+        <IonCardContent>
+          <IonButton expand="full" color="warning" routerLink="/campo">Fuentes primarias</IonButton>
+          <IonButton expand="full" color="warning" routerLink="/documental">Fuentes secundarias</IonButton>
+        </IonCardContent>
+        </IonCard>
+      </IonContent>
+    </IonPage>
   );
-}
-export default Explicativo;
+};
+
+export default Descriptivo;
+

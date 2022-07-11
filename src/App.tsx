@@ -56,6 +56,8 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
+import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
 
 
 
@@ -199,6 +201,14 @@ const App: React.FC = () => {
 
             <Route path="/evoluciondegrupo">
               < EvoluciondeGrupo />
+            </Route>
+
+            <Route path="/campo">
+              < Campo />
+            </Route>
+
+            <Route path="/documental">
+              < Documental />
             </Route>
 
             <Route path="/page/:name">
