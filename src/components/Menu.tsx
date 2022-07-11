@@ -109,12 +109,7 @@ const Menu: React.FC = () => {
         </IonList>
 
         <IonList>
-          <IonItem>
-            <IonLabel>Tema</IonLabel>
-            <IonToggle slot="end"></IonToggle>
-          </IonItem>
-
-          <IonList >
+          
           <IonItem>
             <IonIcon
               slot="start" icon={moon} className="component-icon component-icon-dark" />
@@ -124,7 +119,7 @@ const Menu: React.FC = () => {
         </IonList>
 
 
-        </IonList>
+        
       </IonContent>
       <IonFooter>
         <IonList>
