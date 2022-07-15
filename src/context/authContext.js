@@ -1,5 +1,5 @@
 
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "../database/firebaseConfig";
@@ -17,55 +17,63 @@ export function AuthProvider({ children }) {
 
      const [user, setUser] = useState(null)
      const [loading, setLoading] = useState(true);
-     const fire = firestore
-     
-     const registerUser = (name, email, password, carrera) =>
+     const Base = firestore
+
+     const registerUser = (name, email, password, carrera) => {
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
-                    const user = usuarioFire.user;
-                    const docuRef = doc(fire, `Usuarios/${user.uid}`);
+                    const myUser = usuarioFire.user;
+                    const docuRef = doc(Base, `Usuarios/${myUser.uid}`);
                     return setDoc(docuRef, {
-                         uid: user.uid,
-                         email: user.email,
-                         emailVerified: user.emailVerified,
+                         uid: myUser.uid,
+                         email: myUser.email,
+                         emailVerified: myUser.emailVerified,
                          displayName: name,
-                         photoURL: user.photoURL,
+                         photoURL: myUser.photoURL,
                          rol: "usuario",
                          carrera: carrera.name
                     });
                });
+          if (!user) {
+               return console.log(user);
+          } else {
+               console.error("authContext ==   Error al registrar usuario");
+          }
+     }
 
-     const sendEmail = () =>
-          user.sendEmailVerification()
+     const emailVerified = (email) => sendEmailVerification(auth, email);
 
-     const loginUser = (email, password) =>
-          signInWithEmailAndPassword(auth, email, password);
+     const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+
+     const resetPassword = (email) => auth.sendPasswordResetEmail(auth, email);
 
      const loginWithGoogle = () => {
           const googleProvider = new GoogleAuthProvider();
           return signInWithPopup(auth, googleProvider).then(result => {
-               const user = result.user;
-               const docuRef = doc(fire, `Usuarios/${user.uid}`);
+               const myUser = result.user;
+               const docuRef = doc(Base, `Usuarios/${myUser.uid}`);
                return setDoc(docuRef, {
-                    uid: user.uid,
-                    email: user.email,
-                    emailVerified: user.emailVerified,
-                    displayName: user.displayName,
-                    photoURL: user.photoURL,
+                    uid: myUser.uid,
+                    email: myUser.email,
+                    emailVerified: myUser.emailVerified,
+                    displayName: myUser.displayName,
+                    photoURL: myUser.photoURL,
                     rol: "usuario",
                });
           });
      }
+
      useEffect(() => {
           onAuthStateChanged(auth, (currentUser) => {
                setUser(currentUser);
                setLoading(false);
+               new Promise(resolve => setTimeout(resolve, 3000));
           });
 
      })
 
      const logOutUser = () => signOut(auth)
 
-
-     return <authContext.Provider value={{ registerUser, loginUser, logOutUser, loginWithGoogle, sendEmail, user, loading }}>{children}</authContext.Provider>;
+     return <authContext.Provider
+          value={{ registerUser, loginUser, logOutUser, loginWithGoogle, resetPassword, emailVerified, user, loading }}>{children}</authContext.Provider>;
 };

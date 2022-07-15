@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg, useIonToast } from '@ionic/react';
 
 import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
@@ -10,39 +10,60 @@ import { Link } from 'react-router-dom';
 
 const Login: React.FC = () => {
 
-
   const [correo, setCorreo] = useState('');
   const [contrasenia, setContrasenia] = useState('');
   const history = useHistory();
   const { loginUser, loginWithGoogle } = useAuth();
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   //checkbox
   const [checked, setChecked] = useState(false);
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
+    setError(error);
+    if (!correo || !contrasenia) {
+      toast('El correo y la contraseña son requeridos');
+    }
     try {
       const res = await loginUser(correo, contrasenia);
       history.push('/page/Home');
       console.log(`${res ? 'Login Success' : 'Login Failed'}`);
-
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        console.log("Correo ya está en uso");
+        toast("Correo ya está en uso");
       }
-      setError(error.message);
+      if (error.code === 'auth/invalid-email') {
+        toast('Correo no es válido');
+      } else if (error.code === 'auth/user-not-found') {
+        toast('Usuario no encontrado');
+      }
+      toast(error.message);
     }
   }
 
   const handlerGoogleSignIn = async () => {
-    await loginWithGoogle();
-    history.push('/page/Home');
+    try {
+      const res = await loginWithGoogle();
+      history.push('/page/Home');
+      console.log(`${res ? 'Login Success' : 'Login Failed'}`);
+    } catch (error: any) {
+      toast(error.message);
+    }
   }
 
+  const [present, dismiss] = useIonToast();
+  const toast = (message: string) => present({
+    buttons: [{ text: 'hide', handler: () => dismiss() }],
+    message: message,
+    duration: 2500,
+    position: 'bottom',
+    color: 'danger',
+    animated: true,
+  })
 
   return (
 
-    <IonPage id='container1'>
+    <IonPage className="flex-cart form" id='container1'>
 
       <IonHeader>
         <IonToolbar>
@@ -52,7 +73,7 @@ const Login: React.FC = () => {
 
       <IonContent className="flex-cart login1 login form">
         <IonCard>
-        <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
+          <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
             <IonCardTitle className='title'>Inicio de Sesión</IonCardTitle>
           </IonCardHeader>
@@ -60,12 +81,12 @@ const Login: React.FC = () => {
             <form onSubmit={handlerSubmit} className="form">
 
               <IonItem>
-                <IonLabel position="floating">Correo Electronico</IonLabel>
-                <IonInput required clearInput clearOnEdit type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
+                <IonLabel position="floating">Correo electrónico</IonLabel>
+                <IonInput required clearInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput required clearInput clearOnEdit type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
+                <IonInput required type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
               <hr />
 
@@ -83,11 +104,11 @@ const Login: React.FC = () => {
               <IonCol />
               <IonCol size='9' className="below-form">
                 <IonButton color="warning" onClick={handlerSubmit} id='tbut'>Iniciar sesión</IonButton>
-                <IonButton color='secondary' onClick={handlerGoogleSignIn} id='tbut' >
-                  <IonIcon icon={logoGoogle} size="large" slot="start" color='light' />
+                <IonButton color='primary' onClick={handlerGoogleSignIn} id='tbut'>
+                  <IonIcon icon={logoGoogle} size="large" slot="start" color='light'/>
                   Iniciar sesión con Google
                 </IonButton>
-                <IonButton routerLink="/register" fill='outline' color='dark' id='tbut'>Crear cuenta</IonButton>
+                <IonButton routerLink="/register" fill='outline' color='dark' id='tbut'>Registrarme</IonButton>
               </IonCol>
               <IonCol />
             </IonRow>
@@ -95,8 +116,6 @@ const Login: React.FC = () => {
         </IonCard>
         {error && <p>{error}</p>}
       </IonContent>
-
-
     </IonPage>
 
 
