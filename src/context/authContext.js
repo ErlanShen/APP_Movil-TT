@@ -18,8 +18,9 @@ export function AuthProvider({ children }) {
      const [user, setUser] = useState(null)
      const [loading, setLoading] = useState(true);
      const Base = firestore
-
+     
      const registerUser = (name, email, password, carrera) => {
+          /* const email = `${email}@doc.unibe.edu.ec` */
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
                     const myUser = usuarioFire.user;
@@ -34,11 +35,6 @@ export function AuthProvider({ children }) {
                          carrera: carrera.name
                     });
                });
-          if (!user) {
-               return console.log(user);
-          } else {
-               console.error("authContext ==   Error al registrar usuario");
-          }
      }
 
      const emailVerified = (email) => sendEmailVerification(auth, email);

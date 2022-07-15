@@ -1,5 +1,6 @@
 import {
   IonButton,
+  IonCol,
   IonContent,
   IonFooter,
   IonIcon,
@@ -9,9 +10,9 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
-  IonNote,
   IonRefresher,
   IonRefresherContent,
+  IonRow,
   IonToggle,
 } from '@ionic/react';
 
@@ -69,7 +70,7 @@ const Menu: React.FC = () => {
     setRefreshing(refreshing => !refreshing);
     onRefresh();
   }
-  
+
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = async () => {
     setRefreshing(true);
@@ -130,12 +131,16 @@ const Menu: React.FC = () => {
         </IonList>
       </IonContent>
       <IonFooter>
-        <IonList>
 
-        </IonList>
       </IonFooter>
       <IonFooter>
-        <IonButton color="dark" fill='outline' shape="round" onClick={handleLogOut} id="bcenter" >Cerrar sesion</IonButton>
+        <IonRow class='space'>
+          <IonCol/>
+          <IonCol size='8'>
+            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >Cerrar sesion</IonButton>
+          </IonCol>
+          <IonCol/>
+        </IonRow>
       </IonFooter>
     </IonMenu>
   );

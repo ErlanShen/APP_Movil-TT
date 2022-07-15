@@ -108,7 +108,7 @@ const Login: React.FC = () => {
                   <IonIcon icon={logoGoogle} size="large" slot="start" color='light'/>
                   Iniciar sesión con Google
                 </IonButton>
-                <IonButton routerLink="/register" fill='outline' color='dark' id='tbut'>Registrarme</IonButton>
+                <IonButton className='below-form text' routerLink="/register" fill='clear' color='dark' id='tbut'>Registrarme</IonButton>
               </IonCol>
               <IonCol />
             </IonRow>
