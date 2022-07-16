@@ -1,3 +1,4 @@
+import { IonButton } from '@ionic/react';
 import './ExploreContainer.css';
 
 interface ContainerProps {
@@ -7,8 +8,13 @@ interface ContainerProps {
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   return (
     <div className="container">
-      <strong>{name}</strong>
-      <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <strong>Bienvenidos</strong>
+      <hr />
+      <p>Esta aplicación te ayuda a crear tu ruta metodológica para el desarrollo de trabajos de investigación</p>
+      <hr />
+      <p>Para empezar, selecciona una opción del menú</p>
+      <hr />
+      <IonButton routerLink='/home/'>Empecemos</IonButton>
     </div>
   );
 };

@@ -1,80 +1,121 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg, useIonToast } from '@ionic/react';
 
-import './Login.css'; // Import the CSS file
+import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
 import { useAuth } from '../context/authContext';
+import { logoGoogle } from 'ionicons/icons';
+import { Link } from 'react-router-dom';
+
 
 const Login: React.FC = () => {
 
-
   const [correo, setCorreo] = useState('');
   const [contrasenia, setContrasenia] = useState('');
-
   const history = useHistory();
-  const { loginUser } = useAuth();
-  const [error, setError] = useState();
-
+  const { loginUser, loginWithGoogle } = useAuth();
+  const [error, setError] = useState("");
+  //checkbox
+  const [checked, setChecked] = useState(false);
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
+    setError(error);
+    if (!correo || !contrasenia) {
+      toast('El correo y la contraseña son requeridos');
+    }
     try {
-      await loginUser(correo, contrasenia);
-      history.push('/page/Inbox');
+      const res = await loginUser(correo, contrasenia);
+      history.push('/page/Home');
+      console.log(`${res ? 'Login Success' : 'Login Failed'}`);
     } catch (error: any) {
-      /* if (error.code === 'auth/email-already-in-use') {
-        setError("Correo ya está en uso");
-      } */
-      setError(error.message);
+      if (error.code === 'auth/email-already-in-use') {
+        toast("Correo ya está en uso");
+      }
+      if (error.code === 'auth/invalid-email') {
+        toast('Correo no es válido');
+      } else if (error.code === 'auth/user-not-found') {
+        toast('Usuario no encontrado');
+      }
+      toast(error.message);
     }
   }
 
+  const handlerGoogleSignIn = async () => {
+    try {
+      const res = await loginWithGoogle();
+      history.push('/page/Home');
+      console.log(`${res ? 'Login Success' : 'Login Failed'}`);
+    } catch (error: any) {
+      toast(error.message);
+    }
+  }
+
+  const [present, dismiss] = useIonToast();
+  const toast = (message: string) => present({
+    buttons: [{ text: 'hide', handler: () => dismiss() }],
+    message: message,
+    duration: 2500,
+    position: 'bottom',
+    color: 'danger',
+    animated: true,
+  })
+
   return (
 
-    <IonPage id='container1'>
-      <IonContent className="login1 login">
-        {error && <p>{error}</p>}
+    <IonPage className="flex-cart form" id='container1'>
+
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>UNIB.E</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent className="flex-cart login1 login form">
         <IonCard>
+          <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
-            <IonCardTitle>Inicio de Sesión</IonCardTitle>
+            <IonCardTitle className='title'>Inicio de Sesión</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handlerSubmit} className="form">
 
               <IonItem>
-                <IonLabel position="floating">Correo Electronico</IonLabel>
-                <IonInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
+                <IonLabel position="floating">Correo electrónico</IonLabel>
+                <IonInput required clearInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
+                <IonInput required type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
+              <hr />
 
-              {/*  <IonItem>
-                <IonLabel>
-                  <p className="text-checkbox">Recordarme</p>
-                </IonLabel>
-                <IonCheckbox color="warning" slot="end" checked></IonCheckbox>
-              </IonItem>
+              <div className="below-form text">
+                <Link to='/reset-password' >Olvide mi contraseña</Link>
+              </div>
 
-              <IonButton color="dark" fill="clear" >
-                <p className="text-gris">Olvide mi Correo/Contraseña</p>
-              </IonButton> */}
+              {/* <IonItem lines='none'>
+                <IonLabel>Recordarme: {JSON.stringify(checked)}</IonLabel>
+                <IonCheckbox checked={checked} onIonChange={e => setChecked(e.detail.checked)} slot="start" />
+              </IonItem> */}
 
-              {/* <button type='submit'>Iniciar Sesión</button> */}
             </form>
-
-            <IonCol>
-              <IonButton onClick={handlerSubmit} >Iniciar Sesión</IonButton>
-              <IonButton color="warning" routerLink="/register">Crear cuenta</IonButton>
-            </IonCol>
-
-
+            <IonRow>
+              <IonCol />
+              <IonCol size='9' className="below-form">
+                <IonButton color="warning" onClick={handlerSubmit} id='tbut'>Iniciar sesión</IonButton>
+                <IonButton color='primary' onClick={handlerGoogleSignIn} id='tbut'>
+                  <IonIcon icon={logoGoogle} size="large" slot="start" color='light'/>
+                  Iniciar sesión con Google
+                </IonButton>
+                <IonButton className='below-form text' routerLink="/register" fill='clear' color='dark' id='tbut'>Registrarme</IonButton>
+              </IonCol>
+              <IonCol />
+            </IonRow>
           </IonCardContent>
         </IonCard>
+        {error && <p>{error}</p>}
       </IonContent>
-
-
     </IonPage>
 
 

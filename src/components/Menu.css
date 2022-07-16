@@ -125,3 +125,6 @@ ion-item.selected {
   font-size: 20px;
   line-height: 26px;
 }
+.space{
+  margin-bottom: 0.5rem;
+}

@@ -1,4 +1,4 @@
-import { useAuth } from "../context/authContext";
+import { useAuth } from "./authContext";
 import { useHistory } from "react-router-dom";
 
 export function ProtectedRouter({ children }) {
@@ -11,5 +11,5 @@ export function ProtectedRouter({ children }) {
 
      if (!user) { return history.push("/login") };
 
-     return <>{children}</>;
+     return <span>{children}</span>;
 }

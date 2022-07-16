@@ -1,94 +1,138 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonCol, IonItem, IonInput } from '@ionic/react';
-import './Register.css'; // Import the CSS file
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast } from '@ionic/react';
+import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
 
+const carrers = [
+  { name: "Turismo" },
+  { name: "Producción" },
+  { name: "Software" },
+  { name: "Nutrición" },
+  { name: "Economía" },
+  { name: "Enfermería" },
+  { name: "Derecho" },
+  { name: "Gastronomía" },
+];
 
 const Register: React.FC = () => {
 
-  const [name, setName] = useState('');
+  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [carrera, setCarrera] = useState('');
   const history = useHistory();
-  const { registerUser } = useAuth();
-  const [error, setError] = useState();
-  /* const [rol, setRol] = useState('student'); */
-
-  /* async function registerUsuario(email: string, password: string, rol: string) {
-    const infoUsuario = await createUserWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        return response
-      });
-    setDoc(docuRef, { corre: email, rol: rol });
-  } */
-
+  const { registerUser, emailVerified } = useAuth();
+  const [error, setError] = useState('');
+  const [presentAlert] = useIonAlert();
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
-    try {
-      await registerUser(name, email, password);
-      history.push('/login');
-    } catch (error: any) {
-      /* if (error.code === 'auth/email-already-in-use') {
-        setError("Correo ya está en uso");
-      } else if (error.code === 'auth/invalid-email') {
-        setError('Correo no es válido');
-      } */
-      setError(error.message);
+    if (!displayName || !email || !password || !carrera) {
+      toast('Todos los campos son requeridos');
+    } else if (password.length < 8) {
+      toast('La contraseña debe tener al menos 8 caracteres');
+    } else if (email.indexOf('@') === -1 || email.indexOf('.') === -1 || email.indexOf('@') > email.indexOf('.')) {
+      toast('El correo electrónico no es válido');
+    } else if (carrera === '') {
+      toast('Seleccione una carrera');
+    } else if (password.indexOf(' ') !== -1) {
+      toast('La contraseña no debe contener espacios');
     }
+    else {
+      try {
+        await registerUser(displayName, email, password, carrera);
+        toast("se a registrardo", "success");
+        /* const res = await emailVerified(email);
+        console.log(`${res ? 'se envio' : 'fallo'}`, res); */
+        alerta();
+        return true;
+      } catch (error: any) {
+        if (error.code === 'auth/email-already-in-use') {
+          toast("Correo ya está en uso");
+        } else if (error.code === 'auth/invalid-email') {
+          toast('Correo no es válido');
+        } else if (error.code === 'auth/weak-password') {
+          toast('Contraseña no es válida');
+        } else {
+          toast('Error al registrarse');
+        }
+        toast(error.message);
+        return false;
+      }
+    }
+
+
   }
+  const alerta = () => presentAlert({
+    header: 'Se a creado una nueva cuenta',
+    subHeader: 'Correo de confirmación enviado',
+    message: 'Se ha enviado un correo de verificación de cuenta, por favor revise su bandeja de entrada o spam',
+    buttons: [{ text: 'Listo', handler: () => history.push('/login') }],
+  })
 
-
+  const [present, dismiss] = useIonToast();
+  const toast = (message: string, color?: string) => present({
+    buttons: [{ text: 'hide', handler: () => dismiss() }],
+    message: message,
+    duration: 2500,
+    position: 'bottom',
+    color: color = 'danger',
+    animated: true,
+  })
   return (
 
-    <IonPage className="flex-cart">
+    <IonPage className="flex-cart form" id='container1'>
+      <IonHeader id='color-background'>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref={`/`} />
+          </IonButtons>
+          <IonTitle>UNIB.E</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         <IonCard>
+          <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
-            <IonCardTitle>Formulario registro</IonCardTitle>
+            <IonCardTitle className='title'>Formulario registro</IonCardTitle>
           </IonCardHeader>
-          {error && <p>{error}</p>}
           <IonCardContent>
             <form onSubmit={handlerSubmit}>
               <IonItem>
-                <IonLabel position="floating">Nombre de Usuario</IonLabel>
-                <IonInput type="text" name='name' id='name' onIonChange={(e: any) => setName(e.target.value)} />
+                <IonLabel position="floating">Nombre de usuario</IonLabel>
+                <IonInput required clearInput inputMode='text' type="text" pattern='[A-Za-z]{30}' name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
               </IonItem>
               <IonItem>
-                <IonLabel position="floating">Correo Electronico</IonLabel>
-                <IonInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
+                <IonLabel position="floating">Correo electrónico</IonLabel>
+                <IonInput required clearInput placeholder='email123@ejemplo.com' type='email' name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
+                <IonInput required clearInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
               </IonItem>
-              {/* 
-              <IonItem>
-                <IonLabel position="floating">Confirmar Contraseña</IonLabel>
-                <IonInput type='password' name='cPassword' id='cPassword' onChange={handlerChange}></IonInput>
-              </IonItem> */}
-              <hr />
-              {/* <IonList>
+              <IonList>
                 <IonItem>
-                  <IonLabel>Asignar Rol:</IonLabel>
-                  <IonSelect interface="popover" id='rol' onChange={(e: any) => setRol(e.target.value)}>
-                    <IonSelectOption value="admin">Admin</IonSelectOption>
-                    <IonSelectOption value="user">Usuario</IonSelectOption>
+                  <IonLabel>Seleccione carrera:</IonLabel>
+                  <IonSelect interface="popover" onIonChange={(e: any) => setCarrera(e.target.value)}>
+                    {carrers.map(carrer => (
+                      <IonSelectOption key={carrer.name} value={carrer}>{carrer.name}</IonSelectOption>
+                    ))}
                   </IonSelect>
                 </IonItem>
-              </IonList>  */}
+              </IonList>
             </form>
 
             <hr />
-            <IonCol className="ion-align-self-center">
-              <IonButton shape="round" onClick={handlerSubmit}>Registrar</IonButton>
-              <IonButton color="dark" fill="clear" routerLink="/login">
-                <p className="text-gris">Ya tengo una cuenta!</p>
-              </IonButton>
-            </IonCol>
-
+            <IonRow>
+              <IonCol />
+              <IonCol size='10' className="below-form">
+                <IonButton expand="block" color='warning' onClick={handlerSubmit} id='tbut'>Registrar</IonButton>
+                <IonButton className='below-form text' size='small' color="dark" fill="clear" routerLink="/login" id='tbut'>Ya tengo una cuenta!</IonButton>
+              </IonCol>
+              <IonCol />
+            </IonRow>
           </IonCardContent>
         </IonCard>
       </IonContent>
