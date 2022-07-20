@@ -19,12 +19,11 @@ import {
   useIonAlert,
   IonImg,
   IonRow,
-  IonCol
+  IonCol,
+  IonLoading
 } from "@ionic/react";
 
 import { Link, useHistory } from 'react-router-dom';
-
-
 
 import './Form.css';
 import { useAuth } from '../context/authContext';
@@ -35,8 +34,10 @@ export const ResetPassword: React.FC = () => {
   const [error, setError] = useState('');
   const { resetPassword } = useAuth();
   const history = useHistory();
+  const [busy, setBusy] = useState<boolean>(false);
 
   const handlerSubmit = async (evento: any) => {
+    setBusy(true);
     evento.preventDefault();
     if (!email) {
       setError('El correo es requerido');
@@ -54,7 +55,7 @@ export const ResetPassword: React.FC = () => {
         setError(error.message);
       }
     }
-    return false;
+    setBusy(false);
   }
   const alerta = () => presentAlert({
     header: 'Se a enviado un correo de recuperación',
@@ -67,7 +68,6 @@ export const ResetPassword: React.FC = () => {
 
     <IonPage className="flex-cart form" id='container1'>
       <IonContent className="">
-
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
@@ -76,6 +76,7 @@ export const ResetPassword: React.FC = () => {
             <IonTitle>UNIB.E</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy}/>
         <IonCard>
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
@@ -92,19 +93,19 @@ export const ResetPassword: React.FC = () => {
               <IonCol />
               <IonCol size='10' className="below-form">
                 <IonButton id='tbut' color='warning' onClick={handlerSubmit}>Confirmar</IonButton>
-                <div className="below-form">
+                {/* <div className="below-form">
                   <Link to='/login' >Volver a Inicio de Sesión</Link>
-                </div>
+                </div> */}
+                <IonButton className='below-form text' size='small' color="dark" fill="clear" routerLink="/login" id='tbut'>Volver a Inicio de Sesión!</IonButton>
+              
               </IonCol>
               <IonCol />
             </IonRow>
-
           </IonCardContent>
         </IonCard>
         {error && <p className='Error'>{error}</p>}
       </IonContent>
     </IonPage>
-
 
   );
 }

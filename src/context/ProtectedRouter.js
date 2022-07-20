@@ -1,15 +1,31 @@
 import { useAuth } from "./authContext";
-import { useHistory } from "react-router-dom";
+import { auth } from "../database/firebaseConfig";
+import { IonLoading } from "@ionic/react";
+import MenuAdmin from "../components/Menu_Admin";
+import Menu from "../components/Menu";
+import Login from "../Authenticate/Login";
+import Register from "../Authenticate/Register";
+import ResetPassword from "../Authenticate/ResetPassword";
+import { Redirect } from "react-router";
+
 
 export function ProtectedRouter({ children }) {
 
-     const history = useHistory();
-     const { user, loading } = useAuth();
+    const { loading, user } = useAuth();
 
+    if (loading) {
+        return <div>
+            <IonLoading message={"Porfavor espere..."} duration={3500} isOpen={true} />
+        </div>
+    };
 
-     if (loading) { return <div>Loading...</div> };
+    if (!auth.currentUser) {
+        return <Redirect to="/login" /> || <Register /> || <ResetPassword />
+    }/*  else if (!user.rol === "usuario") {
+        <Menu />
+    } else if (user.rol === "admin") {
+        <MenuAdmin />
+    } */
 
-     if (!user) { return history.push("/login") };
-
-     return <span>{children}</span>;
+    return <>{children}</>;
 }

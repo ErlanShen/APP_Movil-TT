@@ -1,4 +1,4 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonSplitPane, RouteManagerContext, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
@@ -58,8 +58,9 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
 import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
-
-
+import MenuAdmin from './components/Menu_Admin';
+import { ProtectedRouter } from './context/ProtectedRouter';
+import { userInfo } from 'os';
 
 setupIonicReact();
 
@@ -68,155 +69,215 @@ const App: React.FC = () => {
     <div>
       <AuthProvider>
         <IonApp>
-         
           <IonReactRouter>
-          <IonSplitPane contentId="main">
-          <Menu/>
-          <IonRouterOutlet id="main">
-            <Route path="">
-              <Redirect to="/login" />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/reset-password">
-              <ResetPassword />
-            </Route>
+            <IonSplitPane contentId="main" >
+              <Route path="">
+                <Redirect to="/home" />
+              </Route>
+
+              <MenuAdmin />
+              <Menu />
+              <IonRouterOutlet id="main">
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route path="/reset-password">
+                  <ResetPassword />
+                </Route>
+
+                <Route path="/home">
+                  <ProtectedRouter>
+                    <Home />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/cualitativo">
+                  <ProtectedRouter>
+                    <Cualitativo />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/cuantitativo">
+                  <ProtectedRouter>
+                    <Cuantitativo />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/positivista">
+                  <ProtectedRouter>
+                    <Positivista />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/interpretativo">
+                  <ProtectedRouter>
+                    <Interpretativo />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/sociocrítico">
+                  <ProtectedRouter>
+                    <SocioCritico />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/socio-construccionista">
+                  <ProtectedRouter>
+                    <SocioContruccionista />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/experimental">
+                  <ProtectedRouter>
+                    <Experimental />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/no-experimental">
+                  <ProtectedRouter>
+                    <NoExperimental />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/funciondelTiempo">
+                  <ProtectedRouter>
+                    <FunciondelTiempo />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/correlacional">
+                  <ProtectedRouter>
+                    <Correlacional />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/descriptivo">
+                  <ProtectedRouter>
+                    <Descriptivo />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/explicativo">
+                  <ProtectedRouter>
+                    <Explicativo />
+                  </ProtectedRouter>
+                </Route>
+
+                <Route path="/exploratorio">
+                  <ProtectedRouter>
+                    <Exploratorio />
+                  </ProtectedRouter>
+                </Route>
 
 
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/cualitativo">
-              <Cualitativo />
-            </Route>
+                <Route path="/transaccional">
+                  <ProtectedRouter>
+                    <Transaccional />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/cuantitativo">
-              <Cuantitativo />
-            </Route>
+                <Route path="/longitudinal">
+                  <ProtectedRouter>
+                    <Longitudinal />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/positivista">
-              <Positivista />
-            </Route>
+                <Route path="/cuasiexperimentos">
+                  <ProtectedRouter>
+                    <Cuasiexperimentos />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/interpretativo">
-              <Interpretativo />
-            </Route>
+                <Route path="/experimentospuros">
+                  <ProtectedRouter>
+                    <Experimentospuros />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/sociocrítico">
-              <SocioCritico/>
-            </Route>
+                <Route path="/preexperimento">
+                  <ProtectedRouter>
+                    <Preexperimento />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/socio-construccionista">
-              <SocioContruccionista />
-            </Route>
+                <Route path="/estudiodecaso">
+                  <ProtectedRouter>
+                    <EstudiodeCaso />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/experimental">
-              <Experimental />
-            </Route>
+                <Route path="/etnográfico">
+                  <ProtectedRouter>
+                    <Etnográfico />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/no-experimental">
-              <NoExperimental />
-            </Route>
-
-            <Route path="/funciondelTiempo">
-              <FunciondelTiempo />
-            </Route>
-
-            <Route path="/correlacional">
-              <Correlacional />
-            </Route>
-
-            <Route path="/descriptivo">
-              <Descriptivo />
-            </Route>
-
-            <Route path="/explicativo">
-              <Explicativo />
-            </Route>
+                <Route path="/fenomenológico">
+                  <ProtectedRouter>
+                    <Fenomenológico />
+                  </ProtectedRouter>
+                </Route>
 
 
-            <Route path="/exploratorio">
-              <Exploratorio />
-            </Route>
+                <Route path="/hermenéutico">
+                  <ProtectedRouter>
+                    <Hermenéutico />
+                  </ProtectedRouter>
+                </Route>
 
+                <Route path="/teoriafundamentada">
+                  <ProtectedRouter>
+                    <Teoriafundamentada />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/transaccional">
-              <Transaccional />
-            </Route>
+                <Route path="/narrativo">
+                  <ProtectedRouter>
+                    < Narrativo />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/longitudinal">
-              <Longitudinal />
-            </Route>
+                <Route path="/tendencia">
+                  <ProtectedRouter>
+                    < Tendencia />
+                  </ProtectedRouter>
+                </Route>
 
+                <Route path="/panel">
+                  <ProtectedRouter>
+                    < Panel />
+                  </ProtectedRouter>
+                </Route>
 
+                <Route path="/evoluciondegrupo">
+                  <ProtectedRouter>
+                    < EvoluciondeGrupo />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/cuasiexperimentos">
-              <Cuasiexperimentos />
-            </Route>
+                <Route path="/campo">
+                  <ProtectedRouter>
+                    < Campo />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/experimentospuros">
-              <Experimentospuros />
-            </Route>
+                <Route path="/documental">
+                  <ProtectedRouter>
+                    < Documental />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/preexperimento">
-              <Preexperimento />
-            </Route>
+                <Route path="/page/:name">
+                  <ProtectedRouter>
+                    <Page />
+                  </ProtectedRouter>
+                </Route>
 
-            <Route path="/estudiodecaso">
-              <EstudiodeCaso />
-            </Route>
-
-            <Route path="/etnográfico">
-              <Etnográfico />
-            </Route>
-
-            <Route path="/fenomenológico">
-              <Fenomenológico />
-            </Route>
-
-
-            <Route path="/hermenéutico">
-              <Hermenéutico />
-            </Route>
-
-            <Route path="/teoriafundamentada">
-              <Teoriafundamentada />
-            </Route>
-
-            <Route path="/narrativo">
-              < Narrativo />
-            </Route>
-
-            <Route path="/tendencia">
-              < Tendencia />
-            </Route>
-
-            <Route path="/panel">
-              < Panel />
-            </Route>
-
-            <Route path="/evoluciondegrupo">
-              < EvoluciondeGrupo />
-            </Route>
-
-            <Route path="/campo">
-              < Campo />
-            </Route>
-
-            <Route path="/documental">
-              < Documental />
-            </Route>
-
-            <Route path="/page/:name">
-              <Page />
-            </Route>
-
-          </IonRouterOutlet>
-        </IonSplitPane>
+              </IonRouterOutlet>
+            </IonSplitPane>
 
           </IonReactRouter>
         </IonApp>

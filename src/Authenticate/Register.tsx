@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast, IonLoading } from '@ionic/react';
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
@@ -17,19 +17,22 @@ const carrers = [
 
 const Register: React.FC = () => {
 
+  const [busy, setBusy] = useState<boolean>(false);
+
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [carrera, setCarrera] = useState('');
   const history = useHistory();
-  const { registerUser, emailVerified } = useAuth();
+  const { registerUser } = useAuth();
   const [error, setError] = useState('');
   const [presentAlert] = useIonAlert();
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
+    
     setError(error);
-    if (!displayName || !email || !password || !carrera) {
+    if (!displayName || !email || !password) {
       toast('Todos los campos son requeridos');
     } else if (password.length < 8) {
       toast('La contraseña debe tener al menos 8 caracteres');
@@ -46,7 +49,10 @@ const Register: React.FC = () => {
         toast("se a registrardo", "success");
         /* const res = await emailVerified(email);
         console.log(`${res ? 'se envio' : 'fallo'}`, res); */
-        alerta();
+        setBusy(true);
+        setTimeout(() => {
+          alerta();
+        }, 2000);
         return true;
       } catch (error: any) {
         if (error.code === 'auth/email-already-in-use') {
@@ -62,8 +68,7 @@ const Register: React.FC = () => {
         return false;
       }
     }
-
-
+    setBusy(false);
   }
   const alerta = () => presentAlert({
     header: 'Se a creado una nueva cuenta',
@@ -92,6 +97,7 @@ const Register: React.FC = () => {
           <IonTitle>UNIB.E</IonTitle>
         </IonToolbar>
       </IonHeader>
+      <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={busy} />
       <IonContent>
         <IonCard>
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>

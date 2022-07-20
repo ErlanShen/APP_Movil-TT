@@ -18,9 +18,10 @@ export function AuthProvider({ children }) {
      const [user, setUser] = useState(null)
      const [loading, setLoading] = useState(true);
      const Base = firestore
-     
-     const registerUser = (name, email, password, carrera) => {
+
+     const registerUser = (name, email, password, carrera, rol) => {
           /* const email = `${email}@doc.unibe.edu.ec` */
+          setUser(null);
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
                     const myUser = usuarioFire.user;
@@ -31,21 +32,21 @@ export function AuthProvider({ children }) {
                          emailVerified: myUser.emailVerified,
                          displayName: name,
                          photoURL: myUser.photoURL,
-                         rol: "usuario",
+                         rol: rol = "usuario",
                          carrera: carrera.name
                     });
                });
      }
 
-     const emailVerified = (email) => sendEmailVerification(auth, email);
+     const emailVerified = (email) => { sendEmailVerification(auth, email); }
 
-     const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+     const loginUser = (email, password) => { signInWithEmailAndPassword(auth, email, password); }
 
-     const resetPassword = (email) => auth.sendPasswordResetEmail(auth, email);
+     const resetPassword = (email) => { sendEmailVerification(auth, email); }
 
-     const loginWithGoogle = () => {
+     const loginWithGoogle = async (rol) => {
           const googleProvider = new GoogleAuthProvider();
-          return signInWithPopup(auth, googleProvider).then(result => {
+          await signInWithPopup(auth, googleProvider).then(result => {
                const myUser = result.user;
                const docuRef = doc(Base, `Usuarios/${myUser.uid}`);
                return setDoc(docuRef, {
@@ -54,14 +55,19 @@ export function AuthProvider({ children }) {
                     emailVerified: myUser.emailVerified,
                     displayName: myUser.displayName,
                     photoURL: myUser.photoURL,
-                    rol: "usuario",
+                    rol: rol = "usuario",
                });
           });
      }
 
      useEffect(() => {
           onAuthStateChanged(auth, (currentUser) => {
-               setUser(currentUser);
+               if (!user) {
+                    setUser(currentUser);
+                    console.log("Usuario logeado == ", currentUser);
+               } else {
+                    setUser(null);
+               }
                setLoading(false);
                new Promise(resolve => setTimeout(resolve, 3000));
           });

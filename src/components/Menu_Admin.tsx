@@ -10,14 +10,13 @@ import {
      IonListHeader,
      IonMenu,
      IonMenuToggle,
-     IonNote,
      IonRefresher,
      IonRefresherContent,
      IonRow,
      IonToggle,
    } from '@ionic/react';
    
-   import { useLocation, useHistory } from 'react-router-dom';
+   import { useLocation } from 'react-router-dom';
    import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
    import './Menu.css';
    import { useAuth } from '../context/authContext';
@@ -64,20 +63,18 @@ import {
    
      const { logOutUser, loading, user } = useAuth();
      const location = useLocation();
-     const history = useHistory();
      const handleLogOut = async () => {
-       await logOutUser();
-       history.push('/login');
+       await logOutUser();/* 
        setRefreshing(refreshing => !refreshing);
-       onRefresh();
+       onRefresh(); */
      }
    
-     const [refreshing, setRefreshing] = useState(false);
+     /* const [refreshing, setRefreshing] = useState(false);
      const onRefresh = async () => {
        setRefreshing(true);
        await new Promise(resolve => setTimeout(resolve, 1000));
        setRefreshing(false);
-     }
+     } */
    
    
      const toggleDarkModeHandler = () => {
@@ -91,11 +88,10 @@ import {
    
      return (
    
-       <IonMenu contentId="main" type="overlay">
+       <IonMenu contentId="main" type="overlay" color='warning' placeholder='Menu'>
          <IonContent>
-   
            <IonList id="inbox-list">
-             <IonListHeader>Bienvenido</IonListHeader>
+             <IonListHeader>Bienvenido Administrador</IonListHeader>
              {/* <IonNote>{user.displayName}</IonNote>
              <IonNote>{user.email}</IonNote> */}
              <hr />

@@ -8,15 +8,15 @@ import {
   IonLabel,
   IonList,
   IonListHeader,
+  IonLoading,
   IonMenu,
   IonMenuToggle,
-  IonRefresher,
-  IonRefresherContent,
+  IonNote,
   IonRow,
   IonToggle,
 } from '@ionic/react';
 
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
@@ -63,20 +63,23 @@ const Menu: React.FC = () => {
 
   const { logOutUser, loading, user } = useAuth();
   const location = useLocation();
-  const history = useHistory();
+  const [busy, setBusy] = useState<boolean>(false);
+
+
   const handleLogOut = async () => {
+    setBusy(true);
     await logOutUser();
-    history.push('/login');
-    setRefreshing(refreshing => !refreshing);
-    onRefresh();
+    /* setRefreshing(refreshing => !refreshing);
+    onRefresh(); */
   }
 
-  const [refreshing, setRefreshing] = useState(false);
+  /* const [refreshing, setRefreshing] = useState(false);
+
   const onRefresh = async () => {
     setRefreshing(true);
     await new Promise(resolve => setTimeout(resolve, 1000));
     setRefreshing(false);
-  }
+  } */
 
 
   const toggleDarkModeHandler = () => {
@@ -85,11 +88,12 @@ const Menu: React.FC = () => {
 
 
   if (loading) {
-    return <div className="container" ><strong>Loading...</strong></div>;
+    return <IonLoading message={"Cerrando sesión espere..."} duration={2000} isOpen={busy}/>;
   }
 
   return (
 
+      
     <IonMenu contentId="main" type="overlay">
       <IonContent>
 
@@ -135,18 +139,14 @@ const Menu: React.FC = () => {
       </IonFooter>
       <IonFooter>
         <IonRow class='space'>
-          <IonCol/>
+          <IonCol />
           <IonCol size='8'>
-            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >Cerrar sesion</IonButton>
+            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter">Cerrar sesion</IonButton>
           </IonCol>
-          <IonCol/>
+          <IonCol />
         </IonRow>
       </IonFooter>
     </IonMenu>
   );
 };
-<IonRefresher slot="fixed">
-  <IonRefresherContent />
-</IonRefresher>
-
 export default Menu;
