@@ -22,7 +22,7 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [carrera, setCarrera] = useState('');
   const history = useHistory();
-  const { registerUser, emailVerified } = useAuth();
+  const { registerUser } = useAuth();
   const [error, setError] = useState('');
   const [presentAlert] = useIonAlert();
 
@@ -44,8 +44,6 @@ const Register: React.FC = () => {
       try {
         await registerUser(displayName, email, password, carrera);
         toast("se a registrardo", "success");
-        /* const res = await emailVerified(email);
-        console.log(`${res ? 'se envio' : 'fallo'}`, res); */
         alerta();
         return true;
       } catch (error: any) {
