@@ -44,7 +44,10 @@ const Login: React.FC = () => {
   const handlerGoogleSignIn = async () => {
     try {
       const res = await loginWithGoogle();
-      history.push('/page/Home');
+      
+      if (res) {
+        history.push('/page/Home');
+      }
       console.log(`${res ? 'Login Success' : 'Login Failed'}`);
     } catch (error: any) {
       toast(error.message);

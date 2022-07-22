@@ -8,6 +8,7 @@ import {
   IonLabel,
   IonList,
   IonListHeader,
+  IonLoading,
   IonMenu,
   IonMenuToggle,
   IonRefresher,
@@ -85,7 +86,7 @@ const Menu: React.FC = () => {
 
 
   if (loading) {
-    return <div className="container" ><strong>Loading...</strong></div>;
+    return <IonLoading message={"Porfavor espere..."} duration={0} isOpen={true} />;
   }
 
   return (
