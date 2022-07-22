@@ -19,9 +19,8 @@ export function AuthProvider({ children }) {
      const [loading, setLoading] = useState(true);
      const Base = firestore
 
-     const registerUser = (name, email, password, carrera, rol) => {
-          /* const email = `${email}@doc.unibe.edu.ec` */
-          setUser(null);
+     const registerUser = (name, email, password, carrera) => {
+          /* const email = `${name}@doc.unibe.edu.ec` */
           createUserWithEmailAndPassword(auth, email, password)
                .then(usuarioFire => {
                     const myUser = usuarioFire.user;
@@ -32,7 +31,7 @@ export function AuthProvider({ children }) {
                          emailVerified: myUser.emailVerified,
                          displayName: name,
                          photoURL: myUser.photoURL,
-                         rol: rol = "usuario",
+                         rol: "usuario",
                          carrera: carrera.name
                     });
                });
@@ -62,12 +61,12 @@ export function AuthProvider({ children }) {
 
      useEffect(() => {
           onAuthStateChanged(auth, (currentUser) => {
-               if (!user) {
+               if (currentUser) {
                     setUser(currentUser);
-                    console.log("Usuario logeado == ", currentUser);
                } else {
                     setUser(null);
                }
+               console.log("Usuario logeado == ", currentUser);
                setLoading(false);
                new Promise(resolve => setTimeout(resolve, 3000));
           });

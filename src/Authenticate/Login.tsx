@@ -6,7 +6,6 @@ import { useHistory } from 'react-router';
 import { useAuth } from '../context/authContext';
 import { logoGoogle } from 'ionicons/icons';
 import { Link } from 'react-router-dom';
-import Header from './header';
 
 
 const Login: React.FC = () => {
@@ -16,9 +15,8 @@ const Login: React.FC = () => {
   const history = useHistory();
   const { loginUser, loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
-  //checkbox
-  const [checked, setChecked] = useState(false);
   const [busy, setBusy] = useState<boolean>(false);
+  const [present, dismiss] = useIonToast();
 
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
@@ -33,12 +31,13 @@ const Login: React.FC = () => {
         toast('Autenticación fallida');
       } else if (res === true) {
         setBusy(true);
-        toast("Bienvenido");
-      }
-    } catch (error: any) {
-      if (error.code === 'auth/email-already-in-use') {
-        toast("Este correo ya está en uso");
-      } else if (error.code === 'auth/invalid-email') {
+        setTimeout(() => {
+          history.push('/');
+        }, 2000);
+        toast("Bienvenido", "success");
+      } 
+    } catch (error : any) {
+      /* else if (error.code === 'auth/invalid-email') {
         toast('Correo no es válido');
       } else if (error.code === 'auth/user-not-found') {
         toast('Usuario no encontrado');
@@ -46,11 +45,9 @@ const Login: React.FC = () => {
         toast('Contraseña incorrecta');
       } else if (error.code === 'auth/network-request-failed') {
         toast('No hay conexión a internet');
-      }
+      } */
       toast(error.message);
     }
-    setBusy(false);
-    return false;
   }
 
   const handlerGoogleSignIn = async () => {
@@ -64,23 +61,26 @@ const Login: React.FC = () => {
     }
   }
 
-  const [present, dismiss] = useIonToast();
-  const toast = (message: string) => present({
-    buttons: [{ text: 'hide', handler: () => dismiss(),  }],
+  const toast = (message: string, color?: string) => present({
+    buttons: [{ text: 'hide', handler: () => dismiss(), }],
     message: message,
     duration: 2500,
     position: 'bottom',
-    color: 'danger',
+    color: color ? color : 'danger',
     animated: true,
   })
 
   return (
 
     <IonPage className="flex-cart form" id='container1'>
-      <Header/>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>UNIB.E</IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
       <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
-      
+
       <IonContent className="flex-cart login1 login form">
         <IonCard>
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
@@ -104,11 +104,6 @@ const Login: React.FC = () => {
                 <Link to='/reset-password' >Olvide mi contraseña</Link>
               </div>
 
-              {/* <IonItem lines='none'>
-                <IonLabel>Recordarme: {JSON.stringify(checked)}</IonLabel>
-                <IonCheckbox checked={checked} onIonChange={e => setChecked(e.detail.checked)} slot="start" />
-              </IonItem> */}
-
             </form>
             <IonRow>
               <IonCol />
@@ -124,7 +119,7 @@ const Login: React.FC = () => {
             </IonRow>
           </IonCardContent>
         </IonCard>
-        
+
       </IonContent>
     </IonPage>
 

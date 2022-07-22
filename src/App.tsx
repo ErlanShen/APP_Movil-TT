@@ -1,4 +1,4 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, RouteManagerContext, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
@@ -58,9 +58,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
 import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
-import MenuAdmin from './components/Menu_Admin';
 import { ProtectedRouter } from './context/ProtectedRouter';
-import { userInfo } from 'os';
 
 setupIonicReact();
 
@@ -71,11 +69,7 @@ const App: React.FC = () => {
         <IonApp>
           <IonReactRouter>
             <IonSplitPane contentId="main" >
-              <Route path="">
-                <Redirect to="/home" />
-              </Route>
 
-              <MenuAdmin />
               <Menu />
               <IonRouterOutlet id="main">
                 <Route path="/login">
@@ -88,6 +82,11 @@ const App: React.FC = () => {
                   <ResetPassword />
                 </Route>
 
+                <Route path="">
+                  <ProtectedRouter>
+                    <Redirect to="/home"/>
+                  </ProtectedRouter>
+                </Route>
                 <Route path="/home">
                   <ProtectedRouter>
                     <Home />
