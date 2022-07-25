@@ -38,9 +38,7 @@ export const ResetPassword: React.FC = () => {
 
   const handlerSubmit = async (evento: any) => {
     evento.preventDefault();
-    if (!email) {
-      setError('El correo es requerido');
-    }
+    if (!email) {setError('El correo es requerido');}
     try {
       const res = await resetPassword(email);
       if (!res) {

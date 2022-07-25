@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast, IonLoading } from '@ionic/react';
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
@@ -25,7 +25,7 @@ const Register: React.FC = () => {
   const { registerUser } = useAuth();
   const [error, setError] = useState('');
   const [presentAlert] = useIonAlert();
-
+  const [busy, setBusy] = useState(false);
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
@@ -41,10 +41,12 @@ const Register: React.FC = () => {
       toast('La contraseña no debe contener espacios');
     }
     else {
+      setBusy(true);
       try {
         await registerUser(displayName, email, password, carrera);
         toast("se a registrardo", "success");
         alerta();
+        setBusy(false);
         return true;
       } catch (error: any) {
         if (error.code === 'auth/email-already-in-use') {
@@ -57,6 +59,7 @@ const Register: React.FC = () => {
           toast('Error al registrarse');
         }
         toast(error.message);
+        setBusy(false);
         return false;
       }
     }
@@ -75,11 +78,11 @@ const Register: React.FC = () => {
     message: message,
     duration: 2500,
     position: 'bottom',
-    color: color = 'danger',
+    color: color ? color : 'danger',
     animated: true,
   })
   return (
-
+    
     <IonPage className="flex-cart form" id='container1'>
       <IonHeader id='color-background'>
         <IonToolbar>
@@ -133,10 +136,8 @@ const Register: React.FC = () => {
           </IonCardContent>
         </IonCard>
       </IonContent>
+      {/* Componenete loading */}<IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
     </IonPage>
-
-
-
   );
 };
 

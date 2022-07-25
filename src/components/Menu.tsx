@@ -65,20 +65,12 @@ const Menu: React.FC = () => {
   const { logOutUser, loading, user } = useAuth();
   const location = useLocation();
   const history = useHistory();
+  const [busy , setBusy] = useState(false);
   const handleLogOut = async () => {
     await logOutUser();
     history.push('/login');
-    setRefreshing(refreshing => !refreshing);
-    onRefresh();
+    setBusy(true);
   }
-
-  const [refreshing, setRefreshing] = useState(false);
-  const onRefresh = async () => {
-    setRefreshing(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setRefreshing(false);
-  }
-
 
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
@@ -86,7 +78,7 @@ const Menu: React.FC = () => {
 
 
   if (loading) {
-    return <IonLoading message={"Porfavor espere..."} duration={0} isOpen={true} />;
+    return <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={true} />;
   }
 
   return (
@@ -143,11 +135,11 @@ const Menu: React.FC = () => {
           <IonCol/>
         </IonRow>
       </IonFooter>
+      {/* Componenete loading */}
+          <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={busy} />
     </IonMenu>
+          
   );
 };
-<IonRefresher slot="fixed">
-  <IonRefresherContent />
-</IonRefresher>
 
 export default Menu;

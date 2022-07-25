@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg, useIonToast } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg, useIonToast, IonLoading } from '@ionic/react';
 
 import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
@@ -15,18 +15,18 @@ const Login: React.FC = () => {
   const history = useHistory();
   const { loginUser, loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
-  //checkbox
-  const [checked, setChecked] = useState(false);
-
+  const [busy , setBusy] = useState(false);
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
+    setBusy(true);
     if (!correo || !contrasenia) {
       toast('El correo y la contraseña son requeridos');
     }
     try {
       const res = await loginUser(correo, contrasenia);
       history.push('/page/Home');
+      setBusy(false);
       console.log(`${res ? 'Login Success' : 'Login Failed'}`);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
@@ -38,19 +38,22 @@ const Login: React.FC = () => {
         toast('Usuario no encontrado');
       }
       toast(error.message);
+      setBusy(false);
     }
   }
 
   const handlerGoogleSignIn = async () => {
+    setBusy(true);
     try {
       const res = await loginWithGoogle();
-      
       if (res) {
         history.push('/page/Home');
+        setBusy(false);
       }
       console.log(`${res ? 'Login Success' : 'Login Failed'}`);
     } catch (error: any) {
       toast(error.message);
+      setBusy(false);
     }
   }
 
@@ -92,16 +95,9 @@ const Login: React.FC = () => {
                 <IonInput required type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
               <hr />
-
               <div className="below-form text">
                 <Link to='/reset-password' >Olvide mi contraseña</Link>
               </div>
-
-              {/* <IonItem lines='none'>
-                <IonLabel>Recordarme: {JSON.stringify(checked)}</IonLabel>
-                <IonCheckbox checked={checked} onIonChange={e => setChecked(e.detail.checked)} slot="start" />
-              </IonItem> */}
-
             </form>
             <IonRow>
               <IonCol />
@@ -117,11 +113,9 @@ const Login: React.FC = () => {
             </IonRow>
           </IonCardContent>
         </IonCard>
-        {error && <p>{error}</p>}
       </IonContent>
+      <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
     </IonPage>
-
-
   );
 };
 
