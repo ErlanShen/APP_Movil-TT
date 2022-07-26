@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>
+      <IonContent >
         <IonCard>
           <IonItem>
             <IonLabel id='talign'>¿Cuál de los siguientes enfoques corresponde a su investigación?</IonLabel>
