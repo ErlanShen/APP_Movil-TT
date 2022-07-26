@@ -58,6 +58,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
 import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
+import { ProtectedRouter } from './context/ProtectedRouter';
 
 
 
@@ -71,10 +72,12 @@ const App: React.FC = () => {
          
           <IonReactRouter>
           <IonSplitPane contentId="main">
-          <Menu/>
+            <ProtectedRouter>
+              <Menu />
+            </ProtectedRouter>
           <IonRouterOutlet id="main">
             <Route path="">
-              <Redirect to="/login" />
+              <Redirect to="/home" />
             </Route>
             <Route path="/login">
               <Login />
@@ -88,7 +91,9 @@ const App: React.FC = () => {
 
 
             <Route path="/home">
-              <Home />
+              <ProtectedRouter>
+                <Home />
+              </ProtectedRouter>
             </Route>
             <Route path="/cualitativo">
               <Cualitativo />

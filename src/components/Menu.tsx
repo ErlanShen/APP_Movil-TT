@@ -11,6 +11,7 @@ import {
   IonLoading,
   IonMenu,
   IonMenuToggle,
+  IonNote,
   IonRefresher,
   IonRefresherContent,
   IonRow,
@@ -42,12 +43,6 @@ const appPages: AppPage[] = [
     url: '/home',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp
-  },
-  {
-    title: 'Favoritos',
-    url: '/page/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
   },
   {
     title: 'Archivados',
@@ -88,8 +83,7 @@ const Menu: React.FC = () => {
 
         <IonList id="inbox-list">
           <IonListHeader>Bienvenido</IonListHeader>
-          {/* <IonNote>{user.displayName}</IonNote>
-          <IonNote>{user.email}</IonNote> */}
+          <IonNote>{user.email}</IonNote> 
           <hr />
           {appPages.map((appPage, index) => {
             return (
@@ -102,7 +96,6 @@ const Menu: React.FC = () => {
             );
           })}
         </IonList>
-
         <IonList id="labels-list">
           <IonListHeader>Recientes</IonListHeader>
           {labels.map((label, index) => (
@@ -112,9 +105,7 @@ const Menu: React.FC = () => {
             </IonItem>
           ))}
         </IonList>
-
-        <IonList>
-
+        <IonList id="labels-list">
           <IonItem>
             <IonIcon
               slot="start" icon={moon} className="component-icon component-icon-dark" />
