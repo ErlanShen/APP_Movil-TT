@@ -7,7 +7,6 @@ import { useAuth } from '../context/authContext';
 import { logoGoogle } from 'ionicons/icons';
 import { Link } from 'react-router-dom';
 
-
 const Login: React.FC = () => {
 
   const [correo, setCorreo] = useState('');
@@ -50,7 +49,7 @@ const Login: React.FC = () => {
         history.push('/page/Home');
         setBusy(false);
       }
-      console.log(`${res ? 'Login Success' : 'Login Failed'}`);
+      return (`${res ? toast('Inicio de sesión exitoso', 'success') : toast('Error de inicio de sesión','danger')}`);
     } catch (error: any) {
       toast(error.message);
       setBusy(false);
@@ -58,12 +57,12 @@ const Login: React.FC = () => {
   }
 
   const [present, dismiss] = useIonToast();
-  const toast = (message: string) => present({
+  const toast = (message: string, color? : string) => present({
     buttons: [{ text: 'hide', handler: () => dismiss() }],
     message: message,
     duration: 2500,
     position: 'bottom',
-    color: 'danger',
+    color: color ? color : 'warning',
     animated: true,
   })
 
@@ -88,11 +87,11 @@ const Login: React.FC = () => {
 
               <IonItem>
                 <IonLabel position="floating">Correo electrónico</IonLabel>
-                <IonInput required clearInput type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
+                <IonInput min={9} max={40} clear-on-edit={true} required={true} inputmode="email" clear-input={true} type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput required type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
+                <IonInput required show- clear-input={true} type="password" name='password' id='password' onIonChange={(e: any) => setContrasenia(e.target.value)} />
               </IonItem>
               <hr />
               <div className="below-form text">
@@ -118,5 +117,4 @@ const Login: React.FC = () => {
     </IonPage>
   );
 };
-
 export default Login;

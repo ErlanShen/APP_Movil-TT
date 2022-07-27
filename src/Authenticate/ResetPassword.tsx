@@ -22,7 +22,7 @@ import {
   IonCol
 } from "@ionic/react";
 
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -86,13 +86,12 @@ export const ResetPassword: React.FC = () => {
                 <IonInput required clearInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)}/>
               </IonItem>
             </form>
+            <hr />
             <IonRow>
               <IonCol />
               <IonCol size='10' className="below-form">
                 <IonButton id='tbut' color='warning' onClick={handlerSubmit}>Confirmar</IonButton>
-                <div className="below-form">
-                  <Link to='/login' >Volver a Inicio de Sesión</Link>
-                </div>
+                <IonButton className='below-form text' routerLink="/login" fill='clear' color='dark' id='tbut'>Volver a Inicio de Sesión</IonButton>
               </IonCol>
               <IonCol />
             </IonRow>
