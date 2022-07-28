@@ -24,7 +24,6 @@ const Cuantitativo: React.FC = () => {
   }, []);
 
   let contenido = data.map((element, index) => {
-    console.log(element)
     return (
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>

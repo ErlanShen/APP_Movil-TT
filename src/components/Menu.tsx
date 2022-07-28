@@ -67,10 +67,7 @@ const Menu: React.FC = () => {
 
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
-    setShowDarkMode(!showDarkMode);
   };
-
-  const [showDarkMode, setShowDarkMode] = useState(false);
 
 
   return (

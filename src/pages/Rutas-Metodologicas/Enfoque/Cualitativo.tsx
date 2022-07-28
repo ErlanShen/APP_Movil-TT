@@ -54,7 +54,7 @@ const Cualitativo: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="end">
-            <IonMenuButton />
+            <IonMenuButton/>
           </IonButtons>
           <IonTitle >Rutas Metodológicas</IonTitle>
           <IonButtons slot="start">

@@ -79,7 +79,7 @@ const App: React.FC = () => {
                     <Redirect to="/exploreContainer" />
                   </Route>
                   <Route path="/login">
-                    <Login />
+                      <Login />
                   </Route>
                   <Route path="/register">
                     <Register />

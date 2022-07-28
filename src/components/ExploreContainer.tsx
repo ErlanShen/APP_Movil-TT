@@ -52,7 +52,7 @@ const ExploreContainer: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonMenuButton color='medium'/>
+            <IonMenuButton/>
           </IonButtons>
           <IonTitle>Enfoque</IonTitle>
         </IonToolbar>

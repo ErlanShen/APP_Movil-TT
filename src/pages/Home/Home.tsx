@@ -58,9 +58,9 @@ const Home: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonBackButton color='medium' />
+            <IonBackButton/>
           </IonButtons>
-          <IonTitle><h4>Rutas Metodológicas</h4></IonTitle>
+          <IonTitle><h5>Rutas Metodológicas</h5></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

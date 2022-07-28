@@ -32,7 +32,7 @@ ion-button ion-icon {
 
 ion-content ion-card {
      box-shadow: #3d3d3d 0px 0px 10px 0px;
-     --background-color: #dadada25;
+     --background-color: #bc07077a;
      display: flex table-row;
 }
 
