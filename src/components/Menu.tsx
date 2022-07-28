@@ -11,14 +11,13 @@ import {
   IonLoading,
   IonMenu,
   IonMenuToggle,
-  IonRefresher,
-  IonRefresherContent,
+  IonNote,
   IonRow,
   IonToggle,
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
 import { useState } from 'react';
@@ -42,12 +41,6 @@ const appPages: AppPage[] = [
     url: '/home',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp
-  },
-  {
-    title: 'Favoritos',
-    url: '/page/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
   },
   {
     title: 'Archivados',
@@ -88,8 +81,7 @@ const Menu: React.FC = () => {
 
         <IonList id="inbox-list">
           <IonListHeader>Bienvenido</IonListHeader>
-          {/* <IonNote>{user.displayName}</IonNote>
-          <IonNote>{user.email}</IonNote> */}
+          <IonNote>{user.email}</IonNote> 
           <hr />
           {appPages.map((appPage, index) => {
             return (
@@ -102,7 +94,6 @@ const Menu: React.FC = () => {
             );
           })}
         </IonList>
-
         <IonList id="labels-list">
           <IonListHeader>Recientes</IonListHeader>
           {labels.map((label, index) => (
@@ -112,9 +103,7 @@ const Menu: React.FC = () => {
             </IonItem>
           ))}
         </IonList>
-
-        <IonList>
-
+        <IonList id="labels-list">
           <IonItem>
             <IonIcon
               slot="start" icon={moon} className="component-icon component-icon-dark" />

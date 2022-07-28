@@ -1,6 +1,6 @@
 
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "../database/firebaseConfig";
 
@@ -70,6 +70,11 @@ export function AuthProvider({ children }) {
 
      const logOutUser = () => signOut(auth)
 
+     const getDataById = async (id) => {
+          const collectionDB = collection(Base, 'Datos-Contenido');
+          return await getDocs(collectionDB, id);
+     }
+
      return <authContext.Provider
-          value={{ registerUser, loginUser, logOutUser, loginWithGoogle, resetPassword, emailVerified, user, loading }}>{children}</authContext.Provider>;
+          value={{ getDataById, registerUser, loginUser, logOutUser, loginWithGoogle, resetPassword, emailVerified, user, loading }}>{children}</authContext.Provider>;
 };

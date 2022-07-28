@@ -1,5 +1,6 @@
 import React from 'react';
 import { IonButton, IonContent, useIonAlert } from '@ionic/react';
+import { navigate } from 'ionicons/icons';
 
 function AlertMessage() {
   const [presentAlert] = useIonAlert();
@@ -21,7 +22,7 @@ export function alert(message: string, color = 'warning') {
   const alert = document.createElement('ion-alert');
   alert.header = 'Alert';
   alert.message = message;
-  alert.buttons = [{ text: 'Aceptar', handler: () => console.log('alert closed') }];
+  alert.buttons = [{ text: 'Aceptar', handler: () => {} }];
   document.body.appendChild(alert);
   return alert.present();
 }

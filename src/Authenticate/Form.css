@@ -4,7 +4,6 @@
      align-items: center;
      height: 100%;
      width: 100%;
-     background-color: #e31f1f5b !important;
      padding: 20px;
      border-radius: 10px;
      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
@@ -14,6 +13,7 @@
 
 ion-page background-content {
      --background: var(--ion-color-tertiary-unibe);
+     --ion-background-color: #4395655a;
 }
 
 ion-button ion-icon {
@@ -23,12 +23,14 @@ ion-button ion-icon {
 
 ion-content ion-card {
      box-shadow: #3d3d3d 0px 0px 10px 0px;
-     background-color: #c6c6c600;
+     background-color: #1f6c669b;
      display: flex table-row;
 }
 
 ion-page ion-header ion-content ion-footer {
-     background-color: #a12a2a07;
+     background-color: #4395656c;
+    
+     --ion-background-color-rgb: 0, 0, 0, 50;
 
 }
 
