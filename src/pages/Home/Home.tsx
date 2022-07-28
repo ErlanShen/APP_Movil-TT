@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonMenuButton, IonCardHeader, IonCardTitle } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-import { useData } from '../../context/dataContext';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -14,7 +13,6 @@ const Home: React.FC = () => {
 
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
-  const [getOne, setGetOne] = useState();
 
   const dataExtract = async () => {
     const data = await fireStoreFunction();
@@ -35,7 +33,7 @@ const Home: React.FC = () => {
   
   let contenido = data.map((element, index) => {
     return (
-      <IonCard key={index}>
+      <IonCard key={index} class="cardComponent">
         <IonCardHeader>
           <IonCardTitle>{element.titulo}</IonCardTitle>
         </IonCardHeader>
@@ -56,11 +54,11 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Home</IonTitle>
+          <IonTitle >Rutas Metodológicas</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -69,6 +67,5 @@ const Home: React.FC = () => {
     </IonPage>
   );
 };
-
 
 export default Home;
