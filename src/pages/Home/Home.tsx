@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonMenuButton, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonContent, IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonMenuButton, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -24,16 +24,17 @@ const Home: React.FC = () => {
     setData(dataArray);
   }
   useEffect(() => {
-    /* let isMounted = true; */
+    let isMounted = true;
     dataExtract();
-    /* return () => {
+    return () => {
       isMounted = false
-    } */
+    }
   }, []);
   
   let contenido = data.map((element, index) => {
     return (
-      <IonCard key={index} class="cardComponent">
+      <div className='container'>
+        <IonCard key={index} class="cardComponent">
         <IonCardHeader>
           <IonCardTitle>{element.titulo}</IonCardTitle>
         </IonCardHeader>
@@ -47,7 +48,8 @@ const Home: React.FC = () => {
             <IonButton expand="full" color="warning" routerLink="/cualitativo">{element.BotonCual}</IonButton>
           </IonCardContent>
         </IonCardContent>
-      </IonCard>  
+      </IonCard> 
+      </div>
     )
   }
   )
@@ -56,9 +58,9 @@ const Home: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonBackButton color='medium' />
           </IonButtons>
-          <IonTitle >Rutas Metodológicas</IonTitle>
+          <IonTitle><h4>Rutas Metodológicas</h4></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

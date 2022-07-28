@@ -6,7 +6,7 @@ import { AuthProvider } from './context/authContext';
 
 /* Router */
 import Menu from './components/Menu';
-import Page from './pages/Page';
+import Page from './components/Page';
 import Login from './Authenticate/Login';
 import Register from './Authenticate/Register';
 import ResetPassword from './Authenticate/ResetPassword';
@@ -59,6 +59,7 @@ import './theme/variables.css';
 import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
 import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
 import { ProtectedRouter } from './context/ProtectedRouter';
+import ExploreContainer from './components/ExploreContainer';
 
 setupIonicReact();
 
@@ -75,7 +76,7 @@ const App: React.FC = () => {
 
                 <IonRouterOutlet id="main">
                   <Route path="">
-                    <Redirect to="/home" />
+                    <Redirect to="/exploreContainer" />
                   </Route>
                   <Route path="/login">
                     <Login />
@@ -141,11 +142,9 @@ const App: React.FC = () => {
                     <Explicativo />
                   </Route>
 
-
                   <Route path="/exploratorio">
                     <Exploratorio />
                   </Route>
-
 
                   <Route path="/transaccional">
                     <Transaccional />
@@ -214,8 +213,11 @@ const App: React.FC = () => {
                     < Documental />
                   </Route>
 
-                  <Route path="/page/:name">
+                  <Route path="/page">
                     <Page />
+                  </Route>
+                  <Route path="/exploreContainer">
+                    <ExploreContainer />
                   </Route>
 
                 </IonRouterOutlet>

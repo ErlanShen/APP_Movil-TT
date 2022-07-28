@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg, useIonToast, IonLoading } from '@ionic/react';
+import { IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonCol, IonItem, IonLabel, IonInput, IonIcon, IonHeader, IonToolbar, IonTitle, IonRow, IonImg, useIonToast, IonLoading } from '@ionic/react';
 
 import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
@@ -24,7 +24,7 @@ const Login: React.FC = () => {
     }
     try {
       const res = await loginUser(correo, contrasenia);
-      history.push('/page/Home');
+      history.push('/exploreContainer');
       setBusy(false);
       console.log(`${res ? 'Login Success' : 'Login Failed'}`);
     } catch (error: any) {
@@ -68,16 +68,14 @@ const Login: React.FC = () => {
 
   return (
 
-    <IonPage className="flex-cart form" id='container1'>
-
+    <IonPage id='container1'>
       <IonHeader>
         <IonToolbar>
           <IonTitle>UNIB.E</IonTitle>
         </IonToolbar>
       </IonHeader>
-
-      <IonContent className="flex-cart login1 login form">
-        <IonCard>
+        <div className='container'>
+          <IonCard>
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
             <IonCardTitle className='title'>Inicio de Sesión</IonCardTitle>
@@ -112,7 +110,7 @@ const Login: React.FC = () => {
             </IonRow>
           </IonCardContent>
         </IonCard>
-      </IonContent>
+        </div>
       <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
     </IonPage>
   );

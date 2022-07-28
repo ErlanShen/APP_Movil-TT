@@ -374,7 +374,14 @@ body.dark {
   --ion-card-background: #1e1e1e;
 }
 
-
+.container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 #container1{
   background-image: url("https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Fondo-UNIB.E.jpg?alt=media&token=3704db01-17a9-4950-89cc-3dc51a08a043");
@@ -416,7 +423,7 @@ background-content{
   font-size: medium;
   
 }
-ion-toolbar ion-title {
+ion-toolbar ion-title{
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
@@ -428,12 +435,14 @@ ion-toolbar ion-title {
 ion-button{
   text-transform: none;
 }
-
-
 ion-toolbar {
   --background:var(--ion-color-secondary-unibe);
   color: white;
+  height: 4.2rem;
+}
 
+ion-toolbar ion-buttons{
+  height: 4.2rem;
 }
 
 .component-icon {
