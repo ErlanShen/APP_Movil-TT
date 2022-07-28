@@ -16,3 +16,12 @@ function AlertMessage() {
   );
 }
 export default AlertMessage;
+
+export function alert(message: string, color = 'warning') {
+  const alert = document.createElement('ion-alert');
+  alert.header = 'Alert';
+  alert.message = message;
+  alert.buttons = [{ text: 'Aceptar', handler: () => console.log('alert closed') }];
+  document.body.appendChild(alert);
+  return alert.present();
+}

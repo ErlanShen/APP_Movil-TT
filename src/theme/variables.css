@@ -4,7 +4,7 @@ http://ionicframework.com/docs/theming/ */
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #2650f9;
+  --ion-color-primary: #1d2545;
   --ion-color-primary-rgb: 146, 148, 156;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 0, 0, 0;
@@ -27,6 +27,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
   --ion-color-tertiary-shade: #4854e0;
   --ion-color-tertiary-tint: #6370ff;
+  --ion-color-tertiary-unibe: #60606040;
 
   /** success **/
   --ion-color-success: #2dd36f;
@@ -380,6 +381,11 @@ body.dark {
   background-repeat: no-repeat;
   background-position:  50% 50%;
   background-size: cover;
+  background-attachment: fixed;
+  
+}
+background-content{
+  --background:var(--ion-color-tertiary-unibe);
 }
 
 #buttoncenter{
@@ -432,11 +438,9 @@ ion-toolbar {
 
 .component-icon {
   border-radius: 50%;
-
   padding: 7px;
   height: 18px;
   width: 18px;
-
   margin-top: 5px;
   margin-bottom: 5px;
 }

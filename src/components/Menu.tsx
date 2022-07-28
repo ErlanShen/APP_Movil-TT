@@ -1,5 +1,6 @@
 import {
   IonButton,
+  IonCol,
   IonContent,
   IonFooter,
   IonIcon,
@@ -7,17 +8,20 @@ import {
   IonLabel,
   IonList,
   IonListHeader,
+  IonLoading,
   IonMenu,
   IonMenuToggle,
   IonRefresher,
   IonRefresherContent,
+  IonRow,
   IonToggle,
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp} from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
+import { useState } from 'react';
 
 interface AppPage {
   url: string;
@@ -58,15 +62,15 @@ const labels = ['Notes', 'Reminders'];
 
 const Menu: React.FC = () => {
 
-  const { logOutUser, loading } = useAuth();
+  const { logOutUser, loading, user } = useAuth();
   const location = useLocation();
   const history = useHistory();
+  const [busy , setBusy] = useState(false);
   const handleLogOut = async () => {
     await logOutUser();
     history.push('/login');
+    setBusy(true);
   }
-
- 
 
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
@@ -74,7 +78,7 @@ const Menu: React.FC = () => {
 
 
   if (loading) {
-    return <div className="container"><strong>Loading...</strong></div>;
+    return <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={true} />;
   }
 
   return (
@@ -84,8 +88,9 @@ const Menu: React.FC = () => {
 
         <IonList id="inbox-list">
           <IonListHeader>Bienvenido</IonListHeader>
-          {/* <IonNote> {user.displayName}</IonNote>
-          <IonNote> {user.email}</IonNote> */}
+          {/* <IonNote>{user.displayName}</IonNote>
+          <IonNote>{user.email}</IonNote> */}
+          <hr />
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -109,7 +114,7 @@ const Menu: React.FC = () => {
         </IonList>
 
         <IonList>
-          
+
           <IonItem>
             <IonIcon
               slot="start" icon={moon} className="component-icon component-icon-dark" />
@@ -119,18 +124,22 @@ const Menu: React.FC = () => {
         </IonList>
       </IonContent>
       <IonFooter>
-        <IonList>
-          
-        </IonList>
+
       </IonFooter>
       <IonFooter>
-        <IonButton color="dark" fill='outline' shape="round" onClick={handleLogOut} id="bcenter" >Cerrar sesion</IonButton>
-    </IonFooter>
+        <IonRow class='space'>
+          <IonCol/>
+          <IonCol size='8'>
+            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >Cerrar sesion</IonButton>
+          </IonCol>
+          <IonCol/>
+        </IonRow>
+      </IonFooter>
+      {/* Componenete loading */}
+          <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={busy} />
     </IonMenu>
+          
   );
 };
-<IonRefresher slot="fixed">
-  <IonRefresherContent />
-</IonRefresher>
 
 export default Menu;

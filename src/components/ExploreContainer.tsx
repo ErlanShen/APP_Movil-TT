@@ -1,3 +1,4 @@
+import { IonButton } from '@ionic/react';
 import './ExploreContainer.css';
 
 interface ContainerProps {
@@ -9,12 +10,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     <div className="container">
       <strong>Bienvenidos</strong>
       <hr />
-      <p>Esta aplicacion te ayuda a crear tu ruta medologica para el desarrollo de trabajos de investigación</p>
+      <p>Esta aplicación te ayuda a crear tu ruta metodológica para el desarrollo de trabajos de investigación</p>
       <hr />
-      <p>Para empezar, selecciona una opción del menu</p>
-
+      <p>Para empezar, selecciona una opción del menú</p>
+      <hr />
+      <IonButton routerLink='/home/'>Empecemos</IonButton>
     </div>
-
   );
 };
 
