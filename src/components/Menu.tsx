@@ -57,7 +57,7 @@ const labels = ['Notes', 'Reminders'];
 
 const Menu: React.FC = () => {
 
-  const { logOutUser, loading, user } = useAuth();
+  const { logOutUser, user } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const [busy , setBusy] = useState(false);
@@ -69,12 +69,11 @@ const Menu: React.FC = () => {
 
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
+    setShowDarkMode(!showDarkMode);
   };
 
+  const [showDarkMode, setShowDarkMode] = useState(false);
 
-  if (loading) {
-    return <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={true} />;
-  }
 
   return (
 
@@ -84,8 +83,7 @@ const Menu: React.FC = () => {
         <IonList id="inbox-list">
           <IonListHeader>Bienvenido</IonListHeader>
           <hr />
-          <IonNote>{user.email}</IonNote> <br />
-          <IonNote>{user.name}</IonNote>
+          <IonNote>{user.email}</IonNote> 
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
