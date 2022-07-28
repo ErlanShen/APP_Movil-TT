@@ -98,7 +98,6 @@ export const ResetPassword: React.FC = () => {
 
           </IonCardContent>
         </IonCard>
-        {error && <p className='Error'>{error}</p>}
       </IonContent>
     </IonPage>
 

@@ -13,7 +13,7 @@
 
 ion-page background-content {
      --background: var(--ion-color-tertiary-unibe);
-     --ion-background-color: #4395655a;
+     --ion-background-color: #dddddd5a;
 }
 
 ion-button ion-icon {
@@ -23,7 +23,7 @@ ion-button ion-icon {
 
 ion-content ion-card {
      box-shadow: #3d3d3d 0px 0px 10px 0px;
-     background-color: #1f6c669b;
+     /*  background-color: #24242425;*/
      display: flex table-row;
 }
 
