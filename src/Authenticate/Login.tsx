@@ -26,7 +26,7 @@ const Login: React.FC = () => {
       const res = await loginUser(correo, contrasenia);
       history.push('/exploreContainer');
       setBusy(false);
-      console.log(`${res ? 'Login Success' : 'Login Failed'}`);
+      return(`${res ? toast('iniciar sesion Exitosa!', 'success') : toast('Fallo al iniciar sesion', 'danger')}`);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         toast("Correo ya está en uso");

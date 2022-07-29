@@ -3,13 +3,13 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardH
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
-const db = firestore;
-const fireStoreFunction = async () => {
-  const collectionDB = collection(db, 'Datos-Contenido');
-  return await getDocs(collectionDB);
-}
-const Cualitativo: React.FC = () => {
 
+const Cualitativo: React.FC = () => {
+  const db = firestore;
+  const fireStoreFunction = async () => {
+    const collectionDB = collection(db, 'Datos-Contenido');
+    return await getDocs(collectionDB);
+  }
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
 
@@ -23,11 +23,7 @@ const Cualitativo: React.FC = () => {
     setData(dataArray);
   }
   useEffect(() => {
-    let isMounted = true;
     dataExtract();
-    return () => {
-      isMounted = false
-    }
   }, []);
 
   let contenido = data.map((element, index) => {
@@ -41,9 +37,9 @@ const Cualitativo: React.FC = () => {
           </IonItem>
          </IonCardHeader>
         <IonCardContent>
-            <IonButton expand="full" color="warning" routerLink="/sociocrítico">{element.btsociocritico}</IonButton>
-            <IonButton expand="full" color="warning" routerLink="/interpretativo">{element.btinterpretativo}</IonButton>
-            <IonButton expand="full" color="warning" routerLink="/socio-construccionista">{element.btsocioconstr}</IonButton>
+            <IonButton color="warning" routerLink="/sociocrítico">{element.btsociocritico}</IonButton>
+            <IonButton color="warning" routerLink="/interpretativo">{element.btinterpretativo}</IonButton>
+            <IonButton color="warning" routerLink="/socio-construccionista">{element.btsocioconstr}</IonButton>
         </IonCardContent>
       </IonCard>
     )
@@ -57,9 +53,9 @@ const Cualitativo: React.FC = () => {
             <IonMenuButton/>
           </IonButtons>
           <IonTitle >Rutas Metodológicas</IonTitle>
-          <IonButtons slot="start">
+          {/* <IonButtons slot="start">
            <IonBackButton />
-         </IonButtons>
+         </IonButtons> */}
         </IonToolbar>
       </IonHeader>
       <IonContent>

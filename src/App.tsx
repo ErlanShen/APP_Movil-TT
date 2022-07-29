@@ -6,7 +6,6 @@ import { AuthProvider } from './context/authContext';
 
 /* Router */
 import Menu from './components/Menu';
-import Page from './components/Page';
 import Login from './Authenticate/Login';
 import Register from './Authenticate/Register';
 import ResetPassword from './Authenticate/ResetPassword';
@@ -60,6 +59,7 @@ import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
 import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
 import { ProtectedRouter } from './context/ProtectedRouter';
 import ExploreContainer from './components/ExploreContainer';
+import AccionParticipativa from './pages/Rutas-Metodologicas/Diseño/Cualitativo/AccionParticipativa';
 
 setupIonicReact();
 
@@ -213,9 +213,10 @@ const App: React.FC = () => {
                     < Documental />
                   </Route>
 
-                  <Route path="/page">
-                    <Page />
+                  <Route path="/accionParticipativa">
+                    <AccionParticipativa />
                   </Route>
+
                   <Route path="/exploreContainer">
                     <ExploreContainer />
                   </Route>
