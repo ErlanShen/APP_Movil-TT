@@ -55,7 +55,7 @@ export function AuthProvider({ children }) {
                     displayName: myUser.displayName,
                     photoURL: myUser.photoURL,
                     rol: "usuario",
-                    carrera: "",
+                    carrera : ""
                });
           });
      }
@@ -68,7 +68,7 @@ export function AuthProvider({ children }) {
           });
      })
 
-     const logOutUser = () => { signOut(auth); setUser(null); }
+     const logOutUser = () => { signOut(auth) }
 
      return <authContext.Provider
           value={{ registerUser, loginUser, logOutUser, loginWithGoogle, resetPassword, emailVerified, user, loading }}>{children}</authContext.Provider>;
