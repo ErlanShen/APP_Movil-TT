@@ -14,6 +14,7 @@ import {
   IonNote,
   IonRow,
   IonToggle,
+  useIonToast,
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
@@ -60,15 +61,31 @@ const Menu: React.FC = () => {
   const history = useHistory();
   const [busy, setBusy] = useState(false);
   const handleLogOut = async () => {
-    await logOutUser();
-    history.push('/login');
     setBusy(true);
+    setTimeout(() => {
+      const res = logOutUser();
+      history.push('/login');
+      setBusy(false);
+      return(`${res ? toast('ha cerrado sesión!', 'light') : toast('Fallo al cerrar sesión', 'danger')}`);
+    }, 2000);
+    
   }
+  const [present, dismiss] = useIonToast();
+    const toast = (message: string, color? : string) => present({
+    buttons: [{ text: 'hide', handler: () => dismiss() }],
+    message: message,
+    duration: 2500,
+    position: 'bottom',
+    color: color ? color : 'warning',
+    animated: true,
+  })
+  
 
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
   };
-
+  console.log(user);
+  
 
   return (
 

@@ -432,8 +432,9 @@ ion-toolbar ion-title{
   color: white;
 }
 
-ion-button{
+ion-button {
   text-transform: none;
+  
 }
 ion-toolbar {
   --background:var(--ion-color-secondary-unibe);

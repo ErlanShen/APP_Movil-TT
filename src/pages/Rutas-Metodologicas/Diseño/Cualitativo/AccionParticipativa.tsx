@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton, IonCardSubtitle, IonItem, IonButton } from '@ionic/react';
-import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../../../../database/firebaseConfig';
 
 
- const SocioCritico: React.FC = () => {
+ const AccionParticipativa: React.FC = () => {
   const db = firestore;
   const fireStoreFunction = async () => {
     const collectionDB = collection(db, 'Datos-Contenido');
@@ -17,7 +17,7 @@ import { collection, getDocs } from 'firebase/firestore';
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "socioCrit")
+      if (fire.id === "accionParticipativa")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -36,7 +36,7 @@ import { collection, getDocs } from 'firebase/firestore';
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton>
+          <IonButton expand="full" color="warning" routerLink="/">{element.button}</IonButton>
         </IonCardContent>
       </IonCard>
     )
@@ -49,7 +49,7 @@ import { collection, getDocs } from 'firebase/firestore';
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Paradigma</IonTitle>
+          <IonTitle>Diseño</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -58,38 +58,5 @@ import { collection, getDocs } from 'firebase/firestore';
     </IonPage>
   );
 }
-  /* return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle>Paradigma</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-          <IonCardHeader>
-          <IonCardTitle>Socio Critico</IonCardTitle>
-            <IonCardContent>
-            Descripcion Socio-Critico 
-          </IonCardContent>
-
-            <IonCardTitle id='tcenter'> Diseño  </IonCardTitle>
-            <IonCardSubtitle>Investigación Acción Participativa  </IonCardSubtitle>
-          </IonCardHeader>
-
-          <IonCardContent id='tjustify'>
-            Comprende un proceso de intervención directa en el contexto de estudio, donde se busca resolver las problemáticas
-           que surgen desde la voz de los actores sociales y procurando el aprovechamiento de las bondades que estos tienen;
-           ya que en esencia se direcciona a la trasformación y emancipación.
-          </IonCardContent>
-        </IonCard>
-
-        
-      </IonContent>
-    </IonPage>
-  ); */
-
-export default SocioCritico;
+ 
+export default AccionParticipativa;
