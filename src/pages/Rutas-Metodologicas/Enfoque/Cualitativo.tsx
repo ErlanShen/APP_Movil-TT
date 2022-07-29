@@ -87,9 +87,9 @@ const Cualitativo: React.FC = () => {
          </IonCardHeader>
 
          <IonCardContent>
-           <IonButton expand="full" color="warning" routerLink="/sociocrítico"> ¿Quieres transformar la realidad?</IonButton>
-           <IonButton expand="full" color="warning" routerLink="/interpretativo"> ¿Quieres interpretar la realidad?</IonButton>
-           <IonButton expand="full" color="warning" routerLink="/socio-construccionista"> ¿Quieres reconstruir la realidad?</IonButton>
+           <IonButton  color="warning" routerLink="/sociocrítico"> ¿Quieres transformar la realidad?</IonButton>
+           <IonButton  color="warning" routerLink="/interpretativo"> ¿Quieres interpretar la realidad?</IonButton>
+           <IonButton  color="warning" routerLink="/socio-construccionista"> ¿Quieres reconstruir la realidad?</IonButton>
          </IonCardContent>
        </IonCard>
      </IonContent>

@@ -89,8 +89,8 @@ const fireStoreFunction = async () => {
             <IonCardTitle id='tcenter'>¿En función del tiempo que necesitas?</IonCardTitle>
           </IonCardHeader >
             <IonCardContent >
-            <IonButton size="small" expand="full"  color="tertiary" routerLink="/transaccional">Un tiempo y momento unico</IonButton>
-            <IonButton  size='small' expand="full" color="tertiary" routerLink="/longitudinal"> Diferentes momentos en el tiempo</IonButton>
+            <IonButton size="small"   color="tertiary" routerLink="/transaccional">Un tiempo y momento unico</IonButton>
+            <IonButton  size='small'  color="tertiary" routerLink="/longitudinal"> Diferentes momentos en el tiempo</IonButton>
           </IonCardContent>
       </IonCardContent>
         </IonCard>

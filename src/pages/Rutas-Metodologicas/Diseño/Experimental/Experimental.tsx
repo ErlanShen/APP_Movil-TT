@@ -96,9 +96,9 @@ const Experimental: React.FC = () => {
             <IonCardTitle id='tcenter'> ¿Que nivel de manipulación necesitas?</IonCardTitle>
           </IonCardHeader >
             <IonCardContent >
-            <IonButton size="small" expand="full"  color="tertiary" routerLink="/experimentospuros">Alto</IonButton>
-            <IonButton size="small" expand="full" color="tertiary" routerLink="/cuasiexperimentos">Moderado </IonButton>
-            <IonButton size="small" expand="full" color="tertiary" routerLink="/preexperimento">Minimo</IonButton>
+            <IonButton size="small"   color="tertiary" routerLink="/experimentospuros">Alto</IonButton>
+            <IonButton size="small"  color="tertiary" routerLink="/cuasiexperimentos">Moderado </IonButton>
+            <IonButton size="small"  color="tertiary" routerLink="/preexperimento">Minimo</IonButton>
           </IonCardContent>
       </IonCardContent>
         </IonCard>

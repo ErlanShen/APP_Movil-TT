@@ -96,9 +96,9 @@ const fireStoreFunction = async () => {
           </IonCardHeader>
           
           <IonCardContent>
-            <IonButton expand="full" color="warning" routerLink="/correlacional"> Correlacional</IonButton>
-            <IonButton expand="full"  color="warning" routerLink="/descriptivo"> Descriptivo</IonButton>
-            <IonButton expand="full" color="warning" routerLink="/exploratorio"> Exploratorio</IonButton>
+            <IonButton  color="warning" routerLink="/correlacional"> Correlacional</IonButton>
+            <IonButton   color="warning" routerLink="/descriptivo"> Descriptivo</IonButton>
+            <IonButton  color="warning" routerLink="/exploratorio"> Exploratorio</IonButton>
           </IonCardContent>
         </IonCard>
       </IonContent>

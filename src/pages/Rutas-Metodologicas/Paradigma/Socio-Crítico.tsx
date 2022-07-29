@@ -36,7 +36,7 @@ import { collection, getDocs } from 'firebase/firestore';
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton>
+          <IonButton  color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton>
         </IonCardContent>
       </IonCard>
     )

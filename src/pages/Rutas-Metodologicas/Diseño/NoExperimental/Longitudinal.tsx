@@ -90,9 +90,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard,IonCardHe
         </IonCardHeader>
           
           <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/tendencia" id='tbut'> Describir el comportamiento de la variable en el tiempo</IonButton>
-          <IonButton expand="full"  color="warning" routerLink="/evoluciondegrupo" id='tbut'> Describir el comportamiento de un grupo en el tiempo</IonButton>
-          <IonButton expand="full" color="warning" routerLink="/panel" id='tbut'> Describir el comportamiento de un grupo especifico en el tiempo</IonButton>
+          <IonButton  color="warning" routerLink="/tendencia" id='tbut'> Describir el comportamiento de la variable en el tiempo</IonButton>
+          <IonButton   color="warning" routerLink="/evoluciondegrupo" id='tbut'> Describir el comportamiento de un grupo en el tiempo</IonButton>
+          <IonButton  color="warning" routerLink="/panel" id='tbut'> Describir el comportamiento de un grupo especifico en el tiempo</IonButton>
       </IonCardContent>
         </IonCard>
       </IonContent>

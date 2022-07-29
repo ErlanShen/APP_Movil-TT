@@ -37,8 +37,8 @@ const SocioContruccionista: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton>
-          <IonButton expand="full" color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton>
+          <IonButton  color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton>
+          <IonButton  color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton>
         </IonCardContent>
       </IonCard>
     )
@@ -80,8 +80,8 @@ const SocioContruccionista: React.FC = () => {
           <IonCardSubtitle>Especifica que quieres?</IonCardSubtitle>
       </IonCardHeader>
         <IonCardContent>
-        <IonButton expand="full" color="warning" routerLink="/narrativo">Narrativo</IonButton>
-        <IonButton expand="full"  color="warning" routerLink="/teoriafundamentada">Teoría Fundamentada</IonButton>
+        <IonButton  color="warning" routerLink="/narrativo">Narrativo</IonButton>
+        <IonButton   color="warning" routerLink="/teoriafundamentada">Teoría Fundamentada</IonButton>
         </IonCardContent>
       </IonCard>
     </IonContent>

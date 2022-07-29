@@ -98,7 +98,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardH
           </IonCardContent>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/campo">Fuentes primarias</IonButton>
+          <IonButton  color="warning" routerLink="/campo">Fuentes primarias</IonButton>
         </IonCardContent>
         </IonCard>
       </IonContent>

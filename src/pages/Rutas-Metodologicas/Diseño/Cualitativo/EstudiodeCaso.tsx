@@ -36,7 +36,7 @@ const EstudiodeCaso: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/">{element.button}</IonButton>
+          <IonButton  color="warning" routerLink="/">{element.button}</IonButton>
         </IonCardContent>
       </IonCard>
     )
