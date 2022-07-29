@@ -17,11 +17,10 @@ import {
 } from '@ionic/react';
 
 import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
-import './Menu.css';
+import { archiveOutline, archiveSharp, bookmarkOutline, closeOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import { useAuth } from '../context/authContext';
 import { useState } from 'react';
-
+import './Menu.css';
 interface AppPage {
   url: string;
   iosIcon: string;
@@ -32,7 +31,7 @@ interface AppPage {
 const appPages: AppPage[] = [
   {
     title: 'Inicio',
-    url: '/page/home',
+    url: '/exploreContainer',
     iosIcon: homeOutline,
     mdIcon: homeSharp
   },
@@ -55,10 +54,10 @@ const labels = ['Notes', 'Reminders'];
 
 const Menu: React.FC = () => {
 
-  const { logOutUser, loading, user } = useAuth();
+  const { logOutUser, user } = useAuth();
   const location = useLocation();
   const history = useHistory();
-  const [busy , setBusy] = useState(false);
+  const [busy, setBusy] = useState(false);
   const handleLogOut = async () => {
     await logOutUser();
     history.push('/login');
@@ -70,10 +69,6 @@ const Menu: React.FC = () => {
   };
 
 
-  if (loading) {
-    return <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={true} />;
-  }
-
   return (
 
     <IonMenu contentId="main" type="overlay">
@@ -81,8 +76,8 @@ const Menu: React.FC = () => {
 
         <IonList id="inbox-list">
           <IonListHeader>Bienvenido</IonListHeader>
-          <IonNote>{user.email}</IonNote> 
           <hr />
+          <IonNote>{user.email}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -117,17 +112,20 @@ const Menu: React.FC = () => {
       </IonFooter>
       <IonFooter>
         <IonRow class='space'>
-          <IonCol/>
+          <IonCol />
           <IonCol size='8'>
-            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >Cerrar sesion</IonButton>
+            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >
+              <IonIcon icon={closeOutline} size="large" slot="start" color='danger' />
+              Cerrar sesión
+            </IonButton>
           </IonCol>
-          <IonCol/>
+          <IonCol />
         </IonRow>
       </IonFooter>
       {/* Componenete loading */}
-          <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={busy} />
+      <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={busy} />
     </IonMenu>
-          
+
   );
 };
 

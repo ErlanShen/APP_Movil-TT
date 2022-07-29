@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast, IonLoading } from '@ionic/react';
+import { IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast, IonLoading } from '@ionic/react';
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
@@ -83,7 +83,7 @@ const Register: React.FC = () => {
   })
   return (
     
-    <IonPage className="flex-cart form" id='container1'>
+    <IonPage  id='container1'>
       <IonHeader id='color-background'>
         <IonToolbar>
           <IonButtons slot="start">
@@ -92,7 +92,7 @@ const Register: React.FC = () => {
           <IonTitle>UNIB.E</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <div className='container'>
         <IonCard>
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
@@ -135,7 +135,7 @@ const Register: React.FC = () => {
             </IonRow>
           </IonCardContent>
         </IonCard>
-      </IonContent>
+      </div>
       {/* Componenete loading */}<IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
     </IonPage>
   );
