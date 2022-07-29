@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonMenuButton, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
+import { IonContent, IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -29,6 +29,7 @@ const Home: React.FC = () => {
     return () => {
       isMounted = false
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   let contenido = data.map((element, index) => {
@@ -42,10 +43,10 @@ const Home: React.FC = () => {
         <IonItem>
             <IonLabel id='talign'>{element.Pregunta}</IonLabel>
           </IonItem>
-          <IonCardContent>
-            <IonButton expand="full" color="warning" routerLink="/cuantitativo">{element.BotonCuant}</IonButton>
+          <IonCardContent >
+            <IonButton  color="warning" routerLink="/cuantitativo">{element.BotonCuant}</IonButton>
             <hr />
-            <IonButton expand="full" color="warning" routerLink="/cualitativo">{element.BotonCual}</IonButton>
+            <IonButton  color="warning" routerLink="/cualitativo">{element.BotonCual}</IonButton>
           </IonCardContent>
         </IonCardContent>
       </IonCard> 
@@ -57,8 +58,8 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
-            <IonBackButton/>
+          <IonButtons  slot="start">
+            <IonBackButton />
           </IonButtons>
           <IonTitle><h5>Rutas Metodológicas</h5></IonTitle>
         </IonToolbar>

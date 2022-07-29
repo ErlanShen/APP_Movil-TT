@@ -24,6 +24,7 @@ import { collection, getDocs } from 'firebase/firestore';
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let contenido = data.map((element, index) => {
     return (
@@ -36,7 +37,7 @@ import { collection, getDocs } from 'firebase/firestore';
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/">{element.button}</IonButton>
+          <IonButton  color="warning" routerLink="/">{element.button}</IonButton>
         </IonCardContent>
       </IonCard>
     )

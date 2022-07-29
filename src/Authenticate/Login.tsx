@@ -100,10 +100,10 @@ const Login: React.FC = () => {
               <IonCol />
               <IonCol size='9' className="below-form">
                 <IonButton color="warning" onClick={handlerSubmit} id='tbut'>Iniciar sesión</IonButton>
-                <IonButton color='primary' onClick={handlerGoogleSignIn} id='tbut'>
+               {/*  <IonButton color='primary' onClick={handlerGoogleSignIn} id='tbut'>
                   <IonIcon icon={logoGoogle} size="large" slot="start" color='light'/>
                   Iniciar sesión con Google
-                </IonButton>
+                </IonButton> */}
                 <IonButton className='below-form text' routerLink="/register" fill='clear' color='dark' id='tbut'>Registrarme</IonButton>
               </IonCol>
               <IonCol />

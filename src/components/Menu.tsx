@@ -19,10 +19,9 @@ import {
 
 import { useLocation, useHistory } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, closeOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
-import './Menu.css';
 import { useAuth } from '../context/authContext';
 import { useState } from 'react';
-
+import './Menu.css';
 interface AppPage {
   url: string;
   iosIcon: string;

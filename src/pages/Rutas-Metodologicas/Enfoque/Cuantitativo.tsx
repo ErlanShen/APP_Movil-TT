@@ -38,6 +38,7 @@ const Cuantitativo: React.FC = () => {
           </IonCardContent>
       </IonCard>
     )}
+
   )
   return (
     <IonPage>

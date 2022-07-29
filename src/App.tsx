@@ -18,7 +18,6 @@ import SocioCritico from './pages/Rutas-Metodologicas/Paradigma/Socio-Crítico';
 import SocioContruccionista from './pages/Rutas-Metodologicas/Paradigma/Socio-Construccionista';
 import Experimental from './pages/Rutas-Metodologicas/Diseño/Experimental/Experimental';
 import NoExperimental from './pages/Rutas-Metodologicas/Diseño/NoExperimental/No experimental';
-import FunciondelTiempo from './pages/Rutas-Metodologicas/Diseño/NoExperimental/FunciondelTiempo';
 import Explicativo from './pages/Rutas-Metodologicas/Nivel/Explicativo';
 import Descriptivo from './pages/Rutas-Metodologicas/Nivel/Descriptivo';
 import Correlacional from './pages/Rutas-Metodologicas/Nivel/Correlacional';
@@ -123,10 +122,6 @@ const App: React.FC = () => {
 
                   <Route path="/no-experimental">
                     <NoExperimental />
-                  </Route>
-
-                  <Route path="/funciondelTiempo">
-                    <FunciondelTiempo />
                   </Route>
 
                   <Route path="/correlacional">

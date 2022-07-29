@@ -23,6 +23,7 @@ const Interpretativo: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let contenido = data.map((element, index) => {
     return (
@@ -35,10 +36,10 @@ const Interpretativo: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton expand="full" color="warning" routerLink="/fenomenológico" id='tbut'>{element.btnfenomeno}</IonButton>
-          <IonButton expand="full" color="warning" routerLink="/hermenéutico" id='tbut'> {element.btnhermeneu}</IonButton>
-          <IonButton expand="full" color="warning" routerLink="/etnográfico" id='tbut'>{element.btnetnografico}</IonButton>
-          <IonButton expand="full" color="warning" routerLink="/estudiodecaso">{element.btnestudio}</IonButton>
+          <IonButton  color="warning" routerLink="/fenomenológico" id='tbut'>{element.btnfenomeno}</IonButton>
+          <IonButton  color="warning" routerLink="/hermenéutico" id='tbut'> {element.btnhermeneu}</IonButton>
+          <IonButton  color="warning" routerLink="/etnográfico" id='tbut'>{element.btnetnografico}</IonButton>
+          <IonButton  color="warning" routerLink="/estudiodecaso" id='tbut'>{element.btnestudio}</IonButton>
         </IonCardContent>
       </IonCard>
     )
@@ -81,10 +82,10 @@ const Interpretativo: React.FC = () => {
       </IonCardHeader>
         
         <IonCardContent>
-        <IonButton expand="full" color="warning" routerLink="/fenomenológico"  id='tbut'> Comprender el sentido y significado de un fenómeno </IonButton>
-        <IonButton expand="full"  color="warning" routerLink="/hermenéutico" id='tbut'> Comprender el sentido y significado que hay mas alla de las palabras</IonButton>
-        <IonButton expand="full" color="warning" routerLink="/etnográfico" id='tbut'> Comprender el comportamiento y cultura de una etnia</IonButton>
-        <IonButton expand="full" color="warning" routerLink="/estudiodecaso"> Comprender un caso en particular</IonButton>
+        <IonButton  color="warning" routerLink="/fenomenológico"  id='tbut'> Comprender el sentido y significado de un fenómeno </IonButton>
+        <IonButton   color="warning" routerLink="/hermenéutico" id='tbut'> Comprender el sentido y significado que hay mas alla de las palabras</IonButton>
+        <IonButton  color="warning" routerLink="/etnográfico" id='tbut'> Comprender el comportamiento y cultura de una etnia</IonButton>
+        <IonButton  color="warning" routerLink="/estudiodecaso"> Comprender un caso en particular</IonButton>
     </IonCardContent>
       </IonCard>
     </IonContent>
