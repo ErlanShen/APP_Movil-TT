@@ -88,7 +88,6 @@ const App: React.FC = () => {
                     <ResetPassword />
                   </Route>
 
-
                   <Route path="/home">
                     <ProtectedRouter>
                       <Home />
