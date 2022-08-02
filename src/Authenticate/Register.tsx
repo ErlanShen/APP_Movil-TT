@@ -63,8 +63,11 @@ const Register: React.FC = () => {
         return false;
       }
     }
-
-
+    setDisplayName("");
+    setEmail("");
+    setPassword("");
+    setCarrera("");
+    e.target.reset();
   }
   const alerta = () => presentAlert({
     header: 'Se a creado una nueva cuenta',

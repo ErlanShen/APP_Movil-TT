@@ -17,8 +17,8 @@ import {
   useIonToast,
 } from '@ionic/react';
 
-import { useLocation, useHistory } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, closeOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
+import { useLocation } from 'react-router-dom';
+import { archiveOutline, archiveSharp, bookmarkOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp, powerOutline } from 'ionicons/icons';
 import './Menu.css';
 import { useAuth } from '../context/authContext';
 import { useState } from 'react';
@@ -58,40 +58,33 @@ const Menu: React.FC = () => {
 
   const { logOutUser, user } = useAuth();
   const location = useLocation();
-  const history = useHistory();
   const [busy, setBusy] = useState(false);
   const handleLogOut = async () => {
     setBusy(true);
-    setTimeout(() => {
-      const res = logOutUser();
-      history.push('/login');
+    try {
+      logOutUser();
       setBusy(false);
-      return(`${res ? toast('ha cerrado sesión!', 'light') : toast('Fallo al cerrar sesión', 'danger')}`);
-    }, 2000);
-    
+      toast('ha cerrado sesión!', 'light')
+    } catch (error) {
+      toast('Fallo al cerrar sesión', 'danger')
+      setBusy(false);
+    }
   }
   const [present, dismiss] = useIonToast();
     const toast = (message: string, color? : string) => present({
     buttons: [{ text: 'hide', handler: () => dismiss() }],
     message: message,
-    duration: 2500,
+    duration: 2000,
     position: 'bottom',
     color: color ? color : 'warning',
     animated: true,
   })
-  
-
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
   };
-  console.log(user);
-  
-
   return (
-
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-
         <IonList id="inbox-list">
           <IonListHeader>Bienvenido</IonListHeader>
           <hr />
@@ -126,14 +119,11 @@ const Menu: React.FC = () => {
         </IonList>
       </IonContent>
       <IonFooter>
-
-      </IonFooter>
-      <IonFooter>
         <IonRow class='space'>
           <IonCol />
           <IonCol size='8'>
             <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >
-              <IonIcon icon={closeOutline} size="large" slot="start" color='danger' />
+              <IonIcon icon={powerOutline} size="large" slot="start" color='danger' />
               Cerrar sesión
             </IonButton>
           </IonCol>
@@ -141,9 +131,8 @@ const Menu: React.FC = () => {
         </IonRow>
       </IonFooter>
       {/* Componenete loading */}
-      <IonLoading message={"Porfavor espere..."} duration={1500} isOpen={busy} />
+      <IonLoading message={"Porfavor espere..."} duration={2000} isOpen={busy} />
     </IonMenu>
-
   );
 };
 

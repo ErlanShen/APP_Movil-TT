@@ -39,6 +39,7 @@ const Login: React.FC = () => {
       toast(error.message);
       setBusy(false);
     }
+    e.target.reset();
   }
 
   const handlerGoogleSignIn = async () => {
@@ -60,7 +61,7 @@ const Login: React.FC = () => {
   const toast = (message: string, color? : string) => present({
     buttons: [{ text: 'hide', handler: () => dismiss() }],
     message: message,
-    duration: 2500,
+    duration: 2000,
     position: 'bottom',
     color: color ? color : 'warning',
     animated: true,
@@ -85,7 +86,7 @@ const Login: React.FC = () => {
 
               <IonItem>
                 <IonLabel position="floating">Correo electrónico</IonLabel>
-                <IonInput min={9} max={40} clear-on-edit={true} required={true} inputmode="email" clear-input={true} type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
+                <IonInput min={9} max={40} clear-input={true} required={true} type="email" name='email' onIonChange={(e: any) => setCorreo(e.target.value)} />
               </IonItem>
               <IonItem>
                 <IonLabel position="floating">Contraseña</IonLabel>

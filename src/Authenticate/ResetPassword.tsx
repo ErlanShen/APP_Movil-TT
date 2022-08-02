@@ -35,24 +35,27 @@ export const ResetPassword: React.FC = () => {
   const { resetPassword } = useAuth();
   const history = useHistory();
 
-  const handlerSubmit = async (evento: any) => {
-    evento.preventDefault();
+  const handlerSubmit = async (e: any) => {
+    e.preventDefault();
     setError(error);
     if (!email) { setError('El correo es requerido'); }
     try {
-      const res = await resetPassword(email);
-      if (!res) {
-        console.log("se a reseteado");
-        alerta();
-      } else {
-        setError("Ingrese un correo valido");
-      }
+      await resetPassword(email).then((res : any) => {
+        if (!res) {
+          console.log("se a reseteado");
+          alerta();
+        } else {
+          console.log("Ingrese un correo valido");
+        }
+      });
     } catch (error: any) {
       if (error.code) {
         setError(error.message);
+        console.log(error);
       }
     }
-    return false;
+    setEmail("")
+    e.target.reset();
   }
   const alerta = () => presentAlert({
     header: 'Se a enviado un correo de recuperación',
@@ -63,41 +66,41 @@ export const ResetPassword: React.FC = () => {
 
   return (
 
-    <IonPage className="flex-cart form" id='container1'>
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton defaultHref={`/`} />
-            </IonButtons>
-            <IonTitle>UNIB.E</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <div className='container'>
-          <IonCard>
-            <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
-            <IonCardHeader>
-              <IonCardTitle className='title'>Restablecer Contraseña</IonCardTitle>
-            </IonCardHeader>
-            <IonCardContent>
-              <form onSubmit={handlerSubmit} className="form">
-                <IonItem>
-                  <IonLabel position="floating">Correo electrónico</IonLabel>
-                  <IonInput required clearInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
-                </IonItem>
-              </form>
-              <hr />
-              <IonRow>
-                <IonCol />
-                <IonCol size='10' className="below-form">
-                  <IonButton id='tbut' color='warning' onClick={handlerSubmit}>Confirmar</IonButton>
-                  <IonButton className='below-form text' routerLink="/login" fill='clear' color='dark' id='tbut'>Volver a Inicio de Sesión</IonButton>
-                </IonCol>
-                <IonCol />
-              </IonRow>
+    <IonPage className="form" id='container1'>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref={`/`} />
+          </IonButtons>
+          <IonTitle>UNIB.E</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <div className='container'>
+        <IonCard>
+          <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
+          <IonCardHeader>
+            <IonCardTitle className='title'>Restablecer Contraseña</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <form onSubmit={handlerSubmit} className="form">
+              <IonItem>
+                <IonLabel position="floating">Correo electrónico</IonLabel>
+                <IonInput required clearInput type="email" name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
+              </IonItem>
+            </form>
+            <hr />
+            <IonRow>
+              <IonCol />
+              <IonCol size='10' className="below-form">
+                <IonButton id='tbut' color='warning' onClick={handlerSubmit}>Confirmar</IonButton>
+                <IonButton className='below-form text' routerLink="/login" fill='clear' color='dark' id='tbut'>Volver a Inicio de Sesión</IonButton>
+              </IonCol>
+              <IonCol />
+            </IonRow>
 
-            </IonCardContent>
-          </IonCard>
-        </div>
+          </IonCardContent>
+        </IonCard>
+      </div>
     </IonPage>
 
 
