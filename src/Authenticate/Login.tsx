@@ -99,7 +99,7 @@ const Login: React.FC = () => {
             </form>
             <IonRow>
               <IonCol />
-              <IonCol size='9'>
+              <IonCol size='10'>
                 <IonButton color="warning" onClick={handlerSubmit}>Iniciar sesión</IonButton>
                {/*  <IonButton color='primary' onClick={handlerGoogleSignIn} id='tbut'>
                   <IonIcon icon={logoGoogle} size="large" slot="start" color='light'/>

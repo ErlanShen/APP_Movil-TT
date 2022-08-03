@@ -18,7 +18,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp, powerOutline } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, arrowForwardOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp, powerOutline, powerSharp } from 'ionicons/icons';
 import { useAuth } from '../context/authContext';
 import { useState } from 'react';
 import './Menu.css';
@@ -120,9 +120,9 @@ const Menu: React.FC = () => {
       <IonFooter>
         <IonRow class='space'>
           <IonCol />
-          <IonCol size='8'>
-            <IonButton color="danger" fill='outline' size='large' shape="round" onClick={handleLogOut} id="buttoncenter" >
-              <IonIcon icon={powerOutline} size="large" slot="start" color='danger' />
+          <IonCol size='11'>
+            <IonButton color="danger" shape="round" size='large' onClick={handleLogOut} id="buttoncenter" >
+              <IonIcon icon={powerSharp || powerOutline} size='large' slot="start" color='light'/>
               Cerrar sesión
             </IonButton>
           </IonCol>

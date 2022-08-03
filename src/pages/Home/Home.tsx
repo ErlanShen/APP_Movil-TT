@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
+import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -24,12 +24,7 @@ const Home: React.FC = () => {
     setData(dataArray);
   }
   useEffect(() => {
-    let isMounted = true;
     dataExtract();
-    return () => {
-      isMounted = false
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   let contenido = data.map((element, index) => {
@@ -37,6 +32,9 @@ const Home: React.FC = () => {
       <div className='container'>
         <IonCard key={index} class="cardComponent">
         <IonCardHeader>
+          <IonButtons  slot="start">
+            <IonBackButton />
+          </IonButtons>
           <IonCardTitle>{element.titulo}</IonCardTitle>
         </IonCardHeader>
         <IonCardContent>
@@ -44,7 +42,7 @@ const Home: React.FC = () => {
             <IonLabel id='talign'>{element.Pregunta}</IonLabel>
           </IonItem>
           <IonCardContent >
-            <IonButton  color="warning" routerLink="/cuantitativo">{element.BotonCuant}</IonButton>
+            <IonButton  color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton>
             <hr />
             <IonButton  color="warning" routerLink="/cualitativo">{element.BotonCual}</IonButton>
           </IonCardContent>
@@ -55,18 +53,16 @@ const Home: React.FC = () => {
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoLogo'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons  slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle><h5>Rutas Metodológicas</h5></IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
   );
 };

@@ -126,7 +126,7 @@ const Register: React.FC = () => {
             </form>
             <IonRow>
               <IonCol />
-              <IonCol size='9'>
+              <IonCol size='10'>
                 <IonButton color='warning' onClick={handlerSubmit}>Registrar</IonButton>
                 <IonButton className="btn-text" color="dark" fill="clear" routerLink="/login">Ya tengo una cuenta!</IonButton>
               </IonCol>

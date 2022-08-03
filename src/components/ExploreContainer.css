@@ -13,8 +13,7 @@
 }
 
 .container p {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin: 0.1rem 1rem;
   font-size: 16px;
   line-height: 22px;
   margin: 0;
@@ -23,4 +22,14 @@
 .cardComponent {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+.cart{
+  background-color: rgba(255, 255, 255, 0.88);
+  border-radius: 15px;
+  margin: 0.1rem 1rem 2rem;
+}
+.cart p{
+  margin: 0rem 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }

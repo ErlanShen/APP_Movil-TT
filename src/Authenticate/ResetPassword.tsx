@@ -95,7 +95,7 @@ export const ResetPassword: React.FC = () => {
             <hr />
             <IonRow>
               <IonCol />
-              <IonCol size='9'>
+              <IonCol size='10'>
                 <IonButton color='warning' onClick={handlerSubmit}>Confirmar</IonButton>
                 <IonButton className="btn-text" routerLink="/login" fill='clear' color='dark'>
                   Volver al inicio de sesión!
