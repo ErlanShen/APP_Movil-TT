@@ -405,7 +405,7 @@ body.dark {
   transform: translateY(-50%);
 }
 
-#container1{
+#fondoUnibe{
   background-image: url("https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Fondo-UNIB.E.jpg?alt=media&token=3704db01-17a9-4950-89cc-3dc51a08a043");
   background-repeat: no-repeat;
   background-position:  50% 50%;
@@ -461,6 +461,7 @@ ion-toolbar ion-title{
   font-size: 1.3rem;
   font-family: 'Times New Roman', Times, serif;
   color: white;
+  white-space: wrap !important;
 }
 
 ion-button {

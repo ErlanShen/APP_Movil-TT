@@ -1,4 +1,4 @@
-import { IonApp, IonButton, IonButtons, IonCard, IonContent, IonHeader, IonIcon, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonApp, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader, IonIcon, IonImg, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { firestore } from '../database/firebaseConfig';
@@ -33,28 +33,32 @@ const ExploreContainer: React.FC = () => {
   let contenido = data.map((element, index) => {
     return (
       <div className="container">
-        <IonCard key={index} class="cardComponent">
-          <strong>{element.saludo}</strong>
-          <hr />
-          <p>{element.parrafo1}</p>
-          <hr />
-          <p>{element.parrafo2}</p>
-          <hr />
-          <IonButton routerLink='/home/'>
-            <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />{element.button}</IonButton>
+      <IonCard key={index} class="cardComponent">
+      <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
+      <IonCardHeader>
+        <strong>{element.saludo}</strong>
+      </IonCardHeader>
+        <IonCardContent>
+         <p>{element.parrafo1}</p>
+        <hr />
+        <p>{element.parrafo2}</p>
+        <hr />
+        <IonButton routerLink='/home/'>
+          <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />{element.button}</IonButton>
+        </IonCardContent>
         </IonCard> 
-      </div>
+    </div>
     )
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
             <IonMenuButton/>
           </IonButtons>
-          <IonTitle>Enfoque</IonTitle>
+          <IonTitle>Rutas Metodológicas</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -63,33 +67,4 @@ const ExploreContainer: React.FC = () => {
     </IonPage>
   );
 };
-
-/*  return (
-   <IonPage>
-     <IonHeader >
-       <IonToolbar id='title-toolbar'>
-         <IonButtons slot="start">
-           <IonMenuButton />
-         </IonButtons>
-         <IonTitle size="large">Rutas Metodológicas</IonTitle>
-       </IonToolbar>
-     </IonHeader>
-     <div className="container">
-       <IonCard>
-         <strong>Bienvenidos</strong>
-         <hr />
-         <p>Esta aplicación te ayuda a crear tu ruta metodológica para el desarrollo de trabajos de investigación</p>
-         <hr />
-         <p>Para empezar, selecciona una opción del menú</p>
-         <hr />
-         <IonButton routerLink='/home/'>
-           <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />
-           Empecemos</IonButton>
-       </IonCard>
-     </div>
-   </IonPage>
-
- ); */
-
-
 export default ExploreContainer;
