@@ -57,29 +57,6 @@ import { collection, getDocs } from 'firebase/firestore';
       </IonContent>
     </IonPage>
   );
-  /* return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle>Diseño</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-          <IonCardHeader>
-          <IonCardTitle>Hermenéutico</IonCardTitle>
-          </IonCardHeader>
-
-          <IonCardContent id='tjustify'>
-           Descripcion de Hermenéutico
-           </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  ); */
 };
 
 export default Hermenéutico;

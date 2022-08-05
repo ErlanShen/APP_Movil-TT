@@ -16,6 +16,7 @@ ion-card {
 ion-input {
      size: large;
      font-size: large;
+     font-weight: lighter;
 }
 ion-item {
      --background: #ffffffb9 !important;

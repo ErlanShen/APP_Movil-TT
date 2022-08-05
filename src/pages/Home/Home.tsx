@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'>
+      <div className='container' key={element.id}>
         <IonCard key={index} class="cardComponent">
         <IonCardHeader>
           <IonButtons  slot="start">

@@ -54,8 +54,7 @@ export const ResetPassword: React.FC = () => {
         console.log(error);
       }
     }
-    setEmail("")
-    e.target.reset();
+    setEmail("");
   }
   
   const alerta = () => presentAlert({
