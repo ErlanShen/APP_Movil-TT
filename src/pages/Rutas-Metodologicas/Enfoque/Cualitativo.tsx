@@ -30,16 +30,16 @@ const Cualitativo: React.FC = () => {
     return (
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-           <IonCardTitle id='tcenter'>{element.titula}</IonCardTitle>
-           <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-           <IonItem>
-           <IonCardSubtitle>{element.subtitulo}</IonCardSubtitle>
+          <IonCardTitle id='tcenter'>{element.titula}</IonCardTitle>
+          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
+          <IonItem>
+            <IonCardSubtitle>{element.subtitulo}</IonCardSubtitle>
           </IonItem>
-         </IonCardHeader>
+        </IonCardHeader>
         <IonCardContent>
-            <IonButton color="warning" routerLink="/sociocrítico">{element.btsociocritico}</IonButton>
-            <IonButton color="warning" routerLink="/interpretativo">{element.btinterpretativo}</IonButton>
-            <IonButton color="warning" routerLink="/socio-construccionista">{element.btsocioconstr}</IonButton>
+          <IonButton color="warning" routerLink="/interpretativo">{element.btinterpretativo}</IonButton>
+          <IonButton color="warning" routerLink="/sociocrítico">{element.btsociocritico}</IonButton>
+          <IonButton color="warning" routerLink="/socio-construccionista">{element.btsocioconstr}</IonButton>
         </IonCardContent>
       </IonCard>
     )
@@ -50,7 +50,7 @@ const Cualitativo: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="end">
-            <IonMenuButton/>
+            <IonMenuButton />
           </IonButtons>
           <IonTitle >Rutas Metodológicas</IonTitle>
           {/* <IonButtons slot="start">
