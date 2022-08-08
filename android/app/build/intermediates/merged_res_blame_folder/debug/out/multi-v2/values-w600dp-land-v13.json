@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "io.ionic.starter.app-mergeDebugResources-17:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\3b9e0ac13152ba857b7a58850a14d229\\transformed\\material-1.3.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,51",
+                        "endOffsets": "105,157"
+                    }
+                }
+            ]
+        }
+    ]
+}

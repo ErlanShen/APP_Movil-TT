@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "App Ruta Metodológica",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

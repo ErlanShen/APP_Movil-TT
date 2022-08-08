@@ -405,13 +405,19 @@ body.dark {
   transform: translateY(-50%);
 }
 
-#container1{
+#fondoUnibe{
   background-image: url("https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Fondo-UNIB.E.jpg?alt=media&token=3704db01-17a9-4950-89cc-3dc51a08a043");
   background-repeat: no-repeat;
   background-position:  50% 50%;
   background-size: cover;
   background-attachment: fixed;
-  
+}
+#fondoLogo{
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_con_fondo.jpg?alt=media&token=8360f774-4997-40df-9b14-c3fb7b5e7b71");
+  background-repeat: no-repeat;
+  background-position:  50% 50%;
+  background-size: contain;
+  background-attachment: fixed;
 }
 background-content{
   --background:var(--ion-color-tertiary-unibe);
@@ -421,6 +427,15 @@ background-content{
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: justify;
+  font-size: 14px;
+  margin: -0.65rem;
+  height:auto;
+}
+
+
+#buttoncentertl{
+  height:auto;
 }
 
 
@@ -432,7 +447,12 @@ ion-button{
   display: flex;
   justify-content: center;
   align-items: center;
+  width:75%;
+  white-space: normal;
+  height: 2.90rem;
 }
+
+
 
 
 #tjustify{
@@ -449,10 +469,9 @@ ion-button{
 
 #tbut{
   white-space: normal;
-  width: 100%;
+  width: 75%;
   margin-top: 0.5rem;
-  font-size: small;
-  
+  font-size: 14px;
 }
 ion-toolbar ion-title{
   text-transform: uppercase;
@@ -461,12 +480,10 @@ ion-toolbar ion-title{
   font-size: 1.3rem;
   font-family: 'Times New Roman', Times, serif;
   color: white;
+  white-space: initial;
 }
 
-ion-button {
-  text-transform: none;
-  
-}
+
 ion-toolbar {
   --background:var(--ion-color-secondary-unibe);
   color: white;
@@ -490,4 +507,18 @@ ion-toolbar ion-buttons{
   background: var(--ion-color-step-850, #27323e);
   color: var(--ion-item-background, #fff);
 }
+
+.card{
+  background-color: rgba(255, 255, 255, 0.88);
+  border-radius: 15px;
+  margin: 0.1rem 1rem 0.1rem;
+
+}
+.card p{
+  margin: 0rem 1rem;
+  padding-bottom: 0.25rem;
+  font-size: 14px;
+}
+
+
 

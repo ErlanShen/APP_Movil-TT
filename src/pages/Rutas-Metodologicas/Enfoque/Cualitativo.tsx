@@ -46,16 +46,13 @@ const Cualitativo: React.FC = () => {
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="end">
-            <IonMenuButton/>
+          <IonButtons slot="start">
+          <IonBackButton />
           </IonButtons>
           <IonTitle >Rutas Metodológicas</IonTitle>
-          {/* <IonButtons slot="start">
-           <IonBackButton />
-         </IonButtons> */}
         </IonToolbar>
       </IonHeader>
       <IonContent>

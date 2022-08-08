@@ -1,5 +1,5 @@
 
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "../database/firebaseConfig";
@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
                     const docuRef = doc(Base, `Usuarios/${myUser.uid}`);
                     return setDoc(docuRef, {
                          uid: myUser.uid,
-                         email: myUser.email,
+                         email: myUser.email = email,
                          emailVerified: myUser.emailVerified,
                          displayName: myUser.displayName = name,
                          photoURL: myUser.photoURL,
@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
 
      const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-     const resetPassword = (email) => auth.sendPasswordResetEmail(auth, email);
+     const resetPassword = (email) => sendPasswordResetEmail(auth, email)
 
      const loginWithGoogle = () => {
           const googleProvider = new GoogleAuthProvider();
@@ -55,18 +55,19 @@ export function AuthProvider({ children }) {
                     displayName: myUser.displayName,
                     photoURL: myUser.photoURL,
                     rol: "usuario",
-                    carrera : ""
+                    carrera: ""
                });
           });
      }
 
      useEffect(() => {
-          onAuthStateChanged(auth, (currentUser) => {
+          const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
                setUser(currentUser);
                setLoading(false);
                new Promise(resolve => setTimeout(resolve, 3000));
           });
-     })
+          return () => unsubscribe();
+     }, [])
 
      const logOutUser = () => { signOut(auth) }
 
