@@ -1,68 +1,74 @@
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
+import { IonPage, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-
-const db = firestore;
-const fireStoreFunction = async () => {
-  const collectionDB = collection(db, 'Datos-Contenido');
-  return await getDocs(collectionDB);
-}
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
+import Header from '../../components/header';
 
 const Home: React.FC = () => {
-
+  const db = firestore;
+  const fireStoreFunction = async () => {
+    const collectionDB = collection(db, 'Datos-Contenido');
+    return await getDocs(collectionDB);
+  }
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
-
   const dataExtract = async () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.titulo === "Enfoque") 
-      dataArray.push(element.data());
+      if (fire.titulo === "Enfoque")
+        dataArray.push(element.data());
     })
     setData(dataArray);
-  }
+  };
   useEffect(() => {
     dataExtract();
   }, []);
-  
-  let contenido = data.map((element, index) => {
+  //metodo para almacenar el id del contenido seleccionado
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'select-enfoque',
+      value: button.id
+    });
+    history.push('/' + button.id);
+  };
+
+
+
+  let contenido = data.map((element) => {
     return (
       <div className='container' key={element.id}>
-        <IonCard key={index} class="cardComponent">
-        <IonCardHeader>
-          <IonButtons  slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonCardTitle>{element.titulo}</IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent>
-        <IonItem>
-            <IonLabel id='talign'>{element.Pregunta}</IonLabel>
-          </IonItem>
-          <IonCardContent >
-            <IonButton  color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton>
-            <hr />
-            <IonButton  color="warning" routerLink="/cualitativo">{element.BotonCual}</IonButton>
+        <IonCard class="cardComponent">
+          <IonCardHeader>
+            <IonButtons slot="start">
+              <IonBackButton />
+            </IonButtons>
+            <IonCardTitle>{element.titulo}</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <IonItem>
+              <IonLabel id='talign'>{element.Pregunta}</IonLabel>
+            </IonItem>
+            <IonCardContent>
+              <IonButton id='cuantitativo' color="warning" onClick={buttonHandler} >{element.BotonCuant}</IonButton>
+              <hr />
+              <IonButton id='cualitativo' color="warning" onClick={buttonHandler} >{element.BotonCual}</IonButton>
+            </IonCardContent>
           </IonCardContent>
-        </IonCardContent>
-      </IonCard> 
+        </IonCard>
       </div>
     )
   }
   )
   return (
     <IonPage id='fondoLogo'>
-      <IonHeader>
-        <IonToolbar id='title-toolbar'>
-          <IonButtons  slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
-        </IonToolbar>
-      </IonHeader>
-        {contenido}
+      <Header />
+      {contenido}
     </IonPage>
   );
 };

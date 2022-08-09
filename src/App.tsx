@@ -59,6 +59,7 @@ import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
 import { ProtectedRouter } from './context/ProtectedRouter';
 import ExploreContainer from './components/ExploreContainer';
 import AccionParticipativa from './pages/Rutas-Metodologicas/Diseño/Cualitativo/AccionParticipativa';
+import { Archivado } from './components/Archivado';
 
 setupIonicReact();
 
@@ -215,6 +216,10 @@ const App: React.FC = () => {
                     <ExploreContainer />
                   </Route>
 
+                  <Route path="/archivado">
+                    <Archivado />
+                  </Route>
+                  
                 </IonRouterOutlet>
               </IonSplitPane>
             </IonReactRouter>

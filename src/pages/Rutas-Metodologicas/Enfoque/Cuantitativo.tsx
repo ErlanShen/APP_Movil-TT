@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonCardSubtitle, IonItem } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-const db = firestore;
-const fireStoreFunction = async () => {
-  const collectionDB = collection(db, 'Datos-Contenido');
-  return await getDocs(collectionDB);
-}
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 const Cuantitativo: React.FC = () => {
+  const db = firestore;
+  const fireStoreFunction = async () => {
+    const collectionDB = collection(db, 'Datos-Contenido');
+    return await getDocs(collectionDB);
+  }
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
   const dataExtract = async () => {
@@ -22,7 +24,17 @@ const Cuantitativo: React.FC = () => {
   useEffect(() => {
     dataExtract();
   }, []);
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectParagima',
+      value: button.id
+   });
+   history.push('/'+button.id);
 
+  };
   let contenido = data.map((element, index) => {
     return (
       <IonCard key={index} class="cardComponent">
@@ -33,11 +45,12 @@ const Cuantitativo: React.FC = () => {
             <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
           </IonItem>
         </IonCardHeader>
-          <IonCardContent id='buttoncenter'>
-            <IonButton color="tertiary" routerLink="/positivista">{element.bt}</IonButton>
-          </IonCardContent>
+        <IonCardContent id='buttoncenter'>
+          <IonButton color="tertiary" id="positivista" onClick={buttonHandler}>{element.bt}</IonButton>
+        </IonCardContent>
       </IonCard>
-    )}
+    )
+  }
 
   )
   return (
@@ -45,7 +58,7 @@ const Cuantitativo: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonBackButton/>
+            <IonBackButton />
           </IonButtons>
           <IonTitle>Enfoque</IonTitle>
         </IonToolbar>

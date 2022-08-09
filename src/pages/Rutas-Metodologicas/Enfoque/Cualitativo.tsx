@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonItem, IonText, IonCardSubtitle, IonMenuButton } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
 
 const Cualitativo: React.FC = () => {
   const db = firestore;
@@ -22,6 +23,17 @@ const Cualitativo: React.FC = () => {
     })
     setData(dataArray);
   }
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectParagima',
+      value: button.id
+   });
+   history.push('/'+button.id);
+
+  };
   useEffect(() => {
     dataExtract();
   }, []);
@@ -37,9 +49,9 @@ const Cualitativo: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton color="warning" routerLink="/interpretativo">{element.btinterpretativo}</IonButton>
-          <IonButton color="warning" routerLink="/sociocrítico">{element.btsociocritico}</IonButton>
-          <IonButton color="warning" routerLink="/socio-construccionista">{element.btsocioconstr}</IonButton>
+          <IonButton color="warning" onClick={buttonHandler} id='interpretativo'>{element.btinterpretativo}</IonButton>
+          <IonButton color="warning" onClick={buttonHandler} id='sociocrítico'>{element.btsociocritico}</IonButton>
+          <IonButton color="warning" onClick={buttonHandler} id='socio-construccionista'>{element.btsocioconstr}</IonButton>
         </IonCardContent>
       </IonCard>
     )

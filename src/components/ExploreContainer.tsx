@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { firestore } from '../database/firebaseConfig';
 import './ExploreContainer.css';
 import { arrowForwardOutline } from 'ionicons/icons';
+import Header from './header';
 
 const ExploreContainer: React.FC = () => {
 
@@ -56,14 +57,7 @@ const ExploreContainer: React.FC = () => {
   )
   return (
     <IonPage id='fondoUnibe'>
-      <IonHeader>
-        <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Rutas Metodológicas</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header/>
       {contenido}
     </IonPage>
   );
