@@ -38,8 +38,6 @@ const Home: React.FC = () => {
     history.push('/' + button.id);
   };
 
-
-
   let contenido = data.map((element) => {
     return (
       <div className='container' key={element.id}>

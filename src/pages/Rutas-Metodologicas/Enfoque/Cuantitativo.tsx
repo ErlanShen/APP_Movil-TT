@@ -29,7 +29,7 @@ const Cuantitativo: React.FC = () => {
     event.preventDefault();
     const button: HTMLButtonElement = event.currentTarget;
     await Storage.set({
-      key: 'selectParagima',
+      key: 'selectParadigma',
       value: button.id
    });
    history.push('/'+button.id);

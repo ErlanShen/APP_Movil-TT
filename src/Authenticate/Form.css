@@ -7,9 +7,9 @@
      transform: translateY(-50%);
 }
 
-ion-card {
+.container ion-card {
      box-shadow: #9d9d9d 0px 0px 10px 5px;
-     background-color: rgba(206, 206, 206, 0.644);
+     background-color: rgba(206, 206, 206, 0.844);
      display: flex table-row;
      border-radius: 15px;
 }
