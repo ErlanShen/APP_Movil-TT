@@ -34,7 +34,7 @@ const Muestra: React.FC = () => {
           </IonItem>
         </IonCardHeader>
           <IonCardContent id='buttoncenter'>
-            <IonButton color="tertiary" routerLink="/positivista">{element.bt}</IonButton>
+            <IonButton color="tertiary" routerLink="/muestrafinita">{element.bt}</IonButton>
           </IonCardContent>
       </IonCard>
     )}

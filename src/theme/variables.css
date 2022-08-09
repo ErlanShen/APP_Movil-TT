@@ -434,11 +434,6 @@ background-content{
 }
 
 
-#buttoncentertl{
-  height:auto;
-}
-
-
 ion-button{
   text-transform: none;
   --padding-start: 3rem;
@@ -449,7 +444,7 @@ ion-button{
   align-items: center;
   width:75%;
   white-space: normal;
-  height: 2.90rem;
+  height: 2.5rem;
 }
 
 
@@ -467,12 +462,15 @@ ion-button{
     white-space: initial;
 }
 
-#tbut{
-  white-space: normal;
+
+
+#tbutl{
+  white-space: initial;
   width: 75%;
-  margin-top: 0.5rem;
-  font-size: 14px;
+  margin-top: 1rem;
+  font-size: 12px;
 }
+
 ion-toolbar ion-title{
   text-transform: uppercase;
   text-align: center;
@@ -511,14 +509,26 @@ ion-toolbar ion-buttons{
 .card{
   background-color: rgba(255, 255, 255, 0.88);
   border-radius: 15px;
+  padding-top: 0.25rem;
   margin: 0.1rem 1rem 0.1rem;
 
 }
 .card p{
   margin: 0rem 1rem;
+  padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  font-size: 14px;
+  
+}
+
+.tbut{
+  white-space: normal;
+  width: 75%;
+  margin-top: 1rem;
   font-size: 14px;
 }
 
-
+ion-item{
+  margin-top: 0 ;
+}
 

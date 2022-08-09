@@ -39,8 +39,8 @@ const Home: React.FC = () => {
           <div className='card'>
             <p>{element.Pregunta}</p>
           </div>
-          <div id='buttoncenter'><IonButton color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton></div>
-          <div id='buttoncenter'><IonButton color="warning" routerLink="/cualitativo" >{element.BotonCual}</IonButton></div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton></div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cualitativo" >{element.BotonCual}</IonButton></div>
           </IonCardContent>
       </IonCard> 
       </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardTitle, IonCardContent,IonButton,IonBackButton,IonButtons, IonItem} from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -29,37 +29,37 @@ const Panel: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <IonCard  key={index} class="cardComponent">
-        <IonCardHeader >
-          <IonCardTitle  id='tcenter'>{element.Titulo}</IonCardTitle>
-          <IonCardContent  id='tjustify'>{element.Descripcion}</IonCardContent>
-            <IonItem lines='none'  >
-            {element.Pregunta}
-            </IonItem>
-            </IonCardHeader>
-           <IonCardContent id='tcenter'>
-            <IonButton  color="tertiary" routerLink="/home">{element.BtnFin}</IonButton>   
-      </IonCardContent>
+      <div className='container'> 
+      <IonCard key={index} class="cardComponent">
+        <IonCardHeader>
+          <strong> {element.Titulo} </strong>
+        </IonCardHeader>
+          <IonCardContent >
+            <div className='card'>
+              <p> {element.Descripcion} </p>
+              <p>{element.Pregunta}</p>
+            </div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.BtnFin}</IonButton></div>
+          </IonCardContent>
       </IonCard>
-    )}
-    
+      </div>
+    )
+  } 
   )
 
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
-            <IonBackButton/>
+          <IonButtons  slot="start">
+            <IonBackButton />
           </IonButtons>
-          <IonTitle>Diseño</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
-  );    
+  );       
 };
 
 export default Panel;

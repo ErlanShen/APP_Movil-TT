@@ -40,7 +40,7 @@ const Explicativo: React.FC = () => {
               <p> {element.Descripcion} </p>
               <p>{element.Pregunta}</p>
             </div>
-            <div id='buttoncenter'><IonButton  color="tertiary" routerLink="/home">{element.BtnFin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.BtnFin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
