@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton, IonCardSubtitle, IonItem, IonButton } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -24,72 +24,43 @@ import { collection, getDocs } from 'firebase/firestore';
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let contenido = data.map((element, index) => {
     return (
+      <div className='container'> 
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonCardTitle id='tcenter'>{element.titulo}</IonCardTitle>
-          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-          <IonItem>
-            <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-          </IonItem>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-        <IonCardContent>
-          <IonButton  color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton>
-        </IonCardContent>
+          <IonCardContent >
+            <div className='card'>
+              <p> {element.descripcion} </p>
+
+              <p>{element.pregunta}</p>
+            </div>
+            <div id='buttoncenter'><IonButton  color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton></div>
+           </IonCardContent>
       </IonCard>
+      </div>
     )
+
+
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
+          <IonButtons  slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Paradigma</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
-  );
+  );    
 }
-  /* return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle>Paradigma</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-          <IonCardHeader>
-          <IonCardTitle>Socio Critico</IonCardTitle>
-            <IonCardContent>
-            Descripcion Socio-Critico 
-          </IonCardContent>
-
-            <IonCardTitle id='tcenter'> Diseño  </IonCardTitle>
-            <IonCardSubtitle>Investigación Acción Participativa  </IonCardSubtitle>
-          </IonCardHeader>
-
-          <IonCardContent id='tjustify'>
-            Comprende un proceso de intervención directa en el contexto de estudio, donde se busca resolver las problemáticas
-           que surgen desde la voz de los actores sociales y procurando el aprovechamiento de las bondades que estos tienen;
-           ya que en esencia se direcciona a la trasformación y emancipación.
-          </IonCardContent>
-        </IonCard>
-
-        
-      </IonContent>
-    </IonPage>
-  ); */
 
 export default SocioCritico;

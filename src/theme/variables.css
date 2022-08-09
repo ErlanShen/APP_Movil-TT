@@ -444,7 +444,7 @@ ion-button{
   align-items: center;
   width:75%;
   white-space: normal;
-  height: 2.5rem;
+  height: 2.75rem;
 }
 
 
@@ -526,6 +526,14 @@ ion-toolbar ion-buttons{
   width: 75%;
   margin-top: 1rem;
   font-size: 14px;
+}
+
+.tbutl{
+  white-space: normal;
+  width: 75%;
+  margin-top: 1rem;
+  font-size: 12px;
+  height: 3rem;
 }
 
 ion-item{

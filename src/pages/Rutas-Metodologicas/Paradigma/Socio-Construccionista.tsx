@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardSubtitle, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonItem } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -25,68 +25,45 @@ const SocioContruccionista: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let contenido = data.map((element, index) => {
     return (
+      <div className='container'> 
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonCardTitle id='tcenter'>{element.titulo}</IonCardTitle>
-          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-          <IonItem>
-            <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-          </IonItem>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-        <IonCardContent>
-          <IonButton  color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton>
-          <IonButton  color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton>
-        </IonCardContent>
+          <IonCardContent >
+            <div className='card'>
+              <p> {element.descripcion} </p>
+
+              <p>{element.pregunta}</p>
+            </div>
+            <div id='buttoncenter'><IonButton  color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton></div>
+            <div id='buttoncenter'><IonButton  color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton></div>
+            </IonCardContent>
       </IonCard>
+      </div>
     )
+
+
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
+          <IonButtons  slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Paradigma</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
   );
 }
-/* return (
-  <IonPage>
-    <IonHeader>
-      <IonToolbar>
-      <IonButtons slot="start">
-        <IonBackButton />
-      </IonButtons>
-        <IonTitle>Paradigma</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent>
-      <IonCard>
-      <IonCardHeader>
-          <IonCardTitle id='tcenter'>Socio Construccionista</IonCardTitle>
-            <IonCardContent id='tjustify'>
-              Descripcion Socio Construccionista
-            </IonCardContent>
-          <IonCardSubtitle>Especifica que quieres?</IonCardSubtitle>
-      </IonCardHeader>
-        <IonCardContent>
-        <IonButton  color="warning" routerLink="/narrativo">Narrativo</IonButton>
-        <IonButton   color="warning" routerLink="/teoriafundamentada">Teoría Fundamentada</IonButton>
-        </IonCardContent>
-      </IonCard>
-    </IonContent>
-  </IonPage>
-); */
 
 
 export default SocioContruccionista;

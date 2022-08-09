@@ -21,6 +21,7 @@ const Muestra: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let contenido = data.map((element, index) => {
