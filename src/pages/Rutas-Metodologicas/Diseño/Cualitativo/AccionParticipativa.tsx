@@ -39,7 +39,7 @@ import { firestore } from '../../../../database/firebaseConfig';
             <p>{element.pregunta}</p>
 
           </div>
-          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/home">{element.button}</IonButton></div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Tecnica de Recoleccion de datos">{element.button}</IonButton></div>
          
           </IonCardContent>
       </IonCard> 

@@ -3,11 +3,11 @@ import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonB
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
-const db = firestore;
-const fireStoreFunction = async () => {
-  const collectionDB = collection(db, 'Datos-Contenido');
-  return await getDocs(collectionDB);
-}
+  const db = firestore;
+  const fireStoreFunction = async () => {
+    const collectionDB = collection(db, 'Datos-Contenido');
+    return await getDocs(collectionDB);
+  }
 
 const Home: React.FC = () => {
 
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
     data.forEach(element => {
       const fire = element.data();
       if (fire.id === "Enfoque") 
-      dataArray.push(element.data());
+        dataArray.push(element.data());
     })
     setData(dataArray);
   }
@@ -27,22 +27,23 @@ const Home: React.FC = () => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   let contenido = data.map((element, index) => {
     return (
       <div className='container'>
         <IonCard key={index} class="cardComponent">
-        <IonCardHeader>
+          <IonCardHeader>
           <strong> {element.titulo} </strong>
-        </IonCardHeader>
-        <IonCardContent>
+          </IonCardHeader>
+          <IonCardContent>
           <div className='card'>
+          <p>{element.descripcion}</p>
             <p>{element.Pregunta}</p>
           </div>
           <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton></div>
           <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cualitativo" >{element.BotonCual}</IonButton></div>
           </IonCardContent>
-      </IonCard> 
+        </IonCard>
       </div>
     )
   }
@@ -57,7 +58,7 @@ const Home: React.FC = () => {
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-        {contenido}
+      {contenido}
     </IonPage>
   );
 };

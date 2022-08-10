@@ -39,7 +39,7 @@ import { collection, getDocs } from 'firebase/firestore';
 
               <p>{element.pregunta}</p>
             </div>
-            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/">{element.button}</IonButton>
+            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/home">{element.button}</IonButton>
         </div>
             </IonCardContent>
       </IonCard>

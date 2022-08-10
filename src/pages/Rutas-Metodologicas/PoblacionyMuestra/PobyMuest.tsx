@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
-import { firestore } from '../../../../database/firebaseConfig';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel } from '@ionic/react';
+import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-
 const db = firestore;
 const fireStoreFunction = async () => {
   const collectionDB = collection(db, 'Datos-Contenido');
   return await getDocs(collectionDB);
 }
-
-const Tendencia: React.FC = () => {
-
+const PobyMuest: React.FC = () => {
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
   const dataExtract = async () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "DisTend")
+      if (fire.id === "PobyMuest")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -29,24 +26,26 @@ const Tendencia: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
-        <IonCardHeader>
-          <strong> {element.Titulo} </strong>
-        </IonCardHeader>
-          <IonCardContent >
-            <div className='card'>
-              <p> {element.Descripcion} </p>
-              <p>{element.Pregunta}</p>
-            </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/muestra">{element.BtnFin}</IonButton></div>
-          </IonCardContent>
-      </IonCard>
-      </div>
-    )
-  } 
-  )
+        <div className='container'> 
+            <IonCard key={index} class="cardComponent">
+          <IonCardHeader>
+            <strong> {element.titulo} </strong>
+          </IonCardHeader>
+                <IonCardContent >
+                <div className='card'>
+                <p> {element.descripcion}</p>
+                <p>{element.pregunta}</p>
+                </div>
+                <div id='buttoncenter'><IonButton color="tertiary" routerLink="/Muestra Finita">{element.btnmf}</IonButton></div>
+                <div id='buttoncenter'><IonButton color="tertiary" routerLink="/Muestra Infinita">{element.btnmi}</IonButton></div>
+                </IonCardContent>
+            </IonCard>
+        </div>
+    )    
 
+}
+
+  )
   return (
     <IonPage id='fondoUnibe'>
       <IonHeader>
@@ -59,7 +58,7 @@ const Tendencia: React.FC = () => {
       </IonHeader>
         {contenido}
     </IonPage>
-  );       
-};
+  );   
+}
+export default PobyMuest;
 
-export default Tendencia;
