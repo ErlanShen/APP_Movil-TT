@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButtons, IonImg, IonBackButton, IonLabel, IonButton } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButtons, IonImg, IonBackButton, IonLabel, IonButton, IonContent } from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 const db = firestore;
@@ -54,7 +54,9 @@ const MuestraFinita: React.FC = () => {
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
+        <IonContent>
         {contenido}
+        </IonContent>
     </IonPage>
   ); 
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel, IonContent } from '@ionic/react';
-import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../../../database/firebaseConfig';
 
-
- const Hermenéutico: React.FC = () => {
+ const ActoresSociales: React.FC = () => {
   const db = firestore;
   const fireStoreFunction = async () => {
     const collectionDB = collection(db, 'Datos-Contenido');
@@ -17,7 +16,7 @@ import { collection, getDocs } from 'firebase/firestore';
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "Hermeneutico")
+      if (fire.id === "ActoresSociales")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -28,23 +27,27 @@ import { collection, getDocs } from 'firebase/firestore';
   }, []);
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container'>
+        <IonCard key={index} class="cardComponent">
         <IonCardHeader>
           <strong> {element.titulo} </strong>
         </IonCardHeader>
-          <IonCardContent >
-            <div className='card'>
-              <p> {element.descripcion} </p>
+        <IonCardContent>
+          <div className='card'>
+          <p>{element.descripcion}</p>
+            <p>{element.pregunta}</p>
 
-              <p>{element.pregunta}</p>
-            </div>
-            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Actores Sociales">{element.button}</IonButton>
-        </div>
-            </IonCardContent>
-      </IonCard>
+          </div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Tecnica de Recoleccion de información">{element.btnfin}</IonButton></div>
+         
+          </IonCardContent>
+      </IonCard> 
       </div>
     )
+
+
+
+
   }
   )
   return (
@@ -62,6 +65,6 @@ import { collection, getDocs } from 'firebase/firestore';
         </IonContent>
     </IonPage>
   );
-};
-
-export default Hermenéutico;
+}
+ 
+export default ActoresSociales;

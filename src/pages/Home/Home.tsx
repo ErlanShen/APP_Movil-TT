@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonLabel, IonButtons, IonCardHeader, IonBackButton } from '@ionic/react';
+import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonLabel, IonButtons, IonCardHeader, IonBackButton, IonContent } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -58,7 +58,9 @@ const Home: React.FC = () => {
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      {contenido}
+      <IonContent>
+        {contenido}
+        </IonContent>
     </IonPage>
   );
 };
