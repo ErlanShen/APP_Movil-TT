@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonCardSubtitle, IonItem } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonBackButton, IonButtons, IonImg, IonLabel, IonButton } from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 const db = firestore;
@@ -21,71 +21,41 @@ const MuestraInfinita: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let contenido = data.map((element, index) => {
     return (
-      <IonCard key={index} class="cardComponent">
+      <div className='container'> 
+          <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonCardTitle id='tcenter'>{element.id}</IonCardTitle>
-          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-          <IonItem>
-            <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-          </IonItem>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-          <IonCardContent id='buttoncenter'>
-            <IonButton color="tertiary" routerLink="/positivista">{element.bt}</IonButton>
-          </IonCardContent>
-      </IonCard>
-    )}
+              <IonCardContent >
+              <div className='card'>
+              <p> {element.descripcion}</p>
+              </div>
+              <IonImg class='imagengrande' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Formulas%20muestra%20infinitas.png?alt=media&token=4ed15080-aa5a-496c-9662-7aca680841bc"></IonImg>
+              <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Tecnica">{element.BtnFin}</IonButton></div>
+              </IonCardContent>
+          </IonCard>
+      </div>
+  )}
 
   )
   return (
     <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
-            <IonBackButton/>
+          <IonButtons  slot="start">
+            <IonBackButton />
           </IonButtons>
-          <IonTitle>Enfoque</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
   );
 }
-/*   return (
-    <IonPage >
-      <IonHeader>
-        <IonToolbar id='title-toolbar'>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle >Enfoque</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-        <IonCardHeader>
-          <IonCardTitle id='buttoncenter'>Cuantitivo </IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent id='tjustify'>
-          Carácter objetivo, debido a que el investigador observa, mide y manipula variables; 
-          desprendiéndose de sus propias creencias,siendo la relación entre éste y el fenómeno de estudio, 
-          independiente, es decir, lo que no puede medirse u observarse con precisión se descarta como “objeto” de estudio.
-        </IonCardContent>
-        <IonCardContent>
-            <IonCardContent id='buttoncenter'>
-            <IonButton color="tertiary" routerLink="/positivista"> Paradigma</IonButton>
-          </IonCardContent>
-      </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  );
-}; */
-
 export default MuestraInfinita;
 

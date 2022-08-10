@@ -41,10 +41,20 @@ import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
 import { ProtectedRouter } from './context/ProtectedRouter';
 import ExploreContainer from './components/ExploreContainer';
 import AccionParticipativa from './pages/Rutas-Metodologicas/Diseño/Cualitativo/AccionParticipativa';
-import Poblacion from './pages/Rutas-Metodologicas/PoblacionyMuestra/Poblacion';
-import Muestra from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/Muestra';
+import Muestra from './pages/Rutas-Metodologicas/PoblacionyMuestra/PobyMuest';
 import MuestraFinita from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/MuestraFinita';
 import MuestraInfinita from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/MuestraInfinita';
+import Tecnica from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Tecnica';
+import Instrumento from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Instrumento';
+import TecnicaRec from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/TecnicaRec';
+import Entrevista from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/Entrevista';
+import GuiondeEntrevista from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/GuionEntrevista';
+import GruposFocales from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/GruposFocales';
+import Observacion from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/Observacion';
+import Categorizacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/Categorizacion';
+import Codificacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/Codificacion';
+import Triangulacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/Triangulacion';
+import AnalisisInformacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/AnalisisInformacion';
 import { Archivado } from './components/Archivado';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -133,7 +143,7 @@ const App: React.FC = () => {
                     <Correlacional />
                   </Route>
 
-                  <Route path="/Exploratorio">
+                  <Route path="/descriptivo">
                     <Descriptivo />
                   </Route>
 
@@ -214,20 +224,60 @@ const App: React.FC = () => {
                     <AccionParticipativa />
                   </Route>
 
-                  <Route path="/Población">
-                    <Poblacion />
-                  </Route>
-
                   <Route path="/Muestra">
                     <Muestra />
                   </Route>
 
-                  <Route path="/Muestra finita">
+                  <Route path="/Muestra Finita">
                     <MuestraFinita />
                   </Route>
 
-                  <Route path="/Muestra infinita">
+                  <Route path="/Muestra Infinita">
                     <MuestraInfinita />
+                  </Route>
+
+                  <Route path="/Tecnica">
+                    <Tecnica />
+                  </Route>
+
+                  <Route path="/Instrumento">
+                    <Instrumento />
+                  </Route>
+
+                  <Route path="/Tecnica de Recoleccion de datos">
+                    <TecnicaRec />
+                  </Route>
+
+                  <Route path="/Entrevista">
+                    <Entrevista />
+                  </Route>
+
+                  <Route path="/Guion de Entrevista">
+                    <GuiondeEntrevista />
+                  </Route>
+
+                  <Route path="/Grupos Focales">
+                    <GruposFocales />
+                  </Route>
+
+                  <Route path="/Observacion">
+                    <Observacion />
+                  </Route>
+
+                  <Route path="/Analisis de Información">
+                    <AnalisisInformacion />
+                  </Route>
+
+                  <Route path="/Codificación">
+                    <Codificacion />
+                  </Route>
+
+                  <Route path="/Categorización">
+                    <Categorizacion />
+                  </Route>
+
+                  <Route path="/Triangulación">
+                    <Triangulacion />
                   </Route>
 
                   <Route path="/exploreContainer">
