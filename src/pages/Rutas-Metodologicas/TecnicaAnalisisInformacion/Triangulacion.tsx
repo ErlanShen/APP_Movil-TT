@@ -39,7 +39,7 @@ const Triangulacion: React.FC = () => {
               <p> {element.descripcion} </p>
               <p>{element.pregunta}</p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Instrumento">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
