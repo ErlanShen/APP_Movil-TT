@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardTitle, IonCardContent,IonButton,IonBackButton,IonButtons, IonCardSubtitle, IonItem, IonRow} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
+
 const db = firestore;
 const fireStoreFunction = async () => {
   const collectionDB = collection(db, 'Datos-Contenido');
@@ -26,6 +29,16 @@ const Experimental: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectSubdisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
 
   let contenido = data.map((element, index) => {
     return (
@@ -44,9 +57,9 @@ const Experimental: React.FC = () => {
         </IonCardHeader>
            <IonCardContent >
             <IonItem lines='none'>{element.Pregunta} </IonItem>
-            <IonButton color="tertiary" routerLink="/experimentospuros">{element.btnalt}</IonButton>
-            <IonButton color="tertiary" routerLink="/cuasiexperimentos">{element.btnmod} </IonButton>
-            <IonButton color="tertiary" routerLink="/preexperimento">{element.btnmin}</IonButton>
+            <IonButton color="tertiary" onClick={buttonHandler} id="experimentos puros">{element.btnalt}</IonButton>
+            <IonButton color="tertiary" onClick={buttonHandler} id="cuasiexperimentos">{element.btnmod} </IonButton>
+            <IonButton color="tertiary" onClick={buttonHandler} id="preexperimento">{element.btnmin}</IonButton>
           </IonCardContent>
       </IonCard>
     )}

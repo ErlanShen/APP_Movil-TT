@@ -4,6 +4,7 @@ import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { useHistory } from 'react-router';
 import { Storage } from '@capacitor/storage';
+
 const Cuantitativo: React.FC = () => {
   const db = firestore;
   const fireStoreFunction = async () => {
@@ -33,8 +34,8 @@ const Cuantitativo: React.FC = () => {
       value: button.id
    });
    history.push('/'+button.id);
-
   };
+
   let contenido = data.map((element, index) => {
     return (
       <IonCard key={index} class="cardComponent">
@@ -46,7 +47,7 @@ const Cuantitativo: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent id='buttoncenter'>
-          <IonButton color="tertiary" id="positivista" onClick={buttonHandler}>{element.bt}</IonButton>
+          <IonButton color="tertiary" id="Positivista" onClick={buttonHandler}>{element.bt}</IonButton>
         </IonCardContent>
       </IonCard>
     )
@@ -69,36 +70,6 @@ const Cuantitativo: React.FC = () => {
     </IonPage>
   );
 }
-/*   return (
-    <IonPage >
-      <IonHeader>
-        <IonToolbar id='title-toolbar'>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle >Enfoque</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-        <IonCardHeader>
-          <IonCardTitle id='buttoncenter'>Cuantitivo </IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent id='tjustify'>
-          Carácter objetivo, debido a que el investigador observa, mide y manipula variables; 
-          desprendiéndose de sus propias creencias,siendo la relación entre éste y el fenómeno de estudio, 
-          independiente, es decir, lo que no puede medirse u observarse con precisión se descarta como “objeto” de estudio.
-        </IonCardContent>
-        <IonCardContent>
-            <IonCardContent id='buttoncenter'>
-            <IonButton color="tertiary" routerLink="/positivista"> Paradigma</IonButton>
-          </IonCardContent>
-      </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  );
-}; */
 
 export default Cuantitativo;
 

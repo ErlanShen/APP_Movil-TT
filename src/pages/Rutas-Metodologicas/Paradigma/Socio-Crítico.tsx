@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton, IonCardSubtitle, IonItem, IonButton } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
  const SocioCritico: React.FC = () => {
   const db = firestore;
@@ -25,6 +26,17 @@ import { collection, getDocs } from 'firebase/firestore';
   useEffect(() => {
     dataExtract();
   }, []);
+
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectDisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
   let contenido = data.map((element, index) => {
     return (
       <IonCard key={index} class="cardComponent">
@@ -36,7 +48,7 @@ import { collection, getDocs } from 'firebase/firestore';
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton  color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton>
+          <IonButton  color="warning" id="Investigación acción participativa" onClick={buttonHandler}>{element.btnDisenio}</IonButton>
         </IonCardContent>
       </IonCard>
     )

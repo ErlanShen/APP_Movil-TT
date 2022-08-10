@@ -121,15 +121,15 @@ const App: React.FC = () => {
                     <Experimental />
                   </Route>
 
-                  <Route path="/no-experimental">
+                  <Route path="/no experimental">
                     <NoExperimental />
                   </Route>
 
-                  <Route path="/correlacional">
+                  <Route path="/Correlacional">
                     <Correlacional />
                   </Route>
 
-                  <Route path="/descriptivo">
+                  <Route path="/Exploratorio">
                     <Descriptivo />
                   </Route>
 
@@ -141,15 +141,13 @@ const App: React.FC = () => {
                     <Exploratorio />
                   </Route>
 
-                  <Route path="/transaccional">
+                  <Route path="/Transaccional o Transversal">
                     <Transaccional />
                   </Route>
 
                   <Route path="/longitudinal">
                     <Longitudinal />
                   </Route>
-
-
 
                   <Route path="/cuasiexperimentos">
                     <Cuasiexperimentos />
@@ -163,24 +161,24 @@ const App: React.FC = () => {
                     <Preexperimento />
                   </Route>
 
-                  <Route path="/estudiodecaso">
+                  <Route path="/Estudio de caso">
                     <EstudiodeCaso />
                   </Route>
 
-                  <Route path="/etnográfico">
+                  <Route path="/Etnográfico">
                     <Etnográfico />
                   </Route>
 
-                  <Route path="/fenomenológico">
+                  <Route path="/Fenomenológico">
                     <Fenomenológico />
                   </Route>
 
 
-                  <Route path="/hermenéutico">
+                  <Route path="/Hermenéutico">
                     <Hermenéutico />
                   </Route>
 
-                  <Route path="/teoriafundamentada">
+                  <Route path="/Teoría fundamentada">
                     <Teoriafundamentada />
                   </Route>
 
@@ -192,23 +190,23 @@ const App: React.FC = () => {
                     < Tendencia />
                   </Route>
 
-                  <Route path="/panel">
+                  <Route path="/De panel">
                     < Panel />
                   </Route>
 
-                  <Route path="/evoluciondegrupo">
+                  <Route path="/Evolución de grupos">
                     < EvoluciondeGrupo />
                   </Route>
 
-                  <Route path="/campo">
+                  <Route path="/De campo">
                     < Campo />
                   </Route>
 
-                  <Route path="/documental">
+                  <Route path="/Documental">
                     < Documental />
                   </Route>
 
-                  <Route path="/accionParticipativa">
+                  <Route path="/Accion participativa">
                     <AccionParticipativa />
                   </Route>
 

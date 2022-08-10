@@ -53,9 +53,9 @@ const Home: React.FC = () => {
               <IonLabel id='talign'>{element.Pregunta}</IonLabel>
             </IonItem>
             <IonCardContent>
-              <IonButton id='cuantitativo' color="warning" onClick={buttonHandler} >{element.BotonCuant}</IonButton>
+              <IonButton id='Cuantitativo' color="warning" onClick={buttonHandler} >{element.BotonCuant}</IonButton>
               <hr />
-              <IonButton id='cualitativo' color="warning" onClick={buttonHandler} >{element.BotonCual}</IonButton>
+              <IonButton id='Cualitativo' color="warning" onClick={buttonHandler} >{element.BotonCual}</IonButton>
             </IonCardContent>
           </IonCardContent>
         </IonCard>

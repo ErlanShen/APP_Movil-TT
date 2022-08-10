@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardSubtitle, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonItem } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const Interpretativo: React.FC = () => {
   const db = firestore;
@@ -23,8 +25,17 @@ const Interpretativo: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectDisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
   let contenido = data.map((element, index) => {
     return (
       <IonCard key={index} class="cardComponent">
@@ -36,10 +47,10 @@ const Interpretativo: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton  color="warning" routerLink="/fenomenológico" id='tbut'>{element.btnfenomeno}</IonButton>
-          <IonButton  color="warning" routerLink="/hermenéutico" id='tbut'> {element.btnhermeneu}</IonButton>
-          <IonButton  color="warning" routerLink="/etnográfico" id='tbut'>{element.btnetnografico}</IonButton>
-          <IonButton  color="warning" routerLink="/estudiodecaso" id='tbut'>{element.btnestudio}</IonButton>
+          <IonButton  color="warning" id="Fenomenológico" onClick={buttonHandler}>{element.btnfenomeno}</IonButton>
+          <IonButton  color="warning" id="Hermenéutico" onClick={buttonHandler}> {element.btnhermeneu}</IonButton>
+          <IonButton  color="warning" id="Etnográfico" onClick={buttonHandler}>{element.btnetnografico}</IonButton>
+          <IonButton  color="warning" id="Estudio de caso" onClick={buttonHandler}>{element.btnestudio}</IonButton>
         </IonCardContent>
       </IonCard>
     )

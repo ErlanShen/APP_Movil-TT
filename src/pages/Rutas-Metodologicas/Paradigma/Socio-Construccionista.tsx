@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardSubtitle, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonItem } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
 
 const SocioContruccionista: React.FC = () => {
 
@@ -26,6 +28,17 @@ const SocioContruccionista: React.FC = () => {
   useEffect(() => {
     dataExtract();
   }, []);
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectDisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
+  
   let contenido = data.map((element, index) => {
     return (
       <IonCard key={index} class="cardComponent">
@@ -37,8 +50,8 @@ const SocioContruccionista: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton  color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton>
-          <IonButton  color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton>
+          <IonButton  color="warning" id="Narrativo" onClick={buttonHandler}>{element.btnNarrativo}</IonButton>
+          <IonButton  color="warning" id="Teoría Fundamentada" onClick={buttonHandler}>{element.btnTeoriaF}</IonButton>
         </IonCardContent>
       </IonCard>
     )

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardTitle, IonCardContent,IonButton,IonBackButton,IonButtons, IonItem, IonCardSubtitle, IonRow} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonItem, IonCardSubtitle, IonRow } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-const db = firestore;
-const fireStoreFunction = async () => {
-  const collectionDB = collection(db, 'Datos-Contenido');
-  return await getDocs(collectionDB);
-} 
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const Positivista: React.FC = () => {
-
+  const db = firestore;
+  const fireStoreFunction = async () => {
+    const collectionDB = collection(db, 'Datos-Contenido');
+    return await getDocs(collectionDB);
+  }
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
   const dataExtract = async () => {
@@ -23,9 +24,18 @@ const Positivista: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectDisenio',
+      value: button.id
+    });
+    history.push('/' + button.id);
+  };
 
   let contenido = data.map((element, index) => {
     return (
@@ -34,28 +44,29 @@ const Positivista: React.FC = () => {
           <IonCardTitle id='tcenter'>{element.titulo}</IonCardTitle>
           <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
         </IonCardHeader>
-          <IonCardContent >
-            <IonItem>
-             <IonRow>
-                <IonCardSubtitle> <b>{element.preguntav}</b></IonCardSubtitle>
-                <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-              </IonRow>
-            </IonItem>
-          </IonCardContent>
-          <IonCardContent id='buttoncenter'>
-            <IonButton   color="tertiary" routerLink="/experimental"> {element.btnsi}</IonButton>
-            <IonButton   color="tertiary" routerLink="/no-experimental"> {element.btnno}</IonButton>
-          </IonCardContent>
+        <IonCardContent >
+          <IonItem>
+            <IonRow>
+              <IonCardSubtitle> <b>{element.preguntav}</b></IonCardSubtitle>
+              <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
+            </IonRow>
+          </IonItem>
+        </IonCardContent>
+        <IonCardContent id='buttoncenter'>
+          <IonButton color="tertiary" id="Experimental" onClick={buttonHandler}> {element.btnsi}</IonButton>
+          <IonButton color="tertiary" id="No Experimental" onClick={buttonHandler}> {element.btnno}</IonButton>
+        </IonCardContent>
       </IonCard>
-    )}
-    
+    )
+  }
+
   )
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonBackButton/>
+            <IonBackButton />
           </IonButtons>
           <IonTitle>Paradigma</IonTitle>
         </IonToolbar>

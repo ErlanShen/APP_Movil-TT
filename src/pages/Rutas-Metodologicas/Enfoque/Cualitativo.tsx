@@ -49,9 +49,9 @@ const Cualitativo: React.FC = () => {
           </IonItem>
         </IonCardHeader>
         <IonCardContent>
-          <IonButton color="warning" onClick={buttonHandler} id='interpretativo'>{element.btinterpretativo}</IonButton>
-          <IonButton color="warning" onClick={buttonHandler} id='sociocrítico'>{element.btsociocritico}</IonButton>
-          <IonButton color="warning" onClick={buttonHandler} id='socio-construccionista'>{element.btsocioconstr}</IonButton>
+          <IonButton color="warning" onClick={buttonHandler} id='Interpretativo'>{element.btinterpretativo}</IonButton>
+          <IonButton color="warning" onClick={buttonHandler} id='Sociocrítico'>{element.btsociocritico}</IonButton>
+          <IonButton color="warning" onClick={buttonHandler} id='Socio-construccionista'>{element.btsocioconstr}</IonButton>
         </IonCardContent>
       </IonCard>
     )

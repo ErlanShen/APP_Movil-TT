@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardTitle, IonCardContent,IonButton,IonBackButton,IonButtons, IonItem} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -27,6 +29,16 @@ const Preexperimento: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectNivel',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
 
   let contenido = data.map((element, index) => {
     return (
@@ -40,7 +52,7 @@ const Preexperimento: React.FC = () => {
             <IonItem lines='none'>
            {element.Pregunta}
            </IonItem>
-            <IonButton  color="tertiary" routerLink="/explicativo">{element.BtnNi}</IonButton>   
+            <IonButton  color="tertiary" id="Explicativo" onClick={buttonHandler}>{element.BtnNi}</IonButton>   
       </IonCardContent>
       </IonCard>
     )}
