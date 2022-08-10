@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { IonPage, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import Header from '../../components/header';
 import { Storage } from '@capacitor/storage';
 import { useHistory } from 'react-router';
-import Header from '../../components/header';
 
 const Home: React.FC = () => {
   const db = firestore;

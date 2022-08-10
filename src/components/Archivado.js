@@ -1,4 +1,4 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonItem, IonPage } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonIcon, IonItem, IonLabel, IonPage } from '@ionic/react';
 import './header';
 import "./ExploreContainer.css"
 import Header from './header';
@@ -26,32 +26,54 @@ export function Archivado() {
       setSubdisenio2(ssd2);
       const n = await Storage.get({ key: 'selectNivel' });
       setNivel(n);
+
+      /* // dejar en blanco al salir de la pagina
+      await Storage.set({ key: 'select-enfoque', value: '' });
+      await Storage.set({ key: 'selectParadigma', value: '' });
+      await Storage.set({ key: 'selectDisenio', value: '' });
+      await Storage.set({ key: 'selectSubdisenio', value: '' });
+      await Storage.set({ key: 'selectSubdisenio2', value: '' });
+      await Storage.set({ key: 'selectNivel', value: '' });
+
+    */
+
    }
+
+
+   // cargar los datos al entrar a la pagina
    useEffect(() => {
       getRoot();
    }, []);
+
 
    return (
       <div>
          <IonPage id='fondoUnibe'>
             <Header />
-            <IonCard className='container'>
-            <IonCardHeader>
-                  <IonCardTitle>
-                     <h3>Naturaleza de investigación</h3>
-                  </IonCardTitle>
-               </IonCardHeader>
 
-               <IonCardContent>
-                  {enfoque.value == null ? '' : <IonItem><h3>Enfoque : {enfoque.value}</h3></IonItem>}
-                  {paradigma.value == null ? '' : <IonItem><h3>Paradigma : {paradigma.value}</h3></IonItem>}
-                  {disenio.value == null ? '' : <IonItem><h3>Diseño : {disenio.value}</h3> </IonItem>}
-                  {subdisenio.value == null ? '' : <IonItem lines='none'><h3>Sub diseño : {subdisenio.value}</h3></IonItem>}
-                  {subdisenio2.value == null ? '' : <IonItem> <h3>Sub diseño : {subdisenio2.value}</h3></IonItem>}
-                  {nivel.value == null ? '' : <IonItem><h3>Nivel : {nivel.value}</h3></IonItem>}
-               </IonCardContent>
+            <IonContent >
+               <IonCard >
+                  <IonCardHeader color='success'>
+                     <IonCardTitle>
+                        <h3>Naturaleza de investigación</h3>
+                     </IonCardTitle>
+                  </IonCardHeader>
+                  <IonCardContent>
+                     <div className='naturaleza'>
+                        {enfoque.value == null ? '' : <IonItem><p>Enfoque : {enfoque.value}</p></IonItem>}
+                        {paradigma.value == null ? '' : <IonItem><p>Paradigma : {paradigma.value}</p></IonItem>}
+                        {disenio.value == null ? '' : <IonItem><p>Diseño : {disenio.value}</p> </IonItem>}
+                        {subdisenio.value == null ? '' : <IonItem lines='none'><p>Sub diseño : {subdisenio.value}</p></IonItem>}
+                        {subdisenio2.value == null ? '' : <IonItem> <p>Sub diseño : {subdisenio2.value}</p></IonItem>}
+                        {nivel.value == null ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
+                     </div>
+                  </IonCardContent>
 
-            </IonCard>
+               </IonCard>
+
+               
+            </IonContent>
+
          </IonPage>
       </div>
    );
