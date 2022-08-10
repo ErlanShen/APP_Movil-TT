@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonLabel, IonButtons, IonCardHeader, IonBackButton } from '@ionic/react';
+import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonButtons, IonCardHeader, IonMenuButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { Storage } from '@capacitor/storage';
@@ -17,14 +17,14 @@ const Home: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "Enfoque") 
-      dataArray.push(element.data());
+      if (fire.id === "Enfoque")
+        dataArray.push(element.data());
     })
     setData(dataArray);
   };
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   //metodo para almacenar el id del contenido seleccionado
   const history = useHistory();
@@ -42,17 +42,18 @@ const Home: React.FC = () => {
     return (
       <div className='container' key={index} >
         <IonCard class="cardComponent">
-        <IonCardHeader>
-          <strong> {element.titulo} </strong>
-        </IonCardHeader>
-        <IonCardContent>
-          <div className='card'>
-            <p>{element.Pregunta}</p>
-          </div>
-          <div id='buttoncenter'><IonButton className='tbut' id='Cuantitativo' color="warning" onClick={buttonHandler} >{element.BotonCuant}</IonButton></div>
-          <div id='buttoncenter'><IonButton className='tbut' id='Cualitativo' color="warning" onClick={buttonHandler} >{element.BotonCual}</IonButton></div>
+          <IonCardHeader>
+            <strong> {element.titulo} </strong>
+          </IonCardHeader>
+          <IonCardContent>
+            <div className='card'>
+              <p> {element.descripcion} </p>
+              <p>{element.Pregunta}</p>
+            </div>
+            <div id='buttoncenter'><IonButton className='tbut' id='Cuantitativo' color="warning" onClick={buttonHandler} >{element.BotonCuant}</IonButton></div>
+            <div id='buttoncenter'><IonButton className='tbut' id='Cualitativo' color="warning" onClick={buttonHandler} >{element.BotonCual}</IonButton></div>
           </IonCardContent>
-      </IonCard> 
+        </IonCard>
       </div>
     )
   }
@@ -61,13 +62,13 @@ const Home: React.FC = () => {
     <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons  slot="start">
-            <IonBackButton />
+          <IonButtons slot="start">
+            <IonMenuButton />
           </IonButtons>
-          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
+          <IonTitle>Rutas Metodológicas</IonTitle>
         </IonToolbar>
       </IonHeader>
-        {contenido}
+      {contenido}
     </IonPage>
   );
 };

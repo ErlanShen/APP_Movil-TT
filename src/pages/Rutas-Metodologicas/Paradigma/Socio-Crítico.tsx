@@ -40,8 +40,8 @@ import { Storage } from '@capacitor/storage';
   };
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'>
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}>
+      <IonCard class="cardComponent">
         <IonCardHeader>
           <strong> {element.titulo} </strong>
         </IonCardHeader>

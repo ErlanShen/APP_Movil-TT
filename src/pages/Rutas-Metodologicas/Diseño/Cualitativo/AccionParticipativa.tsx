@@ -31,7 +31,7 @@ import { firestore } from '../../../../database/firebaseConfig';
       <div className='container'>
         <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <strong> {element.titulo} </strong>
+          <strong>Diseño: {element.titulo} </strong>
         </IonCardHeader>
         <IonCardContent>
           <div className='card'>

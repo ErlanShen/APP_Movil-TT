@@ -43,10 +43,10 @@ const Cuasiexperimentos: React.FC = () => {
    
   
     return (
-      <div className='container'>
-        <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}>
+        <IonCard class="cardComponent">
         <IonCardHeader>
-          <strong> {element.Titulo} </strong>
+          <strong>Diseño: {element.Titulo} </strong>
         </IonCardHeader>
         <IonCardContent>
           <div className='card'>

@@ -149,19 +149,19 @@ const App: React.FC = () => {
                     <Transaccional />
                   </Route>
 
-                  <Route path="/longitudinal">
+                  <Route path="/Longitudinal">
                     <Longitudinal />
                   </Route>
 
-                  <Route path="/cuasiexperimentos">
+                  <Route path="/Cuasiexperimentos">
                     <Cuasiexperimentos />
                   </Route>
 
-                  <Route path="/experimentospuros">
+                  <Route path="/Experimentos puros">
                     <Experimentospuros />
                   </Route>
 
-                  <Route path="/preexperimento">
+                  <Route path="/Preexperimento">
                     <Preexperimento />
                   </Route>
 
@@ -186,11 +186,11 @@ const App: React.FC = () => {
                     <Teoriafundamentada />
                   </Route>
 
-                  <Route path="/narrativo">
+                  <Route path="/Narrativo">
                     < Narrativo />
                   </Route>
 
-                  <Route path="/tendencia">
+                  <Route path="/Tendencia">
                     < Tendencia />
                   </Route>
 
@@ -214,11 +214,11 @@ const App: React.FC = () => {
                     <AccionParticipativa />
                   </Route>
 
-                  <Route path="/poblacion">
+                  <Route path="/Población">
                     <Poblacion />
                   </Route>
 
-                  <Route path="/muestra">
+                  <Route path="/Muestra">
                     <Muestra />
                   </Route>
 

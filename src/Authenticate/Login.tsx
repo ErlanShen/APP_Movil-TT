@@ -12,7 +12,7 @@ const Login: React.FC = () => {
   const [correo, setCorreo] = useState('');
   const [contrasenia, setContrasenia] = useState('');
   const history = useHistory();
-  const { loginUser, loginWithGoogle } = useAuth();
+  const { loginUser } = useAuth();
   const [error, setError] = useState("");
   const [busy , setBusy] = useState(false);
   const handlerSubmit = async (e: any) => {
@@ -42,20 +42,6 @@ const Login: React.FC = () => {
     setContrasenia('');
     setCorreo('');
   }
-  /* const handlerGoogleSignIn = async () => {
-    setBusy(true);
-    try {
-      const res = await loginWithGoogle();
-      if (res) {
-        history.push('/page/Home');
-        setBusy(false);
-      }
-      return (`${res ? toast('Inicio de sesión exitoso', 'success') : toast('Error de inicio de sesión','danger')}`);
-    } catch (error: any) {
-      toast(error.message);
-      setBusy(false);
-    }
-  } */
   const [present, dismiss] = useIonToast();
   const toast = (message: string, color? : string) => present({
     buttons: [{ text: 'hide', handler: () => dismiss() }],
