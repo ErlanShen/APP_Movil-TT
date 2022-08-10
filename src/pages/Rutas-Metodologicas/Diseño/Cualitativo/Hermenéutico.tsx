@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel, IonContent } from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -39,7 +39,7 @@ import { collection, getDocs } from 'firebase/firestore';
 
               <p>{element.pregunta}</p>
             </div>
-            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/home">{element.button}</IonButton>
+            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Actores Sociales">{element.button}</IonButton>
         </div>
             </IonCardContent>
       </IonCard>
@@ -57,7 +57,9 @@ import { collection, getDocs } from 'firebase/firestore';
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
+        <IonContent>
         {contenido}
+        </IonContent>
     </IonPage>
   );
 };

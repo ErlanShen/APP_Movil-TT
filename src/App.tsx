@@ -56,6 +56,13 @@ import Codificacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion
 import Triangulacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/Triangulacion';
 import AnalisisInformacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/AnalisisInformacion';
 import { Archivado } from './components/Archivado';
+import Confiabilidad from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Confiabilidad';
+import Validezcual from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Validezcual';
+import Validezcuan from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Validezcuan';
+import DeConstructo from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeConstructo';
+import DeContenido from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeContenido';
+import ActoresSociales from './pages/Rutas-Metodologicas/ActoresSociales/ActoresS';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -224,6 +231,10 @@ const App: React.FC = () => {
                     <AccionParticipativa />
                   </Route>
 
+                  <Route path="/Actores Sociales">
+                    <ActoresSociales />
+                  </Route>
+
                   <Route path="/Muestra">
                     <Muestra />
                   </Route>
@@ -244,7 +255,7 @@ const App: React.FC = () => {
                     <Instrumento />
                   </Route>
 
-                  <Route path="/Tecnica de Recoleccion de datos">
+                  <Route path="/Tecnica de Recoleccion de información">
                     <TecnicaRec />
                   </Route>
 
@@ -279,6 +290,27 @@ const App: React.FC = () => {
                   <Route path="/Triangulación">
                     <Triangulacion />
                   </Route>
+
+                  <Route path="/Confiabilidad">
+                    <Confiabilidad />
+                  </Route>
+
+                  <Route path="/Validez">
+                    <Validezcual />
+                  </Route>
+
+                  <Route path="/Validez.">
+                    <Validezcuan />
+                  </Route>
+
+                  <Route path="/De constructo">
+                    <DeConstructo />
+                  </Route>
+
+                  <Route path="/De contenido ">
+                    <DeContenido />
+                  </Route>
+
 
                   <Route path="/exploreContainer">
                     <ExploreContainer />

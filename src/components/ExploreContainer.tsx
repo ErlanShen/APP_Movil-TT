@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonHeader, IonIcon, IonImg, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader, IonIcon, IonImg, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { firestore } from '../database/firebaseConfig';
@@ -67,7 +67,9 @@ const ExploreContainer: React.FC = () => {
           <IonTitle>Rutas Metodológicas</IonTitle>
         </IonToolbar>
       </IonHeader>
-      {contenido}
+      <IonContent>
+        {contenido}
+        </IonContent>
     </IonPage>
   );
 };

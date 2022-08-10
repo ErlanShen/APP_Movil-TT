@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -17,7 +17,7 @@ const GuiondeEntrevista: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "GEntrevista")
+      if (fire.id === "Gentrevista")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -39,7 +39,7 @@ const GuiondeEntrevista: React.FC = () => {
               <p> {element.descripcion} </p>
               <p>{element.pregunta}</p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Instrumento">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Validez">{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
@@ -57,7 +57,9 @@ const GuiondeEntrevista: React.FC = () => {
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
+        <IonContent>
         {contenido}
+        </IonContent>
     </IonPage>
   );       
 };

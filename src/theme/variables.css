@@ -412,17 +412,13 @@ body.dark {
   background-size: cover;
   background-attachment: fixed;
 }
+
 #fondoUnibe ion-content{
   --background : rgba(0, 0, 0, 0);
   margin: 0.1rem 1rem 2rem;
 }
-#fondoLogo{
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_con_fondo.jpg?alt=media&token=8360f774-4997-40df-9b14-c3fb7b5e7b71");
-  background-repeat: no-repeat;
-  background-position:  50% 50%;
-  background-size: contain;
-  background-attachment: fixed;
-}
+
+
 background-content{
   --background:var(--ion-color-tertiary-unibe);
 }

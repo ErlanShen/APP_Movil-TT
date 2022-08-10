@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonButtons, IonCardHeader, IonMenuButton } from '@ionic/react';
+import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonLabel, IonButtons, IonCardHeader, IonBackButton, IonContent } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { Storage } from '@capacitor/storage';
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         dataArray.push(element.data());
     })
     setData(dataArray);
-  };
+  }
   useEffect(() => {
     dataExtract();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
       key: 'select-enfoque',
       value: button.id
     });
-    
+
     history.push('/' + button.id);
   };
 
@@ -66,10 +66,12 @@ const Home: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Rutas Metodológicas</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      {contenido}
+      <IonContent>
+        {contenido}
+        </IonContent>
     </IonPage>
   );
 };

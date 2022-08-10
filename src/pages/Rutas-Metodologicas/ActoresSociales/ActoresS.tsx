@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButtons, IonBackButton, IonButton, IonLabel, IonContent } from '@ionic/react';
-import { firestore } from '../../../../database/firebaseConfig';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel, IonContent } from '@ionic/react';
 import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../../../database/firebaseConfig';
 
-
-const EstudiodeCaso: React.FC = () => {
+ const ActoresSociales: React.FC = () => {
   const db = firestore;
   const fireStoreFunction = async () => {
     const collectionDB = collection(db, 'Datos-Contenido');
@@ -17,7 +16,7 @@ const EstudiodeCaso: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "EstudiodeCaso")
+      if (fire.id === "ActoresSociales")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -28,21 +27,27 @@ const EstudiodeCaso: React.FC = () => {
   }, []);
   let contenido = data.map((element, index) => {
     return (
-      <div className='container' key={index}> 
-      <IonCard class="cardComponent">
+      <div className='container'>
+        <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <strong>Diseño: {element.titulo} </strong>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-          <IonCardContent >
-            <div className='card'>
-              <p> {element.descripcion} </p>
-              <p>{element.pregunta}</p>
-            </div>
-            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Actores Sociales">{element.button}</IonButton></div>
-            </IonCardContent>
-      </IonCard>
+        <IonCardContent>
+          <div className='card'>
+          <p>{element.descripcion}</p>
+            <p>{element.pregunta}</p>
+
+          </div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Tecnica de Recoleccion de información">{element.btnfin}</IonButton></div>
+         
+          </IonCardContent>
+      </IonCard> 
       </div>
-    )  
+    )
+
+
+
+
   }
   )
   return (
@@ -60,6 +65,6 @@ const EstudiodeCaso: React.FC = () => {
         </IonContent>
     </IonPage>
   );
-};
-
-export default EstudiodeCaso;
+}
+ 
+export default ActoresSociales;
