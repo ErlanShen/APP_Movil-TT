@@ -21,39 +21,40 @@ const MuestraInfinita: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-          <IonCard key={index} class="cardComponent">
-        <IonCardHeader>
-          <strong> {element.titulo} </strong>
-        </IonCardHeader>
-              <IonCardContent >
-              <div className='card'>
+      <div className='container' key={index} >
+        <IonCard>
+          <IonCardHeader>
+            <strong> {element.titulo} </strong>
+          </IonCardHeader>
+          <IonCardContent>
+            <IonImg class='imagengrande' src={element.url}></IonImg>
+            <div className='card'>
               <p> {element.descripcion}</p>
-              </div>
-              <IonImg class='imagengrande' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Formulas%20muestra%20infinitas.png?alt=media&token=4ed15080-aa5a-496c-9662-7aca680841bc"></IonImg>
-              <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Tecnica">{element.BtnFin}</IonButton></div>
-              </IonCardContent>
-          </IonCard>
+            </div>
+            <div id='buttoncenter'><IonButton className='tbut' color="tertiary" routerLink="/Tecnica">{element.BtnFin}</IonButton></div>
+          </IonCardContent>
+        </IonCard>
       </div>
-  )}
+    )
+  }
 
   )
   return (
     <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons  slot="start">
+          <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-        {contenido}
+      {contenido}
     </IonPage>
   );
 }

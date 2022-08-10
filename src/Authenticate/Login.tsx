@@ -4,7 +4,6 @@ import { IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButto
 import './Form.css';// Import the CSS file
 import { useHistory } from 'react-router';
 import { useAuth } from '../context/authContext';
-import { logoGoogle } from 'ionicons/icons';
 import { Link } from 'react-router-dom';
 
 const Login: React.FC = () => {

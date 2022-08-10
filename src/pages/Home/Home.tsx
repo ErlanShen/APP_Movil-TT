@@ -35,6 +35,7 @@ const Home: React.FC = () => {
       key: 'select-enfoque',
       value: button.id
     });
+    
     history.push('/' + button.id);
   };
 

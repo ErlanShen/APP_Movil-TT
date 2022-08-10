@@ -6,7 +6,6 @@ import './ExploreContainer.css';
 import { arrowForwardOutline } from 'ionicons/icons';
 
 const ExploreContainer: React.FC = () => {
-
   const db = firestore;
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
@@ -27,16 +26,17 @@ const ExploreContainer: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => {
       dataArray.length = 0;
     }
   }, []);
 
+
   let contenido = data.map((element, index) => {
     return (
       <div className="container" key={index}>
-        <IonCard  class="cardComponent">
+        <IonCard class="cardComponent">
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
             <strong>{element.saludo}</strong>
@@ -47,9 +47,9 @@ const ExploreContainer: React.FC = () => {
               <p>{element.parrafo2}</p>
             </div>
             <div id='buttoncenter'>
-            <IonButton  routerLink='/home/'>
-              <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />{element.button}
-            </IonButton>
+              <IonButton routerLink='/home/'>
+                <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />{element.button}
+              </IonButton>
             </div>
           </IonCardContent>
         </IonCard>

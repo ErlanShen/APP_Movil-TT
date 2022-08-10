@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButtons, IonImg, IonBackButton, IonLabel, IonButton } from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+
 const db = firestore;
 const fireStoreFunction = async () => {
   const collectionDB = collection(db, 'Datos-Contenido');
   return await getDocs(collectionDB);
 }
+
 const MuestraFinita: React.FC = () => {
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
@@ -26,24 +28,24 @@ const MuestraFinita: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-          <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}> 
+          <IonCard>
         <IonCardHeader>
           <strong> {element.titulo} </strong>
         </IonCardHeader>
               <IonCardContent >
+              <IonImg class='imagengrande' src={element.url}></IonImg>
               <div className='card'>
-              <p> {element.descripcion}</p>
+              <p> {element.descripcion.descrip}</p>
+              <p> {element.descripcion.c1}</p>
+              <p> {element.descripcion.c2}</p>
+              <p> {element.descripcion.c3}</p>
               </div>
-              <IonImg class='imagengrande' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/Formulas%20muestra%20finitas.png?alt=media&token=ec75e77e-b79f-497a-a1da-33b129467976"></IonImg>
               <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Tecnica">{element.BtnFin}</IonButton></div>
               </IonCardContent>
           </IonCard>
       </div>
-  )
-  }
-
-  )
+  )})
   return (
     <IonPage id='fondoUnibe'>
       <IonHeader>
@@ -57,7 +59,6 @@ const MuestraFinita: React.FC = () => {
         {contenido}
     </IonPage>
   ); 
-
 }
 export default MuestraFinita;
 

@@ -11,7 +11,21 @@ import {
 } from '@ionic/react';
 import "./ExploreContainer.css"
 import { Storage } from '@capacitor/storage';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+/*  export const reset = async () => {
+   await Storage.set({ key: 'select-enfoque', value: null });
+   await Storage.set({ key: 'selectParadigma', value: null });
+   await Storage.set({ key: 'selectDisenio', value: null });
+   await Storage.set({ key: 'selectSubdisenio', value: null });
+   await Storage.set({ key: 'selectSubdisenio2', value: null });
+   await Storage.set({ key: 'selectNivel', value: null });
+   await Storage.set({ key: 'selectTipo', value: null });
+   await Storage.set({ key: 'selectPyM', value: null });
+   await Storage.set({ key: 'selectTecnicaData', value: null });
+   await Storage.set({ key: 'selectTecnicaInfo', value: null });
+} */
+
 export function Archivado() {
    // seccion naturaleza de investigacion
    const [enfoque, setEnfoque] = useState('');
@@ -23,6 +37,9 @@ export function Archivado() {
    const [tipo, setTipo] = useState('');
    // seccion poblacion y muestra
    const [pym, setPyM] = useState('');
+   //seccion de tecnica de analisis de datos e informacion
+   const [tecnicaData, setTecnicaData] = useState('');
+   const [tecnicaInfo, setTecnicaInfo] = useState('');
 
    const getRoot = async () => {
       // seccion naturaleza de investigacion
@@ -41,22 +58,20 @@ export function Archivado() {
       const t = await Storage.get({ key: 'selectTipo' });
       setTipo(t);
       // seccion poblacion y muestra
+      const pym = await Storage.get({ key: 'selectPyM' });
+      setPyM(pym);
+      //seccion de tecnica de analisis de datos e informacion
+      const tecnicaData = await Storage.get({ key: 'selectTecnicaData' });
+      setTecnicaData(tecnicaData);
+      const tecnicaInfo = await Storage.get({ key: 'selectTecnicaInfo' });
+      setTecnicaInfo(tecnicaInfo);
 
       // si cargo el root, cargo los demas
       if (root.value) {
       }
    }
    //resetear los valores de los select una vez que se carga la pagina
-   const reset = async () => {
-      await Storage.set({ key: 'select-enfoque', value: null });
-      await Storage.set({ key: 'selectParadigma', value: null });
-      await Storage.set({ key: 'selectDisenio', value: null });
-      await Storage.set({ key: 'selectSubdisenio', value: null });
-      await Storage.set({ key: 'selectSubdisenio2', value: null });
-      await Storage.set({ key: 'selectNivel', value: null });
-      await Storage.set({ key: 'selectTipo', value: null });
-
-   }
+   
    useEffect(() => {
       getRoot();
 
@@ -74,10 +89,10 @@ export function Archivado() {
                </IonToolbar>
             </IonHeader>
             <IonContent >
-               <ion-refresher slot="fixed" onIonRefresh={reset}>
+              {/*  <ion-refresher slot="fixed" onIonRefresh={reset}>
                   <ion-refresher-content>
                   </ion-refresher-content>
-               </ion-refresher>
+               </ion-refresher> */}
                <div >
                   <IonCard class=''>
                      <IonCardHeader color='success'>
@@ -86,30 +101,63 @@ export function Archivado() {
                         </IonCardTitle>
                      </IonCardHeader>
                      <IonCardContent className='naturaleza'>
-                        {enfoque.value == null ? '' : <IonItem><p>Enfoque : {enfoque.value}</p></IonItem>}
-                        {paradigma.value == null ? '' : <IonItem><p>Paradigma : {paradigma.value}</p></IonItem>}
-                        {disenio.value == null ? '' : <IonItem><p>Diseño : {disenio.value}</p> </IonItem>}
-                        {subdisenio.value == null ? '' : <IonItem lines='none'><p>Sub diseño : {subdisenio.value}</p></IonItem>}
-                        {subdisenio2.value == null ? '' : <IonItem> <p>Sub diseño : {subdisenio2.value}</p></IonItem>}
-                        {nivel.value == null ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
-                        {tipo.value == null ? '' : <IonItem><p>Tipo : {tipo.value}</p></IonItem>}
+                        {enfoque.value == 'null' ? '' : <IonItem><p>Enfoque: {enfoque.value}</p></IonItem>}
+                        {paradigma.value == 'null' ? '' : <IonItem><p>Paradigma: {paradigma.value}</p></IonItem>}
+                        {/* {disenio.value == 'null' ? '' : <IonItem><p>Diseño: {disenio.value}</p> </IonItem>} */}
+                        {disenio.value == 'null' ? '' :
+                           <IonItem>
+                              <p>Diseño: {disenio.value}{subdisenio.value == 'null' ? '' : <>, {subdisenio.value}</>}{subdisenio2.value == 'null' ? "" : <>, {subdisenio2.value}</>}</p>
+                           </IonItem>
+                        }
+                        {/* {subdisenio.value == 'null' ? '' : <IonItem lines='none'><p>Sub diseño : {subdisenio.value}</p></IonItem>}
+                        {subdisenio2.value == 'null' ? '' : <IonItem> <p>Sub diseño : {subdisenio2.value}</p></IonItem>} */}
+                        {nivel.value == 'null' ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
+                        {tipo.value == 'null' ? '' : <IonItem><p>Tipo : {tipo.value}</p></IonItem>}
                      </IonCardContent>
                   </IonCard>
+                  {/* cuantitativo */}
+                  {pym.value == 'null' ? <IonCard hidden /> : 
+                     <IonCard >
+                        <IonCardHeader color='secondary'>
+                           <IonCardTitle>
+                              <h3>Población y Muestra</h3>
+                           </IonCardTitle>
+                        </IonCardHeader>
+                        <IonCardContent className='naturaleza'>
+                           <IonItem>
+                              <p>Fórmula: {pym.value}</p>
+                           </IonItem>
+                        </IonCardContent>
+                     </IonCard>
+                  }
+                  {tecnicaData.value == 'null' ? <IonCard hidden /> : 
+                     <IonCard >
+                        <IonCardHeader color='warning'>
+                           <IonCardTitle>
+                              <h3>Técnica de recolección de datos</h3>
+                           </IonCardTitle>
+                        </IonCardHeader>
+                        <IonCardContent className='naturaleza'>
+                           <IonItem><p>Intrumento: {tecnicaData.value}</p></IonItem>
+                        </IonCardContent>
+                     </IonCard>
+                  }
 
-                  <IonCard hidden>
-                     <IonCardHeader color='secondary'>
-                        <IonCardTitle>
-                           <h3>Poblacion y Muestra</h3>
-                        </IonCardTitle>
-                     </IonCardHeader>
-                     <IonCardContent className='naturaleza'>
-
-                       </IonCardContent>
-                  </IonCard>
+                  {tecnicaInfo.value == 'null' ? <IonCard hidden /> : (
+                     <IonCard >
+                        <IonCardHeader color='warning'>
+                           <IonCardTitle>
+                              <h3>Técnica de recolección de información</h3>
+                           </IonCardTitle>
+                        </IonCardHeader>
+                        <IonCardContent className='naturaleza'>
+                           <IonItem><p>Intrumento: {tecnicaInfo.value}</p></IonItem>
+                        </IonCardContent>
+                     </IonCard>
+                  )}
+                  
                </div>
-
             </IonContent>
-
          </IonPage>
       </div >
    );
