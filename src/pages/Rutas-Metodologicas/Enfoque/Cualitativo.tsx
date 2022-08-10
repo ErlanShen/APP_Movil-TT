@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
 
 const Cualitativo: React.FC = () => {
   const db = firestore;
@@ -22,6 +23,17 @@ const Cualitativo: React.FC = () => {
     })
     setData(dataArray);
   }
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectParadigma',
+      value: button.id
+   });
+   history.push('/'+button.id);
+
+  };
   useEffect(() => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,7 +41,7 @@ const Cualitativo: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
+      <div className='container'>
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>
           <strong> {element.titula} </strong>
@@ -40,9 +52,9 @@ const Cualitativo: React.FC = () => {
 
               <p>{element.subtitulo}</p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="warning" routerLink="/sociocrítico">{element.btsociocritico}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="warning" routerLink="/interpretativo">{element.btinterpretativo}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="warning" routerLink="/socio-construccionista">{element.btsocioconstr}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="warning" onClick={buttonHandler} id='Interpretativo'>{element.btsociocritico}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="warning" onClick={buttonHandler} id='Sociocrítico'>{element.btinterpretativo}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="warning" onClick={buttonHandler} id='Socio-construccionista'>{element.btsocioconstr}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
@@ -61,7 +73,6 @@ const Cualitativo: React.FC = () => {
       </IonHeader>
         {contenido}
     </IonPage>
-  );      
+  );
 }
 export default Cualitativo;
-

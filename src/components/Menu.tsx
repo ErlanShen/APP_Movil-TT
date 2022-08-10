@@ -44,7 +44,7 @@ const appPages: AppPage[] = [
   },
   {
     title: 'Archivados',
-    url: '/page/Archived',
+    url: '/archivado',
     iosIcon: archiveOutline,
     mdIcon: archiveSharp
   },

@@ -67,7 +67,6 @@ const Register: React.FC = () => {
     setEmail("");
     setPassword("");
     setCarrera("");
-    e.target.reset();
   }
   const alerta = () => presentAlert({
     header: 'Se a creado una nueva cuenta',

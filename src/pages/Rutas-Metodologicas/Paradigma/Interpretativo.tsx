@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const Interpretativo: React.FC = () => {
   const db = firestore;
@@ -23,8 +25,17 @@ const Interpretativo: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectDisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
   let contenido = data.map((element, index) => {
     return (
       <div className='container'> 
@@ -38,10 +49,18 @@ const Interpretativo: React.FC = () => {
 
               <p>{element.pregunta}</p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbutl' color="warning" routerLink="/fenomenológico" id='tbut'>{element.btnfenomeno}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbutl' color="warning" routerLink="/hermenéutico" id='tbut'> {element.btnhermeneu}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbutl' color="warning" routerLink="/etnográfico" id='tbut'>{element.btnetnografico}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbutl' color="warning" routerLink="/estudiodecaso" id='tbut'>{element.btnestudio}</IonButton></div>
+            <div id='buttoncenter'>
+              <IonButton  className='tbutl' color="warning" id="Fenomenológico" onClick={buttonHandler}>{element.btnfenomeno}</IonButton>
+            </div>
+            <div id='buttoncenter'>
+              <IonButton  className='tbutl' color="warning" id="Hermenéutico" onClick={buttonHandler}> {element.btnhermeneu}</IonButton>
+            </div>
+            <div id='buttoncenter'>
+              <IonButton  className='tbutl' color="warning" id="Etnográfico" onClick={buttonHandler}>{element.btnetnografico}</IonButton>
+            </div>
+            <div id='buttoncenter'>
+              <IonButton  className='tbutl' color="warning" id="Estudio de caso" onClick={buttonHandler}>{element.btnestudio}</IonButton>
+            </div>
            </IonCardContent>
       </IonCard>
       </div>

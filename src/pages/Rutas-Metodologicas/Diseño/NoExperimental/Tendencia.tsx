@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {

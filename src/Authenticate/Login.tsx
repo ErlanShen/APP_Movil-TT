@@ -39,10 +39,10 @@ const Login: React.FC = () => {
       toast(error.message);
       setBusy(false);
     }
-    e.target.reset();
+    setContrasenia('');
+    setCorreo('');
   }
-
-  const handlerGoogleSignIn = async () => {
+  /* const handlerGoogleSignIn = async () => {
     setBusy(true);
     try {
       const res = await loginWithGoogle();
@@ -55,8 +55,7 @@ const Login: React.FC = () => {
       toast(error.message);
       setBusy(false);
     }
-  }
-
+  } */
   const [present, dismiss] = useIonToast();
   const toast = (message: string, color? : string) => present({
     buttons: [{ text: 'hide', handler: () => dismiss() }],

@@ -28,6 +28,9 @@ const ExploreContainer: React.FC = () => {
   useEffect(() => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => {
+      dataArray.length = 0;
+    }
   }, []);
 
   let contenido = data.map((element, index) => {
