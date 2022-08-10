@@ -22,11 +22,13 @@
 .cardComponent {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  margin-top: 1.5rem;
 }
 .cart{
   background-color: rgba(255, 255, 255, 0.88);
   border-radius: 15px;
   margin: 0.1rem 1rem 2rem;
+
 }
 .cart p{
   margin: 0rem 1rem;

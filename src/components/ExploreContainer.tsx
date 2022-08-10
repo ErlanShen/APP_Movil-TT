@@ -34,20 +34,22 @@ const ExploreContainer: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className="container" key={element.id}>
-        <IonCard key={index} class="cardComponent">
+      <div className="container" key={index}>
+        <IonCard  class="cardComponent">
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
           <IonCardHeader>
             <strong>{element.saludo}</strong>
           </IonCardHeader>
-          <IonCardContent>
+          <IonCardContent >
             <div className='cart'>
               <p>{element.parrafo1}</p>
               <p>{element.parrafo2}</p>
             </div>
-            <IonButton routerLink='/home/'>
+            <div id='buttoncenter'>
+            <IonButton  routerLink='/home/'>
               <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />{element.button}
             </IonButton>
+            </div>
           </IonCardContent>
         </IonCard>
       </div>

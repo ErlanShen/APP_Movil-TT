@@ -36,6 +36,15 @@ import Tendencia from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Tenden
 import Panel from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Panel';
 import EvoluciondeGrupo from './pages/Rutas-Metodologicas/Diseño/NoExperimental/EvoluciondeGrupo';
 import Longitudinal from './pages/Rutas-Metodologicas/Diseño/NoExperimental/Longitudinal';
+import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
+import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
+import { ProtectedRouter } from './context/ProtectedRouter';
+import ExploreContainer from './components/ExploreContainer';
+import AccionParticipativa from './pages/Rutas-Metodologicas/Diseño/Cualitativo/AccionParticipativa';
+import Poblacion from './pages/Rutas-Metodologicas/PoblacionyMuestra/Poblacion';
+import Muestra from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/Muestra';
+import MuestraFinita from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/MuestraFinita';
+import MuestraInfinita from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/MuestraInfinita';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -54,11 +63,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Campo from './pages/Rutas-Metodologicas/Tipo/Campo';
-import Documental from './pages/Rutas-Metodologicas/Tipo/Documental';
-import { ProtectedRouter } from './context/ProtectedRouter';
-import ExploreContainer from './components/ExploreContainer';
-import AccionParticipativa from './pages/Rutas-Metodologicas/Diseño/Cualitativo/AccionParticipativa';
 
 setupIonicReact();
 
@@ -148,8 +152,6 @@ const App: React.FC = () => {
                     <Longitudinal />
                   </Route>
 
-
-
                   <Route path="/cuasiexperimentos">
                     <Cuasiexperimentos />
                   </Route>
@@ -210,6 +212,24 @@ const App: React.FC = () => {
                   <Route path="/accionParticipativa">
                     <AccionParticipativa />
                   </Route>
+
+                  <Route path="/poblacion">
+                    <Poblacion />
+                  </Route>
+
+                  <Route path="/muestra">
+                    <Muestra />
+                  </Route>
+
+                  <Route path="/muestrafinita">
+                    <MuestraFinita />
+                  </Route>
+
+                  <Route path="/muestrainfinita">
+                    <MuestraInfinita />
+                  </Route>
+
+
 
                   <Route path="/exploreContainer">
                     <ExploreContainer />

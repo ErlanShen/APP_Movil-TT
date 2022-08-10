@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardTitle, IonCardContent,IonButton,IonBackButton,IonButtons, IonItem} from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -28,83 +28,44 @@ const Cuasiexperimentos: React.FC = () => {
   }, []);
 
   let contenido = data.map((element, index) => {
+   
+  
     return (
-      <IonCard  key={index} class="cardComponent">
-        <IonCardHeader >
-          <IonCardTitle  id='tcenter'>{element.Titulo}</IonCardTitle>
-          <IonCardContent  id='tjustify'>{element.Descripcion}</IonCardContent>
+      <div className='container'>
+        <IonCard key={index} class="cardComponent">
+        <IonCardHeader>
+          <strong> {element.Titulo} </strong>
         </IonCardHeader>
-       
-           <IonCardContent id='tcenter'>
-            <IonItem lines='none'>
-           {element.Pregunta}
-           </IonItem>
-            <IonButton  color="tertiary" routerLink="/explicativo">{element.BtnNiv}</IonButton>   
-      </IonCardContent>
-      </IonCard>
-    )}
+        <IonCardContent>
+          <div className='card'>
+            <p>{element.Descripcion}</p>
+            <p> <b>{element.Pregunta}</b></p>
+          </div>
+          <div id='buttoncenter'><IonButton  color="tertiary" routerLink="/explicativo">{element.BtnNiv}</IonButton>   
+     </div>
+         </IonCardContent>
+      </IonCard> 
+      </div>
+    )
+  
+  
+  }
     
   )
 
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
-            <IonBackButton/>
+          <IonButtons  slot="start">
+            <IonBackButton />
           </IonButtons>
-          <IonTitle>Diseño</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
-  );    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /*  return (
-    <IonPage >
-      <IonHeader>
-        <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle>Diseño</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-        <IonCardHeader>
-          <IonCardTitle id='buttoncenter'>Cuasi-Experimental</IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent id='tjustify'>
-          Asume la objetividad como única vía  para  alcanzar  el  conocimiento,  
-          enfatiza  que  la informaciónse puede traducir en números, busca explicar,
-          predecir y controlar los fenómenos,  así  como  verificar teorías y  fundamenta  
-          el  análisis  en laestadística descriptivae inferencial.
-        </IonCardContent>
-        <IonCardContent>
-            <IonCardContent id='buttoncenter'>
-            <IonButton  color="tertiary" routerLink="/explicativo"> Nivel</IonButton>
-          </IonCardContent>
-      </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  ); */
+  );  
 };
 
 export default Cuasiexperimentos;

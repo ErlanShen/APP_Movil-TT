@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton, IonCardSubtitle, IonItem, IonButton } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel } from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -23,37 +23,40 @@ import { collection, getDocs } from 'firebase/firestore';
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  let contenido = data.map((element) => {
+  let contenido = data.map((element, index) => {
     return (
-      <IonCard key={element.id} class="cardComponent">
+      <div className='container'> 
+      <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonCardTitle id='tcenter'>{element.titulo}</IonCardTitle>
-          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-          <IonItem>
-            <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-          </IonItem>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-        <IonCardContent>
-          <IonButton  color="warning" routerLink="/">{element.button}</IonButton>
-        </IonCardContent>
+          <IonCardContent >
+            <div className='card'>
+              <p> {element.descripcion} </p>
+
+              <p>{element.pregunta}</p>
+            </div>
+            <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/">{element.button}</IonButton>
+        </div>
+            </IonCardContent>
       </IonCard>
+      </div>
     )
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
+          <IonButtons  slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Diseño</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
   );
 };

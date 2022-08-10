@@ -427,6 +427,10 @@ background-content{
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: justify;
+  font-size: 14px;
+  margin: -0.65rem;
+  height:auto;
 }
 
 
@@ -438,8 +442,12 @@ ion-button{
   display: flex;
   justify-content: center;
   align-items: center;
-  white-space: initial;
+  width:75%;
+  white-space: normal;
+  height: 2.75rem;
 }
+
+
 
 
 #tjustify{
@@ -454,13 +462,15 @@ ion-button{
     white-space: initial;
 }
 
-#tbut{
-  white-space: normal;
-  width: 100%;
-  margin-top: 0.5rem;
-  font-size: small;
-  
+
+
+#tbutl{
+  white-space: initial;
+  width: 75%;
+  margin-top: 1rem;
+  font-size: 12px;
 }
+
 ion-toolbar ion-title{
   text-transform: uppercase;
   text-align: center;
@@ -471,10 +481,7 @@ ion-toolbar ion-title{
   white-space: initial;
 }
 
-ion-button {
-  text-transform: none;
-  
-}
+
 ion-toolbar {
   --background:var(--ion-color-secondary-unibe);
   color: white;
@@ -498,4 +505,40 @@ ion-toolbar ion-buttons{
   background: var(--ion-color-step-850, #27323e);
   color: var(--ion-item-background, #fff);
 }
+
+.card{
+  background-color: rgba(255, 255, 255, 0.88);
+  border-radius: 15px;
+  padding-top: 0.25rem;
+  margin: 0.1rem 1rem 0.1rem;
+
+}
+.card p{
+  margin: 0rem 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 14px;
+  
+}
+
+.tbut{
+  white-space: normal;
+  width: 75%;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.tbutl{
+  white-space: normal;
+  width: 75%;
+  margin-top: 1rem;
+  font-size: 12px;
+  height: 3rem;
+}
+
+ion-item{
+  margin-top: 0 ;
+}
+
+
 

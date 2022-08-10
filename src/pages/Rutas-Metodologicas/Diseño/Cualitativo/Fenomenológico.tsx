@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent,  IonButtons, IonBackButton, IonItem, IonCardSubtitle, IonButton } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel } from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -28,60 +28,36 @@ import { collection, getDocs } from 'firebase/firestore';
   }, []);
   let contenido = data.map((element, index) => {
     return (
+      <div className='container'> 
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonCardTitle id='tcenter'>{element.titulo}</IonCardTitle>
-          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-          <IonItem>
-            <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-          </IonItem>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-        <IonCardContent>
-          <IonButton  color="warning" routerLink="/">{element.button}</IonButton>
-        </IonCardContent>
+          <IonCardContent >
+            <div className='card'>
+              <p> {element.descripcion} </p>
+
+              <p>{element.pregunta}</p>
+            </div>
+            <div id='buttoncenter'><IonButton className='tbut'  color="warning" routerLink="/home">{element.button}</IonButton></div>
+            </IonCardContent>
       </IonCard>
-    )
+      </div>
+    )  
   }
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
+          <IonButtons  slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Diseño</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
   );
 }
-  /* return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle>Diseño</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-          <IonCardHeader>
-          <IonCardTitle>Fenomenológico</IonCardTitle>
-          </IonCardHeader>
-
-          <IonCardContent id='tjustify'>
-           Descripcion de Fenomenológico
-           </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  ); */
-
-
 export default Fenomenológico;

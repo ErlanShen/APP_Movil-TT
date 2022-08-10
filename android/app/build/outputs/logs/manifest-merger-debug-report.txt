@@ -1,0 +1,259 @@
+-- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:27:9-35:20
+	android:grantUriPermissions
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:31:13-47
+	android:authorities
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:29:13-64
+	android:exported
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:28:13-62
+manifest
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+MERGED from [:capacitor-app] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:capacitor-filesystem] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-haptics] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:capacitor-keyboard] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\keyboard\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-splash-screen] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\splash-screen\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-status-bar] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\status-bar\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-storage] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-android] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-cordova-android-plugins] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3b9e0ac13152ba857b7a58850a14d229\transformed\material-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\14c6cde66142fca675c8ba2882c51497\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\49889aa6b61011d9fe2fbd118a72ab0a\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\6c96aba25c75fdced5f7957b4772c575\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b20ccee2f193bc778e6c4fd37a2a4cbe\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\4de4d056f838ef72e038766062a08824\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3beccc49b88a4bbb897092c29285b2ab\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\8750c8c342f28a6c638ba870678d122a\transformed\fragment-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\c950a4fdc080bde8d841b1636fc8c4e3\transformed\jetified-activity-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0a9ff516a2d3d9c4d2cd1100e1c1bb7f\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\56d8f0f101f87e2a13a38f75299718b7\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\06c6015f8c35af70f7b6dd888da1eca7\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0068b23c6d8d0bc3c22d204f952c74a4\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\cce049de6b9f6d8e2b750f2aff72e109\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\85ff9db95edde15166294f35615656bb\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\63bf430aba0bde3ac5ca1bf32a563448\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\6e57cbf647b30f521105531d79eeb6d9\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0eb68c21496f2d3563f6c201bc05c2e7\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\23b7872e9e5dd5b243774cd0fd8406b4\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0e25c3130cd469a7efb49e4d2332c109\transformed\exifinterface-1.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\89b111def87c1d9181693a67fa8afdcb\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\d8f99f7b87a520c4736bcc802d06af61\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\60fa505226573f955c2a16ab922d2d3e\transformed\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\a7129518d0cfbb66a953a464ffa5fe11\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b23407d5a58047a64e6464e1adf60dd4\transformed\lifecycle-runtime-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\d61b082fdbeeacee512110830d7e0fb0\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b52f07c910749b277616597ddb3af469\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\713e9d52abdf1d8135afdef373dbd134\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\73f9b61e8cba76f5626ab2bcbe54db44\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\10c479301e983b426c4387aaa0b84a5b\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\941b847d1ee813c2e9be4b1821d48d3c\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\434d0a351b547f41146e94e2aef845ce\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\ca0abc174d5f5b883df6f94f7f17024f\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\26ce4ba0709cdb449c48374d80946802\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [org.apache.cordova:framework:7.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\fc4e30d12ff768f0e9be44765f959d13\transformed\jetified-framework-7.0.0\AndroidManifest.xml:20:1-27:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\5c1c66fec0b11a05c752064646673227\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+	package
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:3:5-31
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:1-41:12
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:5:5-36:19
+MERGED from [:capacitor-cordova-android-plugins] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
+MERGED from [:capacitor-cordova-android-plugins] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3b9e0ac13152ba857b7a58850a14d229\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3b9e0ac13152ba857b7a58850a14d229\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\14c6cde66142fca675c8ba2882c51497\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\14c6cde66142fca675c8ba2882c51497\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\89b111def87c1d9181693a67fa8afdcb\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\89b111def87c1d9181693a67fa8afdcb\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:11:9-40
+activity#io.ionic.starter.MainActivity
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:13:9-25:20
+	android:label
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:16:13-56
+	android:launchMode
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:18:13-44
+	android:configChanges
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:14:13-129
+	android:theme
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:17:13-62
+	android:name
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:15:13-57
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:20:13-23:29
+action#android.intent.action.MAIN
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:22:27-74
+uses-permission#android.permission.INTERNET
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:40:5-67
+	android:name
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:40:22-64
+uses-sdk
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+MERGED from [:capacitor-app] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-app] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-filesystem] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-filesystem] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-haptics] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-haptics] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-keyboard] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\keyboard\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-keyboard] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\keyboard\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-splash-screen] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\splash-screen\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-splash-screen] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\splash-screen\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-status-bar] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\status-bar\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-status-bar] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\status-bar\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-storage] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-storage] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-android] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-android] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-cordova-android-plugins] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
+MERGED from [:capacitor-cordova-android-plugins] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3b9e0ac13152ba857b7a58850a14d229\transformed\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3b9e0ac13152ba857b7a58850a14d229\transformed\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\14c6cde66142fca675c8ba2882c51497\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\14c6cde66142fca675c8ba2882c51497\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\49889aa6b61011d9fe2fbd118a72ab0a\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\49889aa6b61011d9fe2fbd118a72ab0a\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\6c96aba25c75fdced5f7957b4772c575\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\6c96aba25c75fdced5f7957b4772c575\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b20ccee2f193bc778e6c4fd37a2a4cbe\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b20ccee2f193bc778e6c4fd37a2a4cbe\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\4de4d056f838ef72e038766062a08824\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\4de4d056f838ef72e038766062a08824\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3beccc49b88a4bbb897092c29285b2ab\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\3beccc49b88a4bbb897092c29285b2ab\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\8750c8c342f28a6c638ba870678d122a\transformed\fragment-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\8750c8c342f28a6c638ba870678d122a\transformed\fragment-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\c950a4fdc080bde8d841b1636fc8c4e3\transformed\jetified-activity-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\c950a4fdc080bde8d841b1636fc8c4e3\transformed\jetified-activity-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0a9ff516a2d3d9c4d2cd1100e1c1bb7f\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0a9ff516a2d3d9c4d2cd1100e1c1bb7f\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\56d8f0f101f87e2a13a38f75299718b7\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\56d8f0f101f87e2a13a38f75299718b7\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\06c6015f8c35af70f7b6dd888da1eca7\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\06c6015f8c35af70f7b6dd888da1eca7\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0068b23c6d8d0bc3c22d204f952c74a4\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0068b23c6d8d0bc3c22d204f952c74a4\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\cce049de6b9f6d8e2b750f2aff72e109\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\cce049de6b9f6d8e2b750f2aff72e109\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\85ff9db95edde15166294f35615656bb\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\85ff9db95edde15166294f35615656bb\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\63bf430aba0bde3ac5ca1bf32a563448\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\63bf430aba0bde3ac5ca1bf32a563448\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\6e57cbf647b30f521105531d79eeb6d9\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\6e57cbf647b30f521105531d79eeb6d9\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0eb68c21496f2d3563f6c201bc05c2e7\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0eb68c21496f2d3563f6c201bc05c2e7\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\23b7872e9e5dd5b243774cd0fd8406b4\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\23b7872e9e5dd5b243774cd0fd8406b4\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0e25c3130cd469a7efb49e4d2332c109\transformed\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\0e25c3130cd469a7efb49e4d2332c109\transformed\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\89b111def87c1d9181693a67fa8afdcb\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\89b111def87c1d9181693a67fa8afdcb\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\d8f99f7b87a520c4736bcc802d06af61\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\d8f99f7b87a520c4736bcc802d06af61\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\60fa505226573f955c2a16ab922d2d3e\transformed\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\60fa505226573f955c2a16ab922d2d3e\transformed\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\a7129518d0cfbb66a953a464ffa5fe11\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\a7129518d0cfbb66a953a464ffa5fe11\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b23407d5a58047a64e6464e1adf60dd4\transformed\lifecycle-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b23407d5a58047a64e6464e1adf60dd4\transformed\lifecycle-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\d61b082fdbeeacee512110830d7e0fb0\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\d61b082fdbeeacee512110830d7e0fb0\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b52f07c910749b277616597ddb3af469\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\b52f07c910749b277616597ddb3af469\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\713e9d52abdf1d8135afdef373dbd134\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\713e9d52abdf1d8135afdef373dbd134\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\73f9b61e8cba76f5626ab2bcbe54db44\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\73f9b61e8cba76f5626ab2bcbe54db44\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\10c479301e983b426c4387aaa0b84a5b\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\10c479301e983b426c4387aaa0b84a5b\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\941b847d1ee813c2e9be4b1821d48d3c\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\941b847d1ee813c2e9be4b1821d48d3c\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\434d0a351b547f41146e94e2aef845ce\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\434d0a351b547f41146e94e2aef845ce\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\ca0abc174d5f5b883df6f94f7f17024f\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\ca0abc174d5f5b883df6f94f7f17024f\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\26ce4ba0709cdb449c48374d80946802\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\26ce4ba0709cdb449c48374d80946802\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [org.apache.cordova:framework:7.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\fc4e30d12ff768f0e9be44765f959d13\transformed\jetified-framework-7.0.0\AndroidManifest.xml:25:5-44
+MERGED from [org.apache.cordova:framework:7.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\fc4e30d12ff768f0e9be44765f959d13\transformed\jetified-framework-7.0.0\AndroidManifest.xml:25:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\5c1c66fec0b11a05c752064646673227\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\5c1c66fec0b11a05c752064646673227\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:32:13-34:64
+	android:resource
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:34:17-51
+	android:name
+		ADDED from F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:33:17-67
+queries
+ADDED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-13:15
+intent#action:name:android.media.action.IMAGE_CAPTURE
+ADDED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-12:18
+action#android.media.action.IMAGE_CAPTURE
+ADDED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-73
+	android:name
+		ADDED from [:capacitor-camera] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:21-70
+uses-permission#android.permission.VIBRATE
+ADDED from [:capacitor-haptics] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
+	android:name
+		ADDED from [:capacitor-haptics] F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63

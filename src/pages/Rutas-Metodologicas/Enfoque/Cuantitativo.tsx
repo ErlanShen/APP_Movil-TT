@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonBackButton, IonButtons, IonCardSubtitle, IonItem } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 const db = firestore;
@@ -21,71 +21,45 @@ const Cuantitativo: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let contenido = data.map((element, index) => {
     return (
+      <div className='container'> 
       <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonCardTitle id='tcenter'>{element.id}</IonCardTitle>
-          <IonCardContent id='tjustify'>{element.descripcion}</IonCardContent>
-          <IonItem>
-            <IonCardSubtitle>{element.pregunta}</IonCardSubtitle>
-          </IonItem>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
-          <IonCardContent id='buttoncenter'>
+        <IonCardContent>
+          <div className='card'>
+            <p> {element.descripcion} </p>
+            <p> {element.pregunta} </p>
+          </div>
+          <div id='buttoncenter'>
             <IonButton color="tertiary" routerLink="/positivista">{element.bt}</IonButton>
+          </div>
           </IonCardContent>
       </IonCard>
+      </div>
     )}
 
   )
   return (
-    <IonPage>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons slot="start">
-            <IonBackButton/>
+          <IonButtons  slot="start">
+            <IonBackButton />
           </IonButtons>
-          <IonTitle>Enfoque</IonTitle>
+          <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         {contenido}
-      </IonContent>
     </IonPage>
   );
 }
-/*   return (
-    <IonPage >
-      <IonHeader>
-        <IonToolbar id='title-toolbar'>
-        <IonButtons slot="start">
-          <IonBackButton />
-        </IonButtons>
-          <IonTitle >Enfoque</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCard>
-        <IonCardHeader>
-          <IonCardTitle id='buttoncenter'>Cuantitivo </IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent id='tjustify'>
-          Carácter objetivo, debido a que el investigador observa, mide y manipula variables; 
-          desprendiéndose de sus propias creencias,siendo la relación entre éste y el fenómeno de estudio, 
-          independiente, es decir, lo que no puede medirse u observarse con precisión se descarta como “objeto” de estudio.
-        </IonCardContent>
-        <IonCardContent>
-            <IonCardContent id='buttoncenter'>
-            <IonButton color="tertiary" routerLink="/positivista"> Paradigma</IonButton>
-          </IonCardContent>
-      </IonCardContent>
-        </IonCard>
-      </IonContent>
-    </IonPage>
-  );
-}; */
+
 
 export default Cuantitativo;
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonItem, IonButton, IonLabel, IonButtons, IonCardHeader, IonCardTitle, IonBackButton } from '@ionic/react';
+import { IonPage, IonToolbar, IonHeader, IonTitle, IonCard, IonCardContent, IonButton, IonLabel, IonButtons, IonCardHeader, IonBackButton } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -18,13 +18,14 @@ const Home: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.titulo === "Enfoque") 
+      if (fire.id === "Enfoque") 
       dataArray.push(element.data());
     })
     setData(dataArray);
   }
   useEffect(() => {
     dataExtract();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   let contenido = data.map((element, index) => {
@@ -32,28 +33,22 @@ const Home: React.FC = () => {
       <div className='container' key={element.id}>
         <IonCard key={index} class="cardComponent">
         <IonCardHeader>
-          <IonButtons  slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonCardTitle>{element.titulo}</IonCardTitle>
+          <strong> {element.titulo} </strong>
         </IonCardHeader>
         <IonCardContent>
-        <IonItem>
-            <IonLabel id='talign'>{element.Pregunta}</IonLabel>
-          </IonItem>
-          <IonCardContent >
-            <IonButton  color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton>
-            <hr />
-            <IonButton  color="warning" routerLink="/cualitativo">{element.BotonCual}</IonButton>
+          <div className='card'>
+            <p>{element.Pregunta}</p>
+          </div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton></div>
+          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cualitativo" >{element.BotonCual}</IonButton></div>
           </IonCardContent>
-        </IonCardContent>
       </IonCard> 
       </div>
     )
   }
   )
   return (
-    <IonPage id='fondoLogo'>
+    <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons  slot="start">
