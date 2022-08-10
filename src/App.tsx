@@ -81,15 +81,7 @@ const App: React.FC = () => {
                   <Route path="">
                     <Redirect to="/exploreContainer" />
                   </Route>
-                  <Route path="/login">
-                      <Login />
-                  </Route>
-                  <Route path="/register">
-                    <Register />
-                  </Route>
-                  <Route path="/reset-password">
-                    <ResetPassword />
-                  </Route>
+                  
 
                   <Route path="/home">
                     <ProtectedRouter>

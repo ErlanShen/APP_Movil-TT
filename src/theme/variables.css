@@ -419,9 +419,6 @@ body.dark {
   background-size: contain;
   background-attachment: fixed;
 }
-background-content{
-  --background:var(--ion-color-tertiary-unibe);
-}
 
 #buttoncenter{
   display: flex;
@@ -447,7 +444,9 @@ ion-button{
   height: 2.75rem;
 }
 
-
+ion-content{
+  --background:rgba(105, 46, 46, 0.88);
+}
 
 
 #tjustify{

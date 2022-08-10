@@ -6,19 +6,27 @@
   top: 50%;
   transform: translateY(-50%);
 }
-
 .container strong {
   font-size: 20px;
   padding-bottom: 2rem;
 }
-
 .container p {
   margin: 0.1rem 1rem;
   font-size: 16px;
   line-height: 22px;
   margin: 0;
 }
-
+.container h3 {
+  margin: 0.1rem 1rem;
+  line-height: 22px;
+  margin: 0;
+}
+.naturaleza {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.8rem;
+}
 .cardComponent {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -28,7 +36,6 @@
   background-color: rgba(255, 255, 255, 0.88);
   border-radius: 15px;
   margin: 0.1rem 1rem 2rem;
-
 }
 .cart p{
   margin: 0rem 1rem;
