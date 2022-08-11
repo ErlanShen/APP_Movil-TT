@@ -55,6 +55,7 @@ import Categorizacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformaci
 import Codificacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/Codificacion';
 import Triangulacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/Triangulacion';
 import AnalisisInformacion from './pages/Rutas-Metodologicas/TecnicaAnalisisInformacion/AnalisisInformacion';
+import { Archivado } from './components/Archivado';
 import Confiabilidad from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Confiabilidad';
 import Validezcual from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Validezcual';
 import Validezcuan from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Validezcuan';
@@ -142,11 +143,11 @@ const App: React.FC = () => {
                     <Experimental />
                   </Route>
 
-                  <Route path="/no-experimental">
+                  <Route path="/no experimental">
                     <NoExperimental />
                   </Route>
 
-                  <Route path="/correlacional">
+                  <Route path="/Correlacional">
                     <Correlacional />
                   </Route>
 
@@ -162,72 +163,72 @@ const App: React.FC = () => {
                     <Exploratorio />
                   </Route>
 
-                  <Route path="/transaccional">
+                  <Route path="/Transaccional o Transversal">
                     <Transaccional />
                   </Route>
 
-                  <Route path="/longitudinal">
+                  <Route path="/Longitudinal">
                     <Longitudinal />
                   </Route>
 
-                  <Route path="/cuasiexperimentos">
+                  <Route path="/Cuasiexperimentos">
                     <Cuasiexperimentos />
                   </Route>
 
-                  <Route path="/experimentospuros">
+                  <Route path="/Experimentos puros">
                     <Experimentospuros />
                   </Route>
 
-                  <Route path="/preexperimento">
+                  <Route path="/Preexperimento">
                     <Preexperimento />
                   </Route>
 
-                  <Route path="/estudiodecaso">
+                  <Route path="/Estudio de caso">
                     <EstudiodeCaso />
                   </Route>
 
-                  <Route path="/etnográfico">
+                  <Route path="/Etnográfico">
                     <Etnográfico />
                   </Route>
 
-                  <Route path="/fenomenológico">
+                  <Route path="/Fenomenológico">
                     <Fenomenológico />
                   </Route>
 
 
-                  <Route path="/hermenéutico">
+                  <Route path="/Hermenéutico">
                     <Hermenéutico />
                   </Route>
 
-                  <Route path="/teoriafundamentada">
+                  <Route path="/Teoría fundamentada">
                     <Teoriafundamentada />
                   </Route>
 
-                  <Route path="/narrativo">
+                  <Route path="/Narrativo">
                     < Narrativo />
                   </Route>
 
-                  <Route path="/tendencia">
+                  <Route path="/Tendencia">
                     < Tendencia />
                   </Route>
 
-                  <Route path="/panel">
+                  <Route path="/De panel">
                     < Panel />
                   </Route>
 
-                  <Route path="/evoluciondegrupo">
+                  <Route path="/Evolución de grupos">
                     < EvoluciondeGrupo />
                   </Route>
 
-                  <Route path="/campo">
+                  <Route path="/De campo">
                     < Campo />
                   </Route>
 
-                  <Route path="/documental">
+                  <Route path="/Documental">
                     < Documental />
                   </Route>
 
-                  <Route path="/accionParticipativa">
+                  <Route path="/Accion participativa">
                     <AccionParticipativa />
                   </Route>
 
@@ -235,7 +236,7 @@ const App: React.FC = () => {
                     <ActoresSociales />
                   </Route>
 
-                  <Route path="/muestra">
+                  <Route path="/Muestra">
                     <Muestra />
                   </Route>
 
@@ -271,7 +272,7 @@ const App: React.FC = () => {
                     <GruposFocales />
                   </Route>
 
-                  <Route path="/Observacion">
+                  <Route path="/Observación participativa">
                     <Observacion />
                   </Route>
 
@@ -318,6 +319,10 @@ const App: React.FC = () => {
 
                   <Route path="/exploreContainer">
                     <ExploreContainer />
+                  </Route>
+
+                  <Route path="/archivado">
+                    <Archivado />
                   </Route>
 
                 </IonRouterOutlet>

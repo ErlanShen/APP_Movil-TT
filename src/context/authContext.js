@@ -43,23 +43,6 @@ export function AuthProvider({ children }) {
 
      const resetPassword = (email) => sendPasswordResetEmail(auth, email)
 
-     const loginWithGoogle = () => {
-          const googleProvider = new GoogleAuthProvider();
-          return signInWithPopup(auth, googleProvider).then(result => {
-               const myUser = result.user;
-               const docuRef = doc(Base, `Usuarios/${myUser.uid}`);
-               return setDoc(docuRef, {
-                    uid: myUser.uid,
-                    email: myUser.email,
-                    emailVerified: myUser.emailVerified,
-                    displayName: myUser.displayName,
-                    photoURL: myUser.photoURL,
-                    rol: "usuario",
-                    carrera: ""
-               });
-          });
-     }
-
      useEffect(() => {
           const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
                setUser(currentUser);
@@ -72,5 +55,5 @@ export function AuthProvider({ children }) {
      const logOutUser = () => { signOut(auth) }
 
      return <authContext.Provider
-          value={{ registerUser, loginUser, logOutUser, loginWithGoogle, resetPassword, emailVerified, user, loading }}>{children}</authContext.Provider>;
+          value={{ registerUser, loginUser, logOutUser, resetPassword, emailVerified, user, loading }}>{children}</authContext.Provider>;
 };

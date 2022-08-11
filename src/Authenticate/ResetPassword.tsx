@@ -18,7 +18,8 @@ import {
   useIonAlert,
   IonImg,
   IonRow,
-  IonCol
+  IonCol,
+  IonIcon
 } from "@ionic/react";
 
 import { useHistory } from 'react-router-dom';
@@ -27,6 +28,7 @@ import { useHistory } from 'react-router-dom';
 
 import './Form.css';
 import { useAuth } from '../context/authContext';
+import { checkmarkDoneOutline, checkmarkDoneSharp } from 'ionicons/icons';
 
 export const ResetPassword: React.FC = () => {
   const [presentAlert] = useIonAlert();
@@ -54,10 +56,9 @@ export const ResetPassword: React.FC = () => {
         console.log(error);
       }
     }
-    setEmail("")
-    e.target.reset();
+    setEmail("");
   }
-  
+
   const alerta = () => presentAlert({
     header: 'Se a enviado un correo de recuperación',
     subHeader: 'Por favor revise su bandeja de entrada o spam',
@@ -93,17 +94,14 @@ export const ResetPassword: React.FC = () => {
               </IonItem>
             </form>
             <hr />
-            <IonRow>
-              <IonCol />
-              <IonCol size='10'>
-                <IonButton color='warning' onClick={handlerSubmit}>Confirmar</IonButton>
-                <IonButton className="btn-text" routerLink="/login" fill='clear' color='dark'>
-                  Volver al inicio de sesión!
-                  </IonButton>
-              </IonCol>
-              <IonCol />
-            </IonRow>
-
+            <div id='buttoncenter'>
+              <IonButton color='warning' onClick={handlerSubmit}>
+              <IonIcon icon={checkmarkDoneSharp || checkmarkDoneOutline} size='large' slot="start" color='light'/>
+                Confirmar</IonButton>
+            </div>
+            <div id='buttoncenter'>
+              <IonButton className="btn-text" routerLink="/login" fill='clear' color='dark'>Volver al inicio de sesión!</IonButton>
+            </div>
           </IonCardContent>
         </IonCard>
       </div>

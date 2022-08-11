@@ -18,7 +18,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, arrowForwardOutline, homeOutline, homeSharp, moon, paperPlaneOutline, paperPlaneSharp, powerOutline, powerSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, homeOutline, homeSharp, logOutOutline, logOutSharp, moon, paperPlaneOutline, paperPlaneSharp, powerOutline, powerSharp } from 'ionicons/icons';
 import { useAuth } from '../context/authContext';
 import { useState } from 'react';
 import './Menu.css';
@@ -44,7 +44,7 @@ const appPages: AppPage[] = [
   },
   {
     title: 'Archivados',
-    url: '/page/Archived',
+    url: '/archivado',
     iosIcon: archiveOutline,
     mdIcon: archiveSharp
   },
@@ -99,15 +99,6 @@ const Menu: React.FC = () => {
             );
           })}
         </IonList>
-        {/* <IonList id="labels-list">
-          <IonListHeader>Recientes</IonListHeader>
-          {labels.map((label, index) => (
-            <IonItem lines="none" key={index}>
-              <IonIcon slot="start" icon={bookmarkOutline} />
-              <IonLabel>{label}</IonLabel>
-            </IonItem>
-          ))}
-        </IonList> */}
         <IonList id="labels-list">
           <IonItem>
             <IonIcon
@@ -117,17 +108,13 @@ const Menu: React.FC = () => {
           </IonItem>
         </IonList>
       </IonContent>
-      <IonFooter>
-        <IonRow class='space'>
-          <IonCol />
-          <IonCol size='11'>
+      <IonFooter className='footer'>
+          <div id='buttoncenter'>
             <IonButton color="danger" shape="round" size='large' onClick={handleLogOut} id="buttoncenter" >
-              <IonIcon icon={powerSharp || powerOutline} size='large' slot="start" color='light'/>
+              <IonIcon icon={logOutSharp || logOutOutline} size='large' slot="start" color='light'/>
               Cerrar sesión
             </IonButton>
-          </IonCol>
-          <IonCol />
-        </IonRow>
+          </div>
       </IonFooter>
       {/* Componenete loading */}
       <IonLoading message={"Porfavor espere..."} duration={2000} isOpen={busy} />

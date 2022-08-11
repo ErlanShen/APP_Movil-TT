@@ -74,3 +74,13 @@ ion-card-content ion-button {
      background-position: center;
      background-repeat: no-repeat;
 }
+#buttoncontainer {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: justify;
+     font-size: medium;
+     margin: -0.65rem;
+     height:auto;
+     width:auto;
+   }
