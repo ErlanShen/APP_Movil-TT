@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel, IonContent } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel, IonContent, IonIcon } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { useHistory } from 'react-router';
 import { Storage } from '@capacitor/storage';
+import { backspaceOutline, backspaceSharp } from 'ionicons/icons';
 
 const Cuantitativo: React.FC = () => {
   const db = firestore;
@@ -64,7 +65,9 @@ const Cuantitativo: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonBackButton />
+          <IonBackButton>
+              <IonIcon icon={backspaceOutline || backspaceSharp} size='large' color='light' />
+            </IonBackButton>
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>

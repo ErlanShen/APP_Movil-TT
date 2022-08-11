@@ -39,7 +39,7 @@ const Campo: React.FC = () => {
               <p> {element.Descripcion} </p>
               <p> <b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Observacion">{element.BtnFin}</IonButton>   
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Muestra">{element.BtnFin}</IonButton>   
       </div>
           </IonCardContent>
       </IonCard>

@@ -39,7 +39,7 @@ const TécnicAnálisisDatos: React.FC = () => {
               <p> {element.descripcion} </p>
               <p> <b>  {element.pregunta}  </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/archivado">{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>

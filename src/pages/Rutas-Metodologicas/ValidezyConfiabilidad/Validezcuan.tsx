@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -27,6 +29,17 @@ const Validezcuan: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectValidez',
+      value: button.id
+    });
+    history.push('/' + button.id);
+  };
+
   let contenido = data.map((element, index) => {
     return (
       <div className='container'> 
@@ -39,8 +52,8 @@ const Validezcuan: React.FC = () => {
               <p> {element.descripcion} </p>
               <p><b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/De contenido">{element.btncont}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/De constructo">{element.btncons}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="De contenido">{element.btncont}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="De constructo">{element.btncons}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>

@@ -26,6 +26,7 @@ const Tecnica: React.FC = () => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
   let contenido = data.map((element, index) => {
     return (

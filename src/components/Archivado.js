@@ -18,18 +18,6 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { menuOutline, menuSharp, refreshCircleOutline, refreshCircleSharp } from 'ionicons/icons';
 
-export const reset = async () => {
-   await Storage.set({ key: 'select-enfoque', value: '' });
-   await Storage.set({ key: 'selectParadigma', value: '' });
-   await Storage.set({ key: 'selectDisenio', value: '' });
-   await Storage.set({ key: 'selectSubdisenio', value: '' });
-   await Storage.set({ key: 'selectSubdisenio2', value: '' });
-   await Storage.set({ key: 'selectNivel', value: '' });
-   await Storage.set({ key: 'selectTipo', value: '' });
-   await Storage.set({ key: 'selectPyM', value: '' });
-   await Storage.set({ key: 'selectTecnicaData', value: '' });
-   await Storage.set({ key: 'selectTecnicaInfo', value: '' });
-}
 
 export function Archivado() {
    // seccion naturaleza de investigacion
@@ -46,9 +34,9 @@ export function Archivado() {
 
    //seccion de tecnica de analisis de datos e informacion
    const [tecnicaData, setTecnicaData] = useState('');
+   const [validez, setValidez] = useState('');
    const [tecnicaInfo, setTecnicaInfo] = useState('');
    const [tecnicAnalisis, setTecnicAnalisis] = useState('');
-
 
    const getRoot = async (e) => {
       // seccion naturaleza de investigacion
@@ -75,11 +63,14 @@ export function Archivado() {
       //seccion de tecnica de analisis de datos e informacion
       const tecnicaData = await Storage.get({ key: 'selectTecnicaData' });
       setTecnicaData(tecnicaData);
+      const validez = await Storage.get({ key: 'selectValidez' });
+      setValidez(validez);
 
       const tecnicaInfo = await Storage.get({ key: 'selectTecnicaInfo' });
       setTecnicaInfo(tecnicaInfo);
       const tecnicAnalisis = await Storage.get({ key: 'selectTecnicAnalisis' });
       setTecnicAnalisis(tecnicAnalisis);
+
 
    }
    //resetear los valores de los select una vez que se carga la pagina explorecontainer
@@ -165,6 +156,8 @@ export function Archivado() {
                         </IonCardHeader>
                         <IonCardContent>
                            <IonItem><p>Intrumento: {tecnicaData.value}</p></IonItem>
+                           {validez.value == null || validez.value === 'null' ? '' : <IonItem><p>Validez: {tipo.value} y Confiabilidad</p></IonItem>}
+                           <IonItem><p>Técnica de análisis de dato</p></IonItem>
                         </IonCardContent>
                      </IonCard>
                   }
@@ -192,6 +185,7 @@ export function Archivado() {
                         </IonCardHeader>
                         <IonCardContent>
                            <IonItem><p>Intrumento: {tecnicaInfo.value}</p></IonItem>
+
                         </IonCardContent>
                      </IonCard>
                   )}
