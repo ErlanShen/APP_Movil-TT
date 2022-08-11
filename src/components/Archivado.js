@@ -14,16 +14,16 @@ import { Storage } from '@capacitor/storage';
 import { useEffect, useState } from 'react';
 
 /*  export const reset = async () => {
-   await Storage.set({ key: 'select-enfoque', value: null });
-   await Storage.set({ key: 'selectParadigma', value: null });
-   await Storage.set({ key: 'selectDisenio', value: null });
-   await Storage.set({ key: 'selectSubdisenio', value: null });
-   await Storage.set({ key: 'selectSubdisenio2', value: null });
-   await Storage.set({ key: 'selectNivel', value: null });
-   await Storage.set({ key: 'selectTipo', value: null });
-   await Storage.set({ key: 'selectPyM', value: null });
-   await Storage.set({ key: 'selectTecnicaData', value: null });
-   await Storage.set({ key: 'selectTecnicaInfo', value: null });
+   await Storage.set({ key: 'select-enfoque', value: '' });
+   await Storage.set({ key: 'selectParadigma', value: '' });
+   await Storage.set({ key: 'selectDisenio', value: '' });
+   await Storage.set({ key: 'selectSubdisenio', value: '' });
+   await Storage.set({ key: 'selectSubdisenio2', value: '' });
+   await Storage.set({ key: 'selectNivel', value: '' });
+   await Storage.set({ key: 'selectTipo', value: '' });
+   await Storage.set({ key: 'selectPyM', value: '' });
+   await Storage.set({ key: 'selectTecnicaData', value: '' });
+   await Storage.set({ key: 'selectTecnicaInfo', value: '' });
 } */
 
 export function Archivado() {
@@ -37,9 +37,12 @@ export function Archivado() {
    const [tipo, setTipo] = useState('');
    // seccion poblacion y muestra
    const [pym, setPyM] = useState('');
+   const [sujetosE, setSujetosE] = useState('');
+
    //seccion de tecnica de analisis de datos e informacion
    const [tecnicaData, setTecnicaData] = useState('');
    const [tecnicaInfo, setTecnicaInfo] = useState('');
+
 
    const getRoot = async () => {
       // seccion naturaleza de investigacion
@@ -60,6 +63,8 @@ export function Archivado() {
       // seccion poblacion y muestra
       const pym = await Storage.get({ key: 'selectPyM' });
       setPyM(pym);
+      const se = await Storage.get({ key: 'selectSujetosE' });
+      setSujetosE(se);
       //seccion de tecnica de analisis de datos e informacion
       const tecnicaData = await Storage.get({ key: 'selectTecnicaData' });
       setTecnicaData(tecnicaData);
@@ -74,7 +79,6 @@ export function Archivado() {
    
    useEffect(() => {
       getRoot();
-
    }, []);
 
    return (
@@ -93,30 +97,32 @@ export function Archivado() {
                   <ion-refresher-content>
                   </ion-refresher-content>
                </ion-refresher> */}
-               <div >
-                  <IonCard class=''>
+               <div className='container'>
+                  <IonCard>
                      <IonCardHeader color='success'>
                         <IonCardTitle>
                            <h3>Naturaleza de investigación</h3>
                         </IonCardTitle>
                      </IonCardHeader>
                      <IonCardContent className='naturaleza'>
-                        {enfoque.value == 'null' ? '' : <IonItem><p>Enfoque: {enfoque.value}</p></IonItem>}
-                        {paradigma.value == 'null' ? '' : <IonItem><p>Paradigma: {paradigma.value}</p></IonItem>}
-                        {/* {disenio.value == 'null' ? '' : <IonItem><p>Diseño: {disenio.value}</p> </IonItem>} */}
-                        {disenio.value == 'null' ? '' :
+                        {enfoque.value === 'null' ? '' : <IonItem><p>Enfoque: {enfoque.value}</p></IonItem>}
+                        {paradigma.value === 'null' ? '' : <IonItem><p>Paradigma: {paradigma.value}</p></IonItem>}
+                        {/* {disenio.value === 'null' ? '' : <IonItem><p>Diseño: {disenio.value}</p> </IonItem>} */}
+                        {disenio.value === 'null' ? '' :
                            <IonItem>
-                              <p>Diseño: {disenio.value}{subdisenio.value == 'null' ? '' : <>, {subdisenio.value}</>}{subdisenio2.value == 'null' ? "" : <>, {subdisenio2.value}</>}</p>
+                              <p>Diseño: {disenio.value}{subdisenio.value === 'null' ? '' : <>, {subdisenio.value}</>}{subdisenio2.value === 'null' ? "" : <>, {subdisenio2.value}</>}</p>
                            </IonItem>
                         }
-                        {/* {subdisenio.value == 'null' ? '' : <IonItem lines='none'><p>Sub diseño : {subdisenio.value}</p></IonItem>}
-                        {subdisenio2.value == 'null' ? '' : <IonItem> <p>Sub diseño : {subdisenio2.value}</p></IonItem>} */}
-                        {nivel.value == 'null' ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
-                        {tipo.value == 'null' ? '' : <IonItem><p>Tipo : {tipo.value}</p></IonItem>}
+                        {/* {subdisenio.value === 'null' ? '' : <IonItem lines='none'><p>Sub diseño : {subdisenio.value}</p></IonItem>}
+                        {subdisenio2.value === 'null' ? '' : <IonItem> <p>Sub diseño : {subdisenio2.value}</p></IonItem>} */}
+                        {nivel.value === 'null' ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
+                        {tipo.value === 'null' ? '' : <IonItem><p>Tipo : {tipo.value}</p></IonItem>}
+                        {sujetosE.value === 'null' ? '' : <IonItem><p>Sujetos de Estudio: {sujetosE.value}</p></IonItem>}
+
                      </IonCardContent>
                   </IonCard>
                   {/* cuantitativo */}
-                  {pym.value == 'null' ? <IonCard hidden /> : 
+                  {pym.value === 'null' ? <IonCard hidden /> : 
                      <IonCard >
                         <IonCardHeader color='secondary'>
                            <IonCardTitle>
@@ -130,7 +136,8 @@ export function Archivado() {
                         </IonCardContent>
                      </IonCard>
                   }
-                  {tecnicaData.value == 'null' ? <IonCard hidden /> : 
+                 
+                  {tecnicaData.value === 'null' ? <IonCard hidden /> : 
                      <IonCard >
                         <IonCardHeader color='warning'>
                            <IonCardTitle>
@@ -143,7 +150,7 @@ export function Archivado() {
                      </IonCard>
                   }
 
-                  {tecnicaInfo.value == 'null' ? <IonCard hidden /> : (
+                  {tecnicaInfo.value === 'null' ? <IonCard hidden /> : (
                      <IonCard >
                         <IonCardHeader color='warning'>
                            <IonCardTitle>

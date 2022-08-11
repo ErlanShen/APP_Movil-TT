@@ -271,7 +271,7 @@ const App: React.FC = () => {
                     <GruposFocales />
                   </Route>
 
-                  <Route path="/Observacion">
+                  <Route path="/Observación participativa">
                     <Observacion />
                   </Route>
 

@@ -44,11 +44,7 @@ const Campo: React.FC = () => {
           </IonCardContent>
       </IonCard>
       </div>
-    ) 
-  
-  
-  }
-    
+    )}
   )
  
   return (
