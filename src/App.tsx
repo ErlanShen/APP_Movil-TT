@@ -227,7 +227,7 @@ const App: React.FC = () => {
                     < Documental />
                   </Route>
 
-                  <Route path="/Accion participativa">
+                  <Route path="/Investigación acción participativa">
                     <AccionParticipativa />
                   </Route>
 

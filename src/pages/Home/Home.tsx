@@ -10,9 +10,9 @@ import {
   IonLabel,
   IonButtons,
   IonCardHeader,
-  IonBackButton,
   IonContent,
-  IonMenuButton
+  IonMenuButton,
+  IonLoading
 } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
@@ -41,17 +41,23 @@ const Home: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   //metodo para almacenar el id del contenido seleccionado
+  const [busy, setBusy] = useState(false);
   const history = useHistory();
   const buttonHandler = async (event: any) => {
     event.preventDefault();
     const button: HTMLButtonElement = event.currentTarget;
-    await Storage.set({
+    await Storage.clear();
+    setBusy(true);
+    setTimeout(()  => async () => {
+      await Storage.set({
       key: 'select-enfoque',
       value: button.id
     });
-
     history.push('/' + button.id);
+    setBusy(false);
+    }, 1500);
   };
+  <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
 
   let contenido = data.map((element, index) => {
     return (

@@ -10,7 +10,7 @@ export function ProtectedRouter({ children }) {
 
      if (loading === true) { 
           return (
-          <IonLoading message={"Porfavor espere..."} duration={2000} isOpen={loading}/>
+          <IonLoading message={"Porfavor espere..."} duration={2000} isOpen={true} />
           )
      };
 

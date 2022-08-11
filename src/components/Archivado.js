@@ -1,10 +1,13 @@
 import {
+   IonButton,
    IonButtons,
    IonCard,
    IonCardContent,
    IonCardHeader,
    IonCardTitle, IonContent, IonHeader,
+   IonIcon,
    IonItem,
+   IonLoading,
    IonMenuButton,
    IonPage, IonTitle,
    IonToolbar
@@ -12,8 +15,10 @@ import {
 import "./ExploreContainer.css"
 import { Storage } from '@capacitor/storage';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { refreshCircleOutline, refreshCircleSharp } from 'ionicons/icons';
 
-/*  export const reset = async () => {
+ export const reset = async () => {
    await Storage.set({ key: 'select-enfoque', value: '' });
    await Storage.set({ key: 'selectParadigma', value: '' });
    await Storage.set({ key: 'selectDisenio', value: '' });
@@ -24,7 +29,7 @@ import { useEffect, useState } from 'react';
    await Storage.set({ key: 'selectPyM', value: '' });
    await Storage.set({ key: 'selectTecnicaData', value: '' });
    await Storage.set({ key: 'selectTecnicaInfo', value: '' });
-} */
+}
 
 export function Archivado() {
    // seccion naturaleza de investigacion
@@ -37,14 +42,15 @@ export function Archivado() {
    const [tipo, setTipo] = useState('');
    // seccion poblacion y muestra
    const [pym, setPyM] = useState('');
-   const [sujetosE, setSujetosE] = useState('');
+   const [sujetosI, setSujetosI] = useState('');
 
    //seccion de tecnica de analisis de datos e informacion
    const [tecnicaData, setTecnicaData] = useState('');
    const [tecnicaInfo, setTecnicaInfo] = useState('');
+   const [tecnicAnalisis, setTecnicAnalisis] = useState('');
 
 
-   const getRoot = async () => {
+   const getRoot = async (e) => {
       // seccion naturaleza de investigacion
       const root = await Storage.get({ key: 'select-enfoque' });
       setEnfoque(root);
@@ -63,26 +69,54 @@ export function Archivado() {
       // seccion poblacion y muestra
       const pym = await Storage.get({ key: 'selectPyM' });
       setPyM(pym);
-      const se = await Storage.get({ key: 'selectSujetosE' });
-      setSujetosE(se);
+      const sDeEstudio = await Storage.get({ key: 'selectSujetosI' });
+      setSujetosI(sDeEstudio);
+
       //seccion de tecnica de analisis de datos e informacion
       const tecnicaData = await Storage.get({ key: 'selectTecnicaData' });
       setTecnicaData(tecnicaData);
+
       const tecnicaInfo = await Storage.get({ key: 'selectTecnicaInfo' });
       setTecnicaInfo(tecnicaInfo);
+      const tecnicAnalisis = await Storage.get({ key: 'selectTecnicAnalisis' });
+      setTecnicAnalisis(tecnicAnalisis);
 
-      // si cargo el root, cargo los demas
-      if (root.value) {
-      }
+
+
+      console.log(root);
+      console.log(sp);
+      console.log(sd);
+      console.log(ssd);
+      console.log(ssd2);
+      console.log(n);
+      console.log(t);
+      console.log(pym);
+      console.log(sDeEstudio);
+      console.log(tecnicaData);
+      console.log(tecnicaInfo);
+      console.log(tecnicAnalisis);
    }
-   //resetear los valores de los select una vez que se carga la pagina
+   //resetear los valores de los select una vez que se carga la pagina explorecontainer
+
    
+   const [busy, setBusy] = useState(false);
+   const history = useHistory();
+   const clearState = async () => {
+      setBusy(true);
+      await Storage.clear();
+      setTimeout(() => {
+         setBusy(false);
+         history.push('/explorecontainer');
+      }, 2000);
+   }
    useEffect(() => {
-      getRoot();
+      getRoot()
    }, []);
 
    return (
+  
       <div>
+          <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
          <IonPage id='fondoUnibe'>
             <IonHeader>
                <IonToolbar id='title-toolbar'>
@@ -93,76 +127,105 @@ export function Archivado() {
                </IonToolbar>
             </IonHeader>
             <IonContent >
-              {/*  <ion-refresher slot="fixed" onIonRefresh={reset}>
+               {/*  <ion-refresher slot="fixed" onIonRefresh={reset}>
                   <ion-refresher-content>
                   </ion-refresher-content>
                </ion-refresher> */}
-               <div className='container'>
-                  <IonCard>
+               <div>
+                  <IonCard className='maturaleza'>
                      <IonCardHeader color='success'>
                         <IonCardTitle>
                            <h3>Naturaleza de investigación</h3>
                         </IonCardTitle>
                      </IonCardHeader>
-                     <IonCardContent className='naturaleza'>
-                        {enfoque.value === 'null' ? '' : <IonItem><p>Enfoque: {enfoque.value}</p></IonItem>}
-                        {paradigma.value === 'null' ? '' : <IonItem><p>Paradigma: {paradigma.value}</p></IonItem>}
-                        {/* {disenio.value === 'null' ? '' : <IonItem><p>Diseño: {disenio.value}</p> </IonItem>} */}
-                        {disenio.value === 'null' ? '' :
+                     <IonCardContent>
+                        {enfoque.value == null || enfoque.value === "null" ? '' : <IonItem><p>Enfoque: {enfoque.value}</p></IonItem>}
+                        {paradigma.value == null || paradigma.value === 'null' || paradigma.value === 'null' ? '' : <IonItem><p>Paradigma: {paradigma.value}</p></IonItem>}
+                        {/* {disenio.value == null || disenio.value === 'null' ? '' : <IonItem><p>Diseño: {disenio.value}</p> </IonItem>} */}
+                        {disenio.value == null || disenio.value === 'null' ? '' :
                            <IonItem>
-                              <p>Diseño: {disenio.value}{subdisenio.value === 'null' ? '' : <>, {subdisenio.value}</>}{subdisenio2.value === 'null' ? "" : <>, {subdisenio2.value}</>}</p>
+                              <p>Diseño: {disenio.value}{subdisenio.value == null || subdisenio.value === 'null' ? '' : <>, {subdisenio.value}</>}{subdisenio2.value == null || subdisenio2.value === 'null' ? "" : <>, {subdisenio2.value}</>}</p>
                            </IonItem>
                         }
-                        {/* {subdisenio.value === 'null' ? '' : <IonItem lines='none'><p>Sub diseño : {subdisenio.value}</p></IonItem>}
-                        {subdisenio2.value === 'null' ? '' : <IonItem> <p>Sub diseño : {subdisenio2.value}</p></IonItem>} */}
-                        {nivel.value === 'null' ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
-                        {tipo.value === 'null' ? '' : <IonItem><p>Tipo : {tipo.value}</p></IonItem>}
-                        {sujetosE.value === 'null' ? '' : <IonItem><p>Sujetos de Estudio: {sujetosE.value}</p></IonItem>}
+                        {nivel.value == null || nivel.value === 'null' ? '' : <IonItem><p>Nivel : {nivel.value}</p></IonItem>}
+                        {tipo.value == null || tipo.value === 'null' ? '' : <IonItem><p>Tipo : {tipo.value}</p></IonItem>}
 
                      </IonCardContent>
                   </IonCard>
                   {/* cuantitativo */}
-                  {pym.value === 'null' ? <IonCard hidden /> : 
-                     <IonCard >
+                  {pym.value == null || pym.value === 'null' ? <IonCard hidden /> :
+                     <IonCard className='naturaleza'>
                         <IonCardHeader color='secondary'>
                            <IonCardTitle>
                               <h3>Población y Muestra</h3>
                            </IonCardTitle>
                         </IonCardHeader>
-                        <IonCardContent className='naturaleza'>
+                        <IonCardContent>
                            <IonItem>
                               <p>Fórmula: {pym.value}</p>
                            </IonItem>
                         </IonCardContent>
                      </IonCard>
                   }
-                 
-                  {tecnicaData.value === 'null' ? <IonCard hidden /> : 
-                     <IonCard >
+
+                  {tecnicaData.value == null || tecnicaData.value === 'null' ? <IonCard hidden /> :
+                     <IonCard className='naturaleza'>
                         <IonCardHeader color='warning'>
                            <IonCardTitle>
                               <h3>Técnica de recolección de datos</h3>
                            </IonCardTitle>
                         </IonCardHeader>
-                        <IonCardContent className='naturaleza'>
+                        <IonCardContent>
                            <IonItem><p>Intrumento: {tecnicaData.value}</p></IonItem>
                         </IonCardContent>
                      </IonCard>
                   }
 
-                  {tecnicaInfo.value === 'null' ? <IonCard hidden /> : (
-                     <IonCard >
-                        <IonCardHeader color='warning'>
+                  {sujetosI.value == null || sujetosI.value === 'null' ? <IonCard hidden /> :
+                     <IonCard className='naturaleza'>
+                        <IonCardHeader color='secondary'>
                            <IonCardTitle>
-                              <h3>Técnica de recolección de información</h3>
+                              <h3>Sujetos de Estudio: </h3>
                            </IonCardTitle>
                         </IonCardHeader>
-                        <IonCardContent className='naturaleza'>
+                        <IonCardContent>
+                           <IonItem>
+                              <p>{sujetosI.value}</p>
+                           </IonItem>
+                        </IonCardContent>
+                     </IonCard>
+                  }
+                  {tecnicaInfo.value == null || tecnicaInfo.value === 'null' ? <IonCard hidden /> : (
+                     <IonCard className='naturaleza'>
+                        <IonCardHeader color='warning'>
+                           <IonCardTitle>
+                              <h3> Técnica de recolección de información</h3>
+                           </IonCardTitle>
+                        </IonCardHeader>
+                        <IonCardContent>
                            <IonItem><p>Intrumento: {tecnicaInfo.value}</p></IonItem>
                         </IonCardContent>
                      </IonCard>
                   )}
-                  
+                  {tecnicAnalisis.value == null || tecnicAnalisis.value === 'null' ? <IonCard hidden /> : (
+                     <IonCard className='naturaleza'>
+                        <IonCardHeader color='tertiary'>
+                           <IonCardTitle>
+                              <h3>Validez:</h3>
+                           </IonCardTitle>
+                        </IonCardHeader>
+                        <IonCardContent>
+                           <IonItem><p>Técnica de análisis de información: {tecnicAnalisis.value}</p></IonItem>
+                        </IonCardContent>
+                     </IonCard>
+                  )}
+
+               </div>
+               <div id='buttoncenter'>
+                  <IonButton onClick={clearState}>
+                     <IonIcon icon={refreshCircleOutline || refreshCircleSharp } />
+                     Empezar de nuevo
+                  </IonButton>
                </div>
             </IonContent>
          </IonPage>

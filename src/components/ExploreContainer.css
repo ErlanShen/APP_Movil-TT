@@ -15,20 +15,19 @@
 .naturaleza p {
   margin: 0.1rem 1rem;
   font-size: 16px;
-  line-height: 22px;
-  margin: 0;
+  margin: 0.5rem 1rem;
 }
-.container h3 {
-  margin: 0.1rem 1rem;
-  line-height: 22px;
+.naturaleza h3 {
   margin: 0;
+  line-height: 22px;
+  margin: 0 0.5rem;
 }
+
 .naturaleza {
   margin-left: 1rem;
   margin-right: 1rem;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 2rem;
-  font-weight: bold;
 }
 .cardComponent {
   margin-left: 1.5rem;

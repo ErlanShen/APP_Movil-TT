@@ -1,6 +1,5 @@
 import {
   IonButton,
-  IonCol,
   IonContent,
   IonFooter,
   IonIcon,
@@ -8,19 +7,16 @@ import {
   IonLabel,
   IonList,
   IonListHeader,
-  IonLoading,
   IonMenu,
   IonMenuToggle,
   IonNote,
-  IonRow,
   IonToggle,
   useIonToast,
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, homeOutline, homeSharp, logOutOutline, logOutSharp, moon, paperPlaneOutline, paperPlaneSharp, powerOutline, powerSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, homeOutline, homeSharp, logOutOutline, logOutSharp, moon, paperPlaneOutline, paperPlaneSharp } from 'ionicons/icons';
 import { useAuth } from '../context/authContext';
-import { useState } from 'react';
 import './Menu.css';
 interface AppPage {
   url: string;
@@ -57,23 +53,20 @@ const Menu: React.FC = () => {
 
   const { logOutUser, user } = useAuth();
   const location = useLocation();
-  const [busy, setBusy] = useState(false);
-  const handleLogOut = async () => {
-    setBusy(true);
+  const handleLogOut = async(e:any) =>  {
+    e.preventDefault();
     try {
       await logOutUser();
-      setBusy(false);
-      toast('ha cerrado sesión!', 'light')
+        toast('ha cerrado sesión!', 'light')
     } catch (error) {
       toast('Fallo al cerrar sesión', 'danger')
-      setBusy(false);
     }
   }
   const [present, dismiss] = useIonToast();
-    const toast = (message: string, color? : string) => present({
+  const toast = (message: string, color?: string) => present({
     buttons: [{ text: 'hide', handler: () => dismiss() }],
     message: message,
-    duration: 2000,
+    duration: 1500,
     position: 'bottom',
     color: color ? color : 'warning',
     animated: true,
@@ -109,15 +102,15 @@ const Menu: React.FC = () => {
         </IonList>
       </IonContent>
       <IonFooter className='footer'>
-          <div id='buttoncenter'>
-            <IonButton color="danger" shape="round" size='large' onClick={handleLogOut} id="buttoncenter" >
-              <IonIcon icon={logOutSharp || logOutOutline} size='large' slot="start" color='light'/>
-              Cerrar sesión
-            </IonButton>
-          </div>
+        <div id='buttoncenter'>
+          <IonButton color="danger" shape="round" size='large' onClick={handleLogOut} id="buttoncenter" >
+            <IonIcon icon={logOutSharp || logOutOutline} size='large' slot="start" color='light' />
+            Cerrar sesión
+          </IonButton>
+        </div>
       </IonFooter>
       {/* Componenete loading */}
-      <IonLoading message={"Porfavor espere..."} duration={2000} isOpen={busy} />
+      
     </IonMenu>
   );
 };

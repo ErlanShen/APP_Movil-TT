@@ -49,7 +49,7 @@ const ActoresSociales: React.FC = () => {
     event.preventDefault();
     const button: HTMLButtonElement = event.currentTarget;
     await Storage.set({
-      key: 'selectSujetosE',
+      key: 'selectSujetosI',
       value: button.id
     });
     history.push('/Tecnica de Recoleccion de información');

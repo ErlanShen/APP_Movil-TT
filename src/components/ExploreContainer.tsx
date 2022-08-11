@@ -1,9 +1,11 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader, IonIcon, IonImg, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader, IonIcon, IonImg, IonLoading, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { firestore } from '../database/firebaseConfig';
 import './ExploreContainer.css';
 import { arrowForwardOutline } from 'ionicons/icons';
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
 
 const ExploreContainer: React.FC = () => {
   const db = firestore;
@@ -27,14 +29,23 @@ const ExploreContainer: React.FC = () => {
   useEffect(() => {
     dataExtract();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    return () => {
-      dataArray.length = 0;
-    }
   }, []);
+  const [busy, setBusy] = useState(false);
+  const history = useHistory();
+  const clearState = async (e: any) => {
+    e.preventDefault();
+    setBusy(true);
+    await Storage.clear();
+    setTimeout(() => {
+      setBusy(false);
+      ; history.push('/home');
+    }, 1800);
 
-
+  }
+  <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
   let contenido = data.map((element, index) => {
     return (
+
       <div className="container" key={index}>
         <IonCard class="cardComponent">
           <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
@@ -47,7 +58,7 @@ const ExploreContainer: React.FC = () => {
               <p>{element.parrafo2}</p>
             </div>
             <div id='buttoncenter'>
-              <IonButton routerLink='/home/'>
+              <IonButton onClick={clearState}>
                 <IonIcon icon={arrowForwardOutline} size="large" slot="start" color='light' />{element.button}
               </IonButton>
             </div>
@@ -69,7 +80,7 @@ const ExploreContainer: React.FC = () => {
       </IonHeader>
       <IonContent>
         {contenido}
-        </IonContent>
+      </IonContent>
     </IonPage>
   );
 };
