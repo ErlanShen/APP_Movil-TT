@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { firestore } from '../database/firebaseConfig';
 import './ExploreContainer.css';
 import { arrowForwardOutline, menuOutline, menuSharp } from 'ionicons/icons';
-import { Storage } from '@capacitor/storage';
 import { useHistory } from 'react-router';
 
 const ExploreContainer: React.FC = () => {
@@ -35,12 +34,10 @@ const ExploreContainer: React.FC = () => {
   const clearState = async (e: any) => {
     e.preventDefault();
     setBusy(true);
-    await Storage.clear();
     setTimeout(() => {
       setBusy(false);
-      ; history.push('/home');
+      history.push('/home');
     }, 1800);
-
   }
   <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
   let contenido = data.map((element, index) => {

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -27,10 +29,21 @@ const Confiabilidad: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectConfiabilidad',
+      value: button.id
+    });
+    history.push('/Técnica de Análisis de Datos');
+  };
+
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}> 
+      <IonCard class="cardComponent">
         <IonCardHeader>
           <strong> {element.titulo} </strong>
         </IonCardHeader>
@@ -39,7 +52,7 @@ const Confiabilidad: React.FC = () => {
               <p> {element.descripcion} </p>
               <p><b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Técnica de Análisis de Datos">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Consistencia Interna (Alpha de Cronbach y, Kuder and Richardson), Estabilidad (Test y Retest) y Equivalencia (Dos Mitades)">{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>

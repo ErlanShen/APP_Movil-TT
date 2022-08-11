@@ -35,6 +35,7 @@ export function Archivado() {
    //seccion de tecnica de analisis de datos e informacion
    const [tecnicaData, setTecnicaData] = useState('');
    const [validez, setValidez] = useState('');
+   const [confiabilidad, setConfiabilidad] = useState('');
    const [tecnicaInfo, setTecnicaInfo] = useState('');
    const [tecnicAnalisis, setTecnicAnalisis] = useState('');
 
@@ -65,6 +66,8 @@ export function Archivado() {
       setTecnicaData(tecnicaData);
       const validez = await Storage.get({ key: 'selectValidez' });
       setValidez(validez);
+      const confiabilidad = await Storage.get({ key: 'selectConfiabilidad' });
+      setConfiabilidad(confiabilidad);
 
       const tecnicaInfo = await Storage.get({ key: 'selectTecnicaInfo' });
       setTecnicaInfo(tecnicaInfo);
@@ -143,6 +146,10 @@ export function Archivado() {
                            <IonItem>
                               <p>Fórmula: {pym.value}</p>
                            </IonItem>
+                           <IonItem><p>Intrumento: {tecnicaData.value}</p></IonItem>
+                           <IonItem><p>Validez: {validez.value}</p></IonItem>
+                           <IonItem><p>Confiabilidad: {confiabilidad.value}</p></IonItem>
+                           <IonItem><p>Técnica de análisis de datos</p></IonItem>
                         </IonCardContent>
                      </IonCard>
                   }
@@ -156,8 +163,9 @@ export function Archivado() {
                         </IonCardHeader>
                         <IonCardContent>
                            <IonItem><p>Intrumento: {tecnicaData.value}</p></IonItem>
-                           {validez.value == null || validez.value === 'null' ? '' : <IonItem><p>Validez: {tipo.value} y Confiabilidad</p></IonItem>}
-                           <IonItem><p>Técnica de análisis de dato</p></IonItem>
+                           <IonItem><p>Validez: {validez.value}</p></IonItem>
+                           <IonItem><p>Confiabilidad: {confiabilidad.value}</p></IonItem>
+                           <IonItem><p>Técnica de análisis de datos</p></IonItem>
                         </IonCardContent>
                      </IonCard>
                   }
@@ -185,7 +193,6 @@ export function Archivado() {
                         </IonCardHeader>
                         <IonCardContent>
                            <IonItem><p>Intrumento: {tecnicaInfo.value}</p></IonItem>
-
                         </IonCardContent>
                      </IonCard>
                   )}

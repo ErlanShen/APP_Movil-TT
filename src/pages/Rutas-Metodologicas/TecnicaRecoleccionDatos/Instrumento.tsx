@@ -37,7 +37,7 @@ const Instrumento: React.FC = () => {
       key: 'tecnicaInfo',
       value: button.id
     });
-    history.push('/Observacion');
+    history.push('/Observacion.');
   };
 
   let contenido = data.map((element, index) => {
@@ -52,11 +52,11 @@ const Instrumento: React.FC = () => {
               <p> {element.descripcion} </p>
               <p> <b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Observación">{element.btn.tri1}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Lista de cotejo">{element.btn.tri2}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Observación , Lista de cotejo, Escala de estimación, Check list, Cuestionario">{element.btn.tri1}</IonButton></div>
+            {/* <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Lista de cotejo">{element.btn.tri2}</IonButton></div>
             <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Escala de estimación">{element.btn.tri3}</IonButton></div>
             <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Check list">{element.btn.tri4}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Cuestionario">{element.btn.tri5}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Cuestionario">{element.btn.tri5}</IonButton></div> */}
           </IonCardContent>
       </IonCard>
       </div>
