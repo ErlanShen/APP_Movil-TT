@@ -67,17 +67,7 @@ const ActoresSociales: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-<<<<<<< HEAD
-      <div className='container'>
-        <IonCard key={index} class="cardComponent">
-        <IonCardHeader>
-          <strong> {element.titulo} </strong>
-        </IonCardHeader>
-        <IonCardContent>
-          <div className='card'>
-          <p>{element.descripcion}</p>
-            <p><p> <b> {element.pregunta} </b></p></p>
-=======
+
       <div className='container' key={index}>
         <IonCard class="cardComponent">
           <IonCardHeader>
@@ -97,7 +87,7 @@ const ActoresSociales: React.FC = () => {
               </IonItem> */}
             </div>
             <div id='buttoncenter' ><IonButton className='tbut' color="warning" id='Actores Sociales/ Informantes Claves/ Versionantes' onClick={buttonHandler}>{element.btnfin}</IonButton></div>
->>>>>>> f853f0b292371bc8e1282e11be8e6fc2d5b02398
+
 
           </IonCardContent>
         </IonCard>
