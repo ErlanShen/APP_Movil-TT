@@ -61,6 +61,7 @@ import Validezcuan from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/Valid
 import DeConstructo from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeConstructo';
 import DeContenido from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeContenido';
 import ActoresSociales from './pages/Rutas-Metodologicas/ActoresSociales/ActoresS';
+import TécnicAnálisisDatos from './pages/Rutas-Metodologicas/TécnicAnálisisDatos/TécnicAnálisisDatos';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -308,6 +309,10 @@ const App: React.FC = () => {
 
                   <Route path="/De contenido ">
                     <DeContenido />
+                  </Route>
+
+                  <Route path="/Técnica de Análisis de Datos">
+                    <TécnicAnálisisDatos/>
                   </Route>
 
 

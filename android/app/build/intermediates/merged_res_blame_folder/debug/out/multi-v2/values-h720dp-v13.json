@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "io.ionic.starter.app-mergeDebugResources-17:/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\49889aa6b61011d9fe2fbd118a72ab0a\\transformed\\appcompat-1.2.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\ce3f79a523d89320dd464c2b2de6183e\\transformed\\appcompat-1.2.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

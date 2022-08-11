@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "io.ionic.starter.app-mergeDebugResources-17:/values-v28/values-v28.xml",
+            "outputFile": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\3b9e0ac13152ba857b7a58850a14d229\\transformed\\material-1.3.0\\res\\values-v28\\values-v28.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,143,231,319,407,494,581,668",
-                        "endColumns": "87,87,87,87,86,86,86,86",
-                        "endOffsets": "138,226,314,402,489,576,663,750"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\49889aa6b61011d9fe2fbd118a72ab0a\\transformed\\appcompat-1.2.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\ce3f79a523d89320dd464c2b2de6183e\\transformed\\appcompat-1.2.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",
@@ -26,10 +16,20 @@
                     "to": {
                         "startLines": "10,11,12,16",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "755,830,917,1097",
+                        "startOffsets": "755,830,917,1147",
                         "endLines": "10,11,15,19",
                         "endColumns": "74,86,12,12",
-                        "endOffsets": "825,912,1092,1284"
+                        "endOffsets": "825,912,1142,1384"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\edd5a18fa5f45e1cd7b5f13581bee1bb\\transformed\\material-1.3.0\\res\\values-v28\\values-v28.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,143,231,319,407,494,581,668",
+                        "endColumns": "87,87,87,87,86,86,86,86",
+                        "endOffsets": "138,226,314,402,489,576,663,750"
                     }
                 }
             ]
