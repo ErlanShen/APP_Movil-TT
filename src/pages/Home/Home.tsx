@@ -38,7 +38,7 @@ const Home: React.FC = () => {
           <IonCardContent>
           <div className='card'>
           <p>{element.descripcion}</p>
-            <p>{element.Pregunta}</p>
+            <p><p> <b> {element.pregunta} </b></p></p>
           </div>
           <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cuantitativo" >{element.BotonCuant}</IonButton></div>
           <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/cualitativo" >{element.BotonCual}</IonButton></div>

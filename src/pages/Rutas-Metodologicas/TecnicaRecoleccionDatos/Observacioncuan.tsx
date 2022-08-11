@@ -9,7 +9,7 @@ const fireStoreFunction = async () => {
   return await getDocs(collectionDB);
 }
 
-const Observacion: React.FC = () => {
+const Observacioncuan: React.FC = () => {
 
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
@@ -17,7 +17,7 @@ const Observacion: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "Observacion")
+      if (fire.id === "Observacioncuan")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -39,7 +39,7 @@ const Observacion: React.FC = () => {
               <p> {element.descripcion} </p>
               <p><p> <b> {element.pregunta} </b></p></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Validez">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Validez.">{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
@@ -64,4 +64,4 @@ const Observacion: React.FC = () => {
   );       
 };
 
-export default Observacion; 
+export default Observacioncuan; 

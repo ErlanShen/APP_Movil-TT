@@ -37,7 +37,7 @@ import { collection, getDocs } from 'firebase/firestore';
             <div className='card'>
               <p> {element.descripcion} </p>
 
-              <p>{element.pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton  color="warning" routerLink="/accionParticipativa">{element.btnDisenio}</IonButton></div>
            </IonCardContent>

@@ -38,7 +38,7 @@ const SocioContruccionista: React.FC = () => {
             <div className='card'>
               <p> {element.descripcion} </p>
 
-              <p>{element.pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton  color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton></div>
             <div id='buttoncenter'><IonButton  color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton></div>

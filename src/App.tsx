@@ -62,7 +62,7 @@ import DeConstructo from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeCo
 import DeContenido from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeContenido';
 import ActoresSociales from './pages/Rutas-Metodologicas/ActoresSociales/ActoresS';
 import TécnicAnálisisDatos from './pages/Rutas-Metodologicas/TécnicAnálisisDatos/TécnicAnálisisDatos';
-
+import Observacioncuan from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Observacioncuan';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -307,12 +307,16 @@ const App: React.FC = () => {
                     <DeConstructo />
                   </Route>
 
-                  <Route path="/De contenido ">
+                  <Route path="/De contenido">
                     <DeContenido />
                   </Route>
 
                   <Route path="/Técnica de Análisis de Datos">
                     <TécnicAnálisisDatos/>
+                  </Route>
+
+                  <Route path="/Observacion.">
+                    <Observacioncuan/>
                   </Route>
 
 

@@ -38,7 +38,7 @@ const Experimental: React.FC = () => {
             <div className='card'>
               <p> {element.Descripcion} </p>
               <p> {element.Preguntad} </p>
-              <p><b>{element.Pregunta}</b></p>
+              <p><b><p> <b> {element.pregunta} </b></p></b></p>
             </div>
             <div id='buttoncenter'> <IonButton color="tertiary" routerLink="/experimentospuros">{element.btnalt}</IonButton></div>
             <div id='buttoncenter'><IonButton color="tertiary" routerLink="/cuasiexperimentos">{element.btnmod} </IonButton></div>

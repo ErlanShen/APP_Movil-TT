@@ -37,7 +37,7 @@ const fireStoreFunction = async () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.Descripcion} </p>
-              <p>{element.Pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton  id='tbutl' color="tertiary" routerLink="/tendencia" > {element.BtnTe} </IonButton></div>
             <div id='buttoncenter'><IonButton  id='tbutl'  color="tertiary" routerLink="/evoluciondegrupo" > {element.BtnEv} </IonButton></div>

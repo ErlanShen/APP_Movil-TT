@@ -36,7 +36,7 @@ const Interpretativo: React.FC = () => {
             <div className='card'>
               <p> {element.descripcion} </p>
 
-              <p>{element.pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton  className='tbutl' color="warning" routerLink="/fenomenológico" id='tbut'>{element.btnfenomeno}</IonButton></div>
             <div id='buttoncenter'><IonButton  className='tbutl' color="warning" routerLink="/hermenéutico" id='tbut'> {element.btnhermeneu}</IonButton></div>

@@ -37,7 +37,7 @@ const Exploratorio: React.FC = () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.Descripcion} </p>
-              <p>{element.Pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton   className='tbut' color="tertiary" routerLink="/campo">{element.BtnFp}</IonButton></div>
             <div id='buttoncenter'><IonButton   className='tbut' color="tertiary" routerLink="/documental">{element.BtnFs}</IonButton></div>
