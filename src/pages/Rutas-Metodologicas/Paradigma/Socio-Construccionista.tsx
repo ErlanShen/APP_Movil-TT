@@ -50,7 +50,12 @@ const SocioContruccionista: React.FC = () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.descripcion} </p>
+<<<<<<< HEAD
+
+              <p><p> <b> {element.pregunta} </b></p></p>
+=======
               <p>{element.pregunta}</p>
+>>>>>>> f853f0b292371bc8e1282e11be8e6fc2d5b02398
             </div>
             <div id='buttoncenter'>
               <IonButton  color="warning" id="Narrativo" onClick={buttonHandler}>{element.btnNarrativo}</IonButton>

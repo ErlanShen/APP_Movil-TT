@@ -37,7 +37,7 @@ const Instrumento: React.FC = () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.descripcion} </p>
-              <p>{element.pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.btntri}</IonButton></div>
           </IonCardContent>

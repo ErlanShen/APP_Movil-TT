@@ -49,7 +49,7 @@ const Longitudinal: React.FC = () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.Descripcion} </p>
-              <p>{element.Pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
             <div id='buttoncenter'><IonButton className='tbutl' color="tertiary" onClick={buttonHandler} id='Tendencia' > {element.BtnTe} </IonButton></div>
             <div id='buttoncenter'><IonButton className='tbutl' color="tertiary" onClick={buttonHandler} id='Evolución de grupos' > {element.BtnEv} </IonButton></div>

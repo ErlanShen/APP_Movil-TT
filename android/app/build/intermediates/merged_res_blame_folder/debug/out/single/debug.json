@@ -1,134 +1,134 @@
 [
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-port-xxxhdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-port-xxxhdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-mdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-land-mdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-port-hdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-port-hdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xhdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-port-xhdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-land-xhdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-land-xhdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xhdpi/ic_launcher_foreground.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_file_paths.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\xml\\file_paths.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-mdpi/ic_launcher.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-land-hdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-land-hdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_config.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\xml\\config.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-port-mdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-port-mdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-hdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-land-hdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-port-xhdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-port-xhdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xxhdpi/ic_launcher_foreground.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-land-xxxhdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-land-xxxhdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable_ic_launcher_background.xml.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable/ic_launcher_background.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-mdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-port-mdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-hdpi/ic_launcher_foreground.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-port-xxhdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-port-xxhdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-hdpi/ic_launcher.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-land-mdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-land-mdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-mdpi/ic_launcher_foreground.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/xml_file_paths.xml.flat",
-        "source": "io.ionic.starter.app-main-21:/xml/file_paths.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-hdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-port-hdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/layout_activity_main.xml.flat",
-        "source": "io.ionic.starter.app-main-21:/layout/activity_main.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxxhdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "io.ionic.starter.app-pngs-14:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/xml_config.xml.flat",
-        "source": "io.ionic.starter.app-main-21:/xml/config.xml"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxhdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-land-xxhdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi_splash.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\splash.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "io.ionic.starter.app-main-21:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "io.ionic.starter.app-merged_res-19:/drawable-land-xxhdpi_splash.png.flat",
-        "source": "io.ionic.starter.app-main-21:/drawable-land-xxhdpi/splash.png"
+        "merged": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
 ]

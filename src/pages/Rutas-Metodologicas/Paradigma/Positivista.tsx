@@ -48,7 +48,7 @@ const Positivista: React.FC = () => {
             <div className='card'>
               <p> {element.descripcion} </p>
               <p> {element.preguntav} </p>
-              <p><b>{element.pregunta}</b></p>
+              <p><b><p> <b> {element.pregunta} </b></p></b></p>
             </div>
             <div id='buttoncenter'>
                 <IonButton color="tertiary" id="Experimental" onClick={buttonHandler}> {element.btnsi}</IonButton>

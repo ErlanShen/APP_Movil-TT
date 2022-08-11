@@ -67,12 +67,14 @@ const Home: React.FC = () => {
             <strong> {element.titulo} </strong>
           </IonCardHeader>
           <IonCardContent>
+
             <div className='card'>
               <p> {element.descripcion} </p>
               <p>{element.Pregunta}</p>
             </div>
             <div id='buttoncenter'><IonButton className='tbut' id='Cuantitativo' color="warning" onClick={buttonHandler} >{element.BotonCuant}</IonButton></div>
             <div id='buttoncenter'><IonButton className='tbut' id='Cualitativo' color="warning" onClick={buttonHandler} >{element.BotonCual}</IonButton></div>
+
           </IonCardContent>
         </IonCard>
       </div>

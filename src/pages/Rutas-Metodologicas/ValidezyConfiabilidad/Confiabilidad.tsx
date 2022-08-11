@@ -37,9 +37,9 @@ const Confiabilidad: React.FC = () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.descripcion} </p>
-              <p>{element.pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Técnica de Análisis de Datos">{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>

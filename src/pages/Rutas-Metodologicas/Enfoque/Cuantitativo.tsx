@@ -47,7 +47,7 @@ const Cuantitativo: React.FC = () => {
         <IonCardContent>
           <div className='card'>
             <p> {element.descripcion} </p>
-            <p> {element.pregunta} </p>
+            <p> <p> <b> {element.pregunta} </b></p> </p>
           </div>
           <div id='buttoncenter'>
             <IonButton color="tertiary" id="Positivista" onClick={buttonHandler}>{element.bt}</IonButton>

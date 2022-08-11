@@ -35,7 +35,7 @@
 24        android:allowBackup="true"
 24-->F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:6:9-35
 25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-25-->[androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\e48cfc29bc00c71b7eb4bfec05d2c833\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
+25-->[androidx.core:core:1.3.2] C:\Users\Camilo Escudero\.gradle\caches\transforms-3\2affdb6e6a1314389bbf6c67f425b6c6\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
 26        android:debuggable="true"
 27        android:icon="@mipmap/ic_launcher"
 27-->F:\Users\camil\Documents\UNIVERSIDAD\8 Semestre\App\App-Movil-tt\APP_Movil-TT\android\app\src\main\AndroidManifest.xml:7:9-43

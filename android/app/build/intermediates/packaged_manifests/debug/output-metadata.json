@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "artifactType": {
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
@@ -10,11 +10,9 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "attributes": [],
       "versionCode": 1,
       "versionName": "1.0",
       "outputFile": "AndroidManifest.xml"
     }
-  ],
-  "elementType": "File"
+  ]
 }

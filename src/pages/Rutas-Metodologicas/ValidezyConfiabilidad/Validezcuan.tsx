@@ -37,10 +37,10 @@ const Validezcuan: React.FC = () => {
           <IonCardContent >
             <div className='card'>
               <p> {element.descripcion} </p>
-              <p>{element.pregunta}</p>
+              <p><p> <b> {element.pregunta} </b></p></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.btnfin}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/home">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/De contenido">{element.btncont}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/De constructo">{element.btncons}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
