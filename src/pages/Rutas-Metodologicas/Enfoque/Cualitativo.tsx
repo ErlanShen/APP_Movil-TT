@@ -50,7 +50,7 @@ const Cualitativo: React.FC = () => {
             <div className='card'>
               <p> {element.descripcion} </p>
 
-              <p>{element.subtitulo}</p>
+              <p> <b>{element.subtitulo}</b></p>
             </div>
             <div id='buttoncenter'><IonButton  className='tbut' color="warning" onClick={buttonHandler} id='Interpretativo'>{element.btsociocritico}</IonButton></div>
             <div id='buttoncenter'><IonButton  className='tbut' color="warning" onClick={buttonHandler} id='Sociocrítico'>{element.btinterpretativo}</IonButton></div>

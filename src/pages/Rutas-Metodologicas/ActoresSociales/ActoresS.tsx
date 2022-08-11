@@ -76,7 +76,7 @@ const ActoresSociales: React.FC = () => {
           <IonCardContent>
             <div className='card' onSubmit={selectHandler}>
               <p>{element.descripcion}</p>
-              <p>{element.pregunta}</p>
+              <p><b>{element.pregunta}</b></p>
               {/* <IonItem >
                 <p className='card'>Seleccione el sujeto de estudio</p>
                 <IonSelect onIonChange={(event: any) => setSelectedSujeto(event.target.value)}>

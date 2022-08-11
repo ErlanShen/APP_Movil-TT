@@ -50,8 +50,8 @@ const Experimental: React.FC = () => {
          <IonCardContent >
             <div className='card'>
               <p> {element.Descripcion} </p>
-              <p> {element.Preguntad} </p>
-              <p><b><p> <b> {element.pregunta} </b></p></b></p>
+              <p><b> {element.Preguntad} </b></p>
+              <p><b> {element.pregunta} </b></p>
             </div>
             <div id='buttoncenter'> <IonButton color="tertiary" onClick={buttonHandler} id="Experimentos puros">{element.btnalt}</IonButton></div>
             <div id='buttoncenter'><IonButton color="tertiary" onClick={buttonHandler} id="Cuasiexperimentos">{element.btnmod} </IonButton></div>

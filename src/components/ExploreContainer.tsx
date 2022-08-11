@@ -3,7 +3,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { firestore } from '../database/firebaseConfig';
 import './ExploreContainer.css';
-import { arrowForwardOutline } from 'ionicons/icons';
+import { arrowForwardOutline, menuOutline, menuSharp } from 'ionicons/icons';
 import { Storage } from '@capacitor/storage';
 import { useHistory } from 'react-router';
 
@@ -55,7 +55,7 @@ const ExploreContainer: React.FC = () => {
           <IonCardContent >
             <div className='cart'>
               <p>{element.parrafo1}</p>
-              <p>{element.parrafo2}</p>
+              <p>{element.parrafo2} <IonIcon icon={menuOutline || menuSharp} color='dark' />  </p>
             </div>
             <div id='buttoncenter'>
               <IonButton onClick={clearState}>
@@ -73,7 +73,9 @@ const ExploreContainer: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonMenuButton >
+              <IonIcon icon={menuOutline || menuSharp} size='large' color='light' />
+            </IonMenuButton>
           </IonButtons>
           <IonTitle>Rutas Metodológicas</IonTitle>
         </IonToolbar>

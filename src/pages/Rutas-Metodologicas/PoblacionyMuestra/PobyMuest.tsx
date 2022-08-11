@@ -45,25 +45,10 @@ const PobyMuest: React.FC = () => {
           <IonCardHeader>
             <strong> {element.titulo} </strong>
           </IonCardHeader>
-<<<<<<< HEAD
-                <IonCardContent >
-                <div className='card'>
-                <p> {element.descripcion}</p>
-                <p><p> <b> {element.pregunta} </b></p></p>
-                </div>
-                <div id='buttoncenter'><IonButton color="tertiary" routerLink="/Muestra Finita">{element.btnmf}</IonButton></div>
-                <div id='buttoncenter'><IonButton color="tertiary" routerLink="/Muestra Infinita">{element.btnmi}</IonButton></div>
-                </IonCardContent>
-            </IonCard>
-        </div>
-    )    
-
-}
-=======
           <IonCardContent >
             <div className='card'>
               <p> {element.descripcion}</p>
-              <p>{element.pregunta}</p>
+                <p> <b> {element.pregunta} </b></p>
             </div>
             <div id='buttoncenter'><IonButton color="tertiary" onClick={buttonHandler} id="Muestra Finita">{element.btnmf}</IonButton></div>
             <div id='buttoncenter'><IonButton color="tertiary" onClick={buttonHandler} id="Muestra Infinita">{element.btnmi}</IonButton></div>
@@ -71,8 +56,6 @@ const PobyMuest: React.FC = () => {
         </IonCard>
       </div>
     )}
->>>>>>> f853f0b292371bc8e1282e11be8e6fc2d5b02398
-
   )
   return (
     <IonPage id='fondoUnibe'>

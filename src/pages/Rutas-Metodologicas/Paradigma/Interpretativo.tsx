@@ -47,7 +47,7 @@ const Interpretativo: React.FC = () => {
             <div className='card'>
               <p> {element.descripcion} </p>
 
-              <p><p> <b> {element.pregunta} </b></p></p>
+              <p> <b> {element.pregunta} </b></p>
             </div>
             <div id='buttoncenter'>
               <IonButton  className='tbutl' color="warning" id="Fenomenológico" onClick={buttonHandler}>{element.btnfenomeno}</IonButton>

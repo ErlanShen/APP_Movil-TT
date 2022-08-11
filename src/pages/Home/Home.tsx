@@ -12,12 +12,14 @@ import {
   IonCardHeader,
   IonContent,
   IonMenuButton,
-  IonLoading
+  IonLoading,
+  IonIcon
 } from '@ionic/react';
 import { firestore } from '../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { Storage } from '@capacitor/storage';
 import { useHistory } from 'react-router';
+import { menuOutline, menuSharp } from 'ionicons/icons';
 
 const Home: React.FC = () => {
   const db = firestore;
@@ -41,23 +43,16 @@ const Home: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   //metodo para almacenar el id del contenido seleccionado
-  const [busy, setBusy] = useState(false);
   const history = useHistory();
   const buttonHandler = async (event: any) => {
     event.preventDefault();
     const button: HTMLButtonElement = event.currentTarget;
-    await Storage.clear();
-    setBusy(true);
-    setTimeout(()  => async () => {
-      await Storage.set({
+    await Storage.set({
       key: 'select-enfoque',
       value: button.id
     });
     history.push('/' + button.id);
-    setBusy(false);
-    }, 1500);
   };
-  <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
 
   let contenido = data.map((element, index) => {
     return (
@@ -86,7 +81,9 @@ const Home: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonMenuButton >
+              <IonIcon icon={menuOutline || menuSharp} size='large'  color='light' /> 
+            </IonMenuButton>
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>

@@ -24,7 +24,7 @@ const Cuantitativo: React.FC = () => {
   }
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const history = useHistory();
   const buttonHandler = async (event: any) => {
@@ -33,44 +33,45 @@ const Cuantitativo: React.FC = () => {
     await Storage.set({
       key: 'selectParadigma',
       value: button.id
-   });
-   history.push('/'+button.id);
+    });
+    history.push('/' + button.id);
   };
 
   let contenido = data.map((element, index) => {
     return (
       <div className='container' key={index}>
-      <IonCard class="cardComponent">
-        <IonCardHeader>
-          <strong>Enfoque: {element.titulo}</strong>
-        </IonCardHeader>
-        <IonCardContent>
-          <div className='card'>
-            <p> {element.descripcion} </p>
-            <p> <p> <b> {element.pregunta} </b></p> </p>
-          </div>
-          <div id='buttoncenter'>
-            <IonButton color="tertiary" id="Positivista" onClick={buttonHandler}>{element.bt}</IonButton>
-          </div>
+        <IonCard class="cardComponent">
+          <IonCardHeader>
+            <strong>Enfoque: {element.titulo}</strong>
+          </IonCardHeader>
+          <IonCardContent>
+            <div className='card'>
+              <p> {element.descripcion} </p>
+              <p> <b> {element.pregunta} </b></p>
+            </div>
+            <div id='buttoncenter'>
+              <IonButton color="tertiary" id="Positivista" onClick={buttonHandler}>{element.bt}</IonButton>
+            </div>
           </IonCardContent>
-      </IonCard>
+        </IonCard>
       </div>
-    )}
+    )
+  }
 
   )
   return (
     <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons  slot="start">
+          <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-        <IonContent>
+      <IonContent>
         {contenido}
-        </IonContent>
+      </IonContent>
     </IonPage>
   );
 }

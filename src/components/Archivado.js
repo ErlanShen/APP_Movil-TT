@@ -16,9 +16,9 @@ import "./ExploreContainer.css"
 import { Storage } from '@capacitor/storage';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { refreshCircleOutline, refreshCircleSharp } from 'ionicons/icons';
+import { menuOutline, menuSharp, refreshCircleOutline, refreshCircleSharp } from 'ionicons/icons';
 
- export const reset = async () => {
+export const reset = async () => {
    await Storage.set({ key: 'select-enfoque', value: '' });
    await Storage.set({ key: 'selectParadigma', value: '' });
    await Storage.set({ key: 'selectDisenio', value: '' });
@@ -81,24 +81,10 @@ export function Archivado() {
       const tecnicAnalisis = await Storage.get({ key: 'selectTecnicAnalisis' });
       setTecnicAnalisis(tecnicAnalisis);
 
-
-
-      console.log(root);
-      console.log(sp);
-      console.log(sd);
-      console.log(ssd);
-      console.log(ssd2);
-      console.log(n);
-      console.log(t);
-      console.log(pym);
-      console.log(sDeEstudio);
-      console.log(tecnicaData);
-      console.log(tecnicaInfo);
-      console.log(tecnicAnalisis);
    }
    //resetear los valores de los select una vez que se carga la pagina explorecontainer
 
-   
+
    const [busy, setBusy] = useState(false);
    const history = useHistory();
    const clearState = async () => {
@@ -114,14 +100,16 @@ export function Archivado() {
    }, []);
 
    return (
-  
+
       <div>
-          <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
+         <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
          <IonPage id='fondoUnibe'>
             <IonHeader>
                <IonToolbar id='title-toolbar'>
                   <IonButtons slot="start">
-                     <IonMenuButton />
+                     <IonMenuButton >
+                        <IonIcon icon={menuOutline || menuSharp} size='large' color='light' />
+                     </IonMenuButton>
                   </IonButtons>
                   <IonTitle>Rutas Metodológicas</IonTitle>
                </IonToolbar>
@@ -223,7 +211,7 @@ export function Archivado() {
                </div>
                <div id='buttoncenter'>
                   <IonButton onClick={clearState}>
-                     <IonIcon icon={refreshCircleOutline || refreshCircleSharp } />
+                     <IonIcon icon={refreshCircleOutline || refreshCircleSharp} />
                      Empezar de nuevo
                   </IonButton>
                </div>
