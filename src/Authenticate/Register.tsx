@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast, IonLoading } from '@ionic/react';
+import { IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonLabel, IonButton, IonItem, IonInput, IonList, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, useIonAlert, IonRow, IonCol, IonImg, useIonToast, IonLoading, IonContent, IonIcon } from '@ionic/react';
 import './Form.css'; // Import the CSS file
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/authContext';
+import { readerOutline, readerSharp } from 'ionicons/icons';
 
 const carrers = [
   { name: "Turismo" },
@@ -26,6 +27,7 @@ const Register: React.FC = () => {
   const [error, setError] = useState('');
   const [presentAlert] = useIonAlert();
   const [busy, setBusy] = useState(false);
+  
   const handlerSubmit = async (e: any) => {
     e.preventDefault();
     setError(error);
@@ -67,7 +69,6 @@ const Register: React.FC = () => {
     setEmail("");
     setPassword("");
     setCarrera("");
-    e.target.reset();
   }
   const alerta = () => presentAlert({
     header: 'Se a creado una nueva cuenta',
@@ -85,8 +86,8 @@ const Register: React.FC = () => {
     animated: true,
   })
   return (
-    
-    <IonPage  id='fondoUnibe'>
+
+    <IonPage id='fondoUnibe'>
       <IonHeader id='color-background'>
         <IonToolbar>
           <IonButtons slot="start">
@@ -95,26 +96,27 @@ const Register: React.FC = () => {
           <IonTitle>UNIB.E</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <div className='container'>
-        <IonCard>
-          <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
-          <IonCardHeader>
-            <IonCardTitle className='title'>Formulario registro</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>
-            <form onSubmit={handlerSubmit} className="form">
-              <IonItem>
-                <IonLabel position="floating">Nombre de usuario</IonLabel>
-                <IonInput required clearInput inputMode='text' type="text" pattern='[A-Za-z]{30}' name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
-              </IonItem>
-              <IonItem>
-                <IonLabel position="floating">Correo electrónico</IonLabel>
-                <IonInput required clearInput placeholder='email123@ejemplo.com' type='email' name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
-              </IonItem>
-              <IonItem>
-                <IonLabel position="floating">Contraseña</IonLabel>
-                <IonInput required clearInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
-              </IonItem>
+      <IonContent>
+        <div className='container'>
+          <IonCard>
+            <IonImg class='imagen' src="https://firebasestorage.googleapis.com/v0/b/app-movil-tt.appspot.com/o/logo_sin_fondo.png?alt=media&token=f383adaa-8ac4-4a52-8c83-4888ab1704c1"></IonImg>
+            <IonCardHeader>
+              <IonCardTitle className='title'>Formulario registro</IonCardTitle>
+            </IonCardHeader>
+            <IonCardContent>
+              <form onSubmit={handlerSubmit} className="form">
+                <IonItem>
+                  <IonLabel position="floating">Nombre de usuario</IonLabel>
+                  <IonInput required clearInput inputMode='text' type="text" pattern='[A-Za-z]{30}' name='displayName' id='displayName' onIonChange={(e: any) => setDisplayName(e.target.value)} />
+                </IonItem>
+                <IonItem>
+                  <IonLabel position="floating">Correo electrónico</IonLabel>
+                  <IonInput required clearInput placeholder='email123@ejemplo.com' type='email' name='email' onIonChange={(e: any) => setEmail(e.target.value)} />
+                </IonItem>
+                <IonItem>
+                  <IonLabel position="floating">Contraseña</IonLabel>
+                  <IonInput required clearInput type="password" name='password' id='password' onIonChange={(e: any) => setPassword(e.target.value)} />
+                </IonItem>
                 <IonItem>
                   <IonLabel>Carrera</IonLabel>
                   <IonSelect interface="popover" className='seleccionar' placeholder='Seleccionar' onIonChange={(e: any) => setCarrera(e.target.value)}>
@@ -123,18 +125,22 @@ const Register: React.FC = () => {
                     ))}
                   </IonSelect>
                 </IonItem>
-            </form>
-            <IonRow>
-              <IonCol />
-              <IonCol size='10'>
-                <IonButton color='warning' onClick={handlerSubmit}>Registrar</IonButton>
+              </form>
+              <div id='buttoncenter'>
+                <IonButton color='warning' onClick={handlerSubmit}>
+                <IonIcon icon={readerSharp || readerOutline} size='large' slot="start" color='light'/>
+                  Registrar</IonButton>
+              </div>
+              <div id='buttoncenter'>
                 <IonButton className="btn-text" color="dark" fill="clear" routerLink="/login">Ya tengo una cuenta!</IonButton>
-              </IonCol>
-              <IonCol />
-            </IonRow>
-          </IonCardContent>
-        </IonCard>
-      </div>
+              </div>
+
+
+            </IonCardContent>
+          </IonCard>
+        </div>
+      </IonContent>
+
       <IonLoading message={"Porfavor espere..."} duration={0} isOpen={busy} />
     </IonPage>
   );

@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent,  IonButtons, IonBackButton, IonButton, IonLabel, IonContent } from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButtons, IonBackButton, IonButton, IonLabel, IonContent, IonItem, IonSelect, IonSelectOption, useIonToast } from '@ionic/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../../../database/firebaseConfig';
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
 
- const ActoresSociales: React.FC = () => {
+const sujetos = [
+  { name: "Actores Sociales" },
+  { name: "Informantes Claves" },
+  { name: "Versionantes" },
+];
+
+const ActoresSociales: React.FC = () => {
+
   const db = firestore;
   const fireStoreFunction = async () => {
     const collectionDB = collection(db, 'Datos-Contenido');
@@ -11,6 +20,7 @@ import { firestore } from '../../../database/firebaseConfig';
   }
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
+  const [selectedSujeto, setSelectedSujeto] = useState('');
 
   const dataExtract = async () => {
     const data = await fireStoreFunction();
@@ -21,12 +31,43 @@ import { firestore } from '../../../database/firebaseConfig';
     })
     setData(dataArray);
   }
+
   useEffect(() => {
     dataExtract();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const selectHandler = async (event: any) => {
+    event.preventDefault();
+    
+    history.push('/Tecnica de Recoleccion de información');
+  }; 
+
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectSujetosE',
+      value: button.id
+    });
+    history.push('/Tecnica de Recoleccion de información');
+  };
+
+  /* const [present, dismiss] = useIonToast();
+  const toast = (message: string, color?: string) => present({
+    buttons: [{ text: 'hide', handler: () => dismiss() }],
+    message: message,
+    duration: 2500,
+    position: 'bottom',
+    color: color ? color : 'danger',
+    animated: true,
+  }) */
+
   let contenido = data.map((element, index) => {
     return (
+<<<<<<< HEAD
       <div className='container'>
         <IonCard key={index} class="cardComponent">
         <IonCardHeader>
@@ -36,12 +77,30 @@ import { firestore } from '../../../database/firebaseConfig';
           <div className='card'>
           <p>{element.descripcion}</p>
             <p><p> <b> {element.pregunta} </b></p></p>
+=======
+      <div className='container' key={index}>
+        <IonCard class="cardComponent">
+          <IonCardHeader>
+            <strong> {element.titulo} </strong>
+          </IonCardHeader>
+          <IonCardContent>
+            <div className='card' onSubmit={selectHandler}>
+              <p>{element.descripcion}</p>
+              <p>{element.pregunta}</p>
+              {/* <IonItem >
+                <p className='card'>Seleccione el sujeto de estudio</p>
+                <IonSelect onIonChange={(event: any) => setSelectedSujeto(event.target.value)}>
+                  {sujetos.map(sujeto => (
+                    <IonSelectOption key={sujeto.name} value={sujeto}>{sujeto.name}</IonSelectOption>
+                  ))}
+                </IonSelect>
+              </IonItem> */}
+            </div>
+            <div id='buttoncenter' ><IonButton className='tbut' color="warning" id='Actores Sociales/ Informantes Claves/ Versionantes' onClick={buttonHandler}>{element.btnfin}</IonButton></div>
+>>>>>>> f853f0b292371bc8e1282e11be8e6fc2d5b02398
 
-          </div>
-          <div id='buttoncenter'><IonButton className='tbut' color="warning" routerLink="/Tecnica de Recoleccion de información">{element.btnfin}</IonButton></div>
-         
           </IonCardContent>
-      </IonCard> 
+        </IonCard>
       </div>
     )
 
@@ -54,17 +113,17 @@ import { firestore } from '../../../database/firebaseConfig';
     <IonPage id='fondoUnibe'>
       <IonHeader>
         <IonToolbar id='title-toolbar'>
-          <IonButtons  slot="start">
+          <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-        <IonContent>
+      <IonContent>
         {contenido}
-        </IonContent>
+      </IonContent>
     </IonPage>
   );
 }
- 
+
 export default ActoresSociales;

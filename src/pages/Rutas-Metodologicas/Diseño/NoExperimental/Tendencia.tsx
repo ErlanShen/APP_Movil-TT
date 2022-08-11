@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -29,10 +31,10 @@ const Tendencia: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}> 
+      <IonCard class="cardComponent">
         <IonCardHeader>
-          <strong> {element.Titulo} </strong>
+          <strong>Diseño: {element.Titulo} </strong>
         </IonCardHeader>
           <IonCardContent >
             <div className='card'>

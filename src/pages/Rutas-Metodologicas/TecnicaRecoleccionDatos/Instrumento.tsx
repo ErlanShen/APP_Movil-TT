@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -29,8 +29,8 @@ const Instrumento: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}> 
+      <IonCard class="cardComponent">
         <IonCardHeader>
           <strong> {element.titulo} </strong>
         </IonCardHeader>
@@ -44,8 +44,7 @@ const Instrumento: React.FC = () => {
       </IonCard>
       </div>
     )
-  } 
-  )
+  })
 
   return (
     <IonPage id='fondoUnibe'>
@@ -57,9 +56,7 @@ const Instrumento: React.FC = () => {
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
       </IonHeader>
-        <IonContent>
         {contenido}
-        </IonContent>
     </IonPage>
   );       
 };

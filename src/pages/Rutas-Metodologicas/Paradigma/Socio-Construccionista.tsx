@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardContent, IonButton, IonBackButton, IonButtons, IonLabel, IonContent } from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { Storage } from '@capacitor/storage';
+import { useHistory } from 'react-router';
 
 const SocioContruccionista: React.FC = () => {
 
@@ -27,27 +29,44 @@ const SocioContruccionista: React.FC = () => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectDisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
+
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}>
+      <IonCard class="cardComponent">
         <IonCardHeader>
           <strong> {element.titulo} </strong>
         </IonCardHeader>
           <IonCardContent >
             <div className='card'>
               <p> {element.descripcion} </p>
+<<<<<<< HEAD
 
               <p><p> <b> {element.pregunta} </b></p></p>
+=======
+              <p>{element.pregunta}</p>
+>>>>>>> f853f0b292371bc8e1282e11be8e6fc2d5b02398
             </div>
-            <div id='buttoncenter'><IonButton  color="warning" routerLink="/narrativo">{element.btnNarrativo}</IonButton></div>
-            <div id='buttoncenter'><IonButton  color="warning" routerLink="/teoriafundamentada">{element.btnTeoriaF}</IonButton></div>
+            <div id='buttoncenter'>
+              <IonButton  color="warning" id="Narrativo" onClick={buttonHandler}>{element.btnNarrativo}</IonButton>
+            </div>
+            <div id='buttoncenter'>
+              <IonButton  color="warning" id="Teoría Fundamentada" onClick={buttonHandler}>{element.btnTeoriaF}</IonButton>
+            </div>
             </IonCardContent>
       </IonCard>
       </div>
     )
-
-
   }
   )
   return (

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
 import { firestore } from '../../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -27,20 +29,31 @@ const fireStoreFunction = async () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'selectSubdisenio',
+      value: button.id
+   });
+   history.push('/'+button.id);
+  };
+
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}> 
+      <IonCard class="cardComponent">
         <IonCardHeader>
-          <strong> {element.Titulo} </strong>
+          <strong>Diseño: {element.Titulo} </strong>
         </IonCardHeader>
           <IonCardContent >
             <div className='card'>
               <p> {element.Descripción} </p>
               <p><b><p> <b> {element.pregunta} </b></p></b></p>
             </div>
-            <div  id='buttoncenter'><IonButton id='tbut' color="tertiary" routerLink="/transaccional">{element.BtnTransacc}</IonButton></div>
-            <div  id='buttoncenter'><IonButton  id='tbut' color="tertiary" routerLink="/longitudinal">{element.BtnLong}</IonButton></div>
+            <div  id='buttoncenter'><IonButton className='tbut' color="tertiary" onClick={buttonHandler} id="Transaccional o Transversal">{element.BtnTransacc}</IonButton></div>
+            <div  id='buttoncenter'><IonButton className='tbut' color="tertiary" onClick={buttonHandler} id="Longitudinal">{element.BtnLong}</IonButton></div>
 
           </IonCardContent>
       </IonCard>

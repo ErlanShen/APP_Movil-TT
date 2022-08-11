@@ -12,13 +12,24 @@
   padding-bottom: 2rem;
 }
 
-.container p {
+.naturaleza p {
   margin: 0.1rem 1rem;
   font-size: 16px;
   line-height: 22px;
   margin: 0;
 }
-
+.container h3 {
+  margin: 0.1rem 1rem;
+  line-height: 22px;
+  margin: 0;
+}
+.naturaleza {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
 .cardComponent {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -34,4 +45,7 @@
   margin: 0rem 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+.footer{
+  height: 1.5rem;
 }

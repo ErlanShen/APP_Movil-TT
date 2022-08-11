@@ -29,17 +29,21 @@ const EvoluciondeGrupo: React.FC = () => {
 
   let contenido = data.map((element, index) => {
     return (
-      <div className='container'> 
-      <IonCard key={index} class="cardComponent">
+      <div className='container' key={index}> 
+      <IonCard class="cardComponent">
         <IonCardHeader>
-          <strong> {element.Titulo} </strong>
+          <strong>Diseño: {element.Titulo} </strong>
         </IonCardHeader>
           <IonCardContent >
             <div className='card'>
               <p> {element.Descripcion} </p>
               <p><p> <b> {element.pregunta} </b></p></p>
             </div>
+<<<<<<< HEAD
             <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Observacion.">{element.BtnFin}</IonButton></div>
+=======
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/muestra">{element.BtnFin}</IonButton></div>
+>>>>>>> f853f0b292371bc8e1282e11be8e6fc2d5b02398
           </IonCardContent>
       </IonCard>
       </div>
