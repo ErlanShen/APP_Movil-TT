@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel} from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonIcon} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { useHistory } from 'react-router';
 import { Storage } from '@capacitor/storage';
+import { backspaceOutline, backspaceSharp } from 'ionicons/icons';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -11,7 +12,7 @@ const fireStoreFunction = async () => {
   return await getDocs(collectionDB);
 }
 
-const Instrumento: React.FC = () => {
+const RevisionDocumental: React.FC = () => {
 
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
@@ -19,7 +20,7 @@ const Instrumento: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "Instrumento")
+      if (fire.id === "RevisionDocumental")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -34,12 +35,11 @@ const Instrumento: React.FC = () => {
     event.preventDefault();
     const button: HTMLButtonElement = event.currentTarget;
     await Storage.set({
-      key: 'tecnicaInfo',
+      key: 'instrumet',
       value: button.id
     });
-    history.push('/Observacion.');
+    history.push('/'+button.id);
   };
-
   let contenido = data.map((element, index) => {
     return (
       <div className='container' key={index}> 
@@ -52,11 +52,8 @@ const Instrumento: React.FC = () => {
               <p> {element.descripcion} </p>
               <p> <b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Observación , Lista de cotejo, Escala de estimación, Check list, Cuestionario">{element.btn.tri1}</IonButton></div>
-            {/* <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Lista de cotejo">{element.btn.tri2}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Escala de estimación">{element.btn.tri3}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Check list">{element.btn.tri4}</IonButton></div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Cuestionario">{element.btn.tri5}</IonButton></div> */}
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler}  id="Hoja de registro">{element.btnfin}</IonButton></div>
+           
           </IonCardContent>
       </IonCard>
       </div>
@@ -68,7 +65,9 @@ const Instrumento: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons  slot="start">
-            <IonBackButton />
+          <IonBackButton>
+              <IonIcon icon={backspaceOutline || backspaceSharp} size='large' color='light' />
+            </IonBackButton>
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
@@ -78,4 +77,4 @@ const Instrumento: React.FC = () => {
   );       
 };
 
-export default Instrumento; 
+export default RevisionDocumental; 

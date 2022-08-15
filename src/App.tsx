@@ -1,6 +1,6 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Router } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
 
 
@@ -45,7 +45,7 @@ import Muestra from './pages/Rutas-Metodologicas/PoblacionyMuestra/PobyMuest';
 import MuestraFinita from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/MuestraFinita';
 import MuestraInfinita from './pages/Rutas-Metodologicas/PoblacionyMuestra/Muestra/MuestraInfinita';
 import Tecnica from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Tecnica';
-import Instrumento from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Instrumento';
+import RevisionDocumental from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/RevisionDocumental';
 import TecnicaRec from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/TecnicaRec';
 import Entrevista from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/Entrevista';
 import GuiondeEntrevista from './pages/Rutas-Metodologicas/TecnicasRecoleccionInformacion/GuionEntrevista';
@@ -63,7 +63,9 @@ import DeConstructo from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeCo
 import DeContenido from './pages/Rutas-Metodologicas/ValidezyConfiabilidad/DeContenido';
 import ActoresSociales from './pages/Rutas-Metodologicas/ActoresSociales/ActoresS';
 import TécnicAnálisisDatos from './pages/Rutas-Metodologicas/TécnicAnálisisDatos/TécnicAnálisisDatos';
-import Observacioncuan from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Observacioncuan';
+import ObservacionC from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/ObservacionC';
+import Encuesta from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Encuesta';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -82,6 +84,9 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import ListaDeChequeo from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/checkList';
+import Cuestionario from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/Cuestionario';
+import HojaRegistro from './pages/Rutas-Metodologicas/TecnicaRecoleccionDatos/hojaRegistro';
 
 setupIonicReact();
 
@@ -252,10 +257,6 @@ const App: React.FC = () => {
                     <Tecnica />
                   </Route>
 
-                  <Route path="/Instrumento">
-                    <Instrumento />
-                  </Route>
-
                   <Route path="/Tecnica de Recoleccion de información">
                     <TecnicaRec />
                   </Route>
@@ -316,11 +317,25 @@ const App: React.FC = () => {
                     <TécnicAnálisisDatos/>
                   </Route>
 
-                  <Route path="/Observacion.">
-                    <Observacioncuan/>
+                  <Route path="/La observación científica">
+                    <ObservacionC/>
                   </Route>
 
-
+                  <Route path="/Encuesta">
+                    <Encuesta/>
+                  </Route>
+                  <Route path="/Revisión documental.">
+                    <RevisionDocumental/>
+                  </Route>
+                  <Route path="/Lista de chequeo">
+                    <ListaDeChequeo/>
+                  </Route>
+                  <Route path="/Cuestionario">
+                    <Cuestionario/>
+                  </Route>
+                  <Route path="/Hoja de registro">
+                    <HojaRegistro/>
+                  </Route>
                   <Route path="/exploreContainer">
                     <ExploreContainer />
                   </Route>

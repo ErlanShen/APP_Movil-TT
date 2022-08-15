@@ -51,7 +51,7 @@ const Observacion: React.FC = () => {
               <p> {element.descripcion} </p>
               <p> <b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" id="Validez" onClick={buttonHandler}>{element.btn}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" id="Validez" onClick={buttonHandler}>{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+            "outputFile": "C:\\Users\\Viper Nox\\github respo\\APP_Movil-TT\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\edd5a18fa5f45e1cd7b5f13581bee1bb\\transformed\\material-1.3.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "source": "C:\\Users\\Viper Nox\\.gradle\\caches\\transforms-3\\edd5a18fa5f45e1cd7b5f13581bee1bb\\transformed\\material-1.3.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

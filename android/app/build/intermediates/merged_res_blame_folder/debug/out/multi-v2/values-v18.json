@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\Users\\camil\\Documents\\UNIVERSIDAD\\8 Semestre\\App\\App-Movil-tt\\APP_Movil-TT\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+            "outputFile": "C:\\Users\\Viper Nox\\github respo\\APP_Movil-TT\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Camilo Escudero\\.gradle\\caches\\transforms-3\\ce3f79a523d89320dd464c2b2de6183e\\transformed\\appcompat-1.2.0\\res\\values-v18\\values-v18.xml",
+                    "source": "C:\\Users\\Viper Nox\\.gradle\\caches\\transforms-3\\ce3f79a523d89320dd464c2b2de6183e\\transformed\\appcompat-1.2.0\\res\\values-v18\\values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

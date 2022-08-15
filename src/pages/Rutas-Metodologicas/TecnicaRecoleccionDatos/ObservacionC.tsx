@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
+import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent, IonIcon} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
+import { backspaceOutline, backspaceSharp } from 'ionicons/icons';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -9,7 +12,7 @@ const fireStoreFunction = async () => {
   return await getDocs(collectionDB);
 }
 
-const Observacioncuan: React.FC = () => {
+const ObservacionC: React.FC = () => {
 
   const dataArray = Array<any>();
   const [data, setData] = useState(Array<any>());
@@ -17,7 +20,7 @@ const Observacioncuan: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "Observacioncuan")
+      if (fire.id === "ObservacionCientifica")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -26,7 +29,16 @@ const Observacioncuan: React.FC = () => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'instrumet',
+      value: button.id
+    });
+    history.push('/'+button.id);
+  };
   let contenido = data.map((element, index) => {
     return (
       <div className='container' key={index}> 
@@ -39,7 +51,7 @@ const Observacioncuan: React.FC = () => {
               <p> {element.descripcion} </p>
               <p><b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Validez.">{element.btnfin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id='Lista de chequeo'>{element.btnfin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
@@ -52,7 +64,9 @@ const Observacioncuan: React.FC = () => {
       <IonHeader>
         <IonToolbar id='title-toolbar'>
           <IonButtons  slot="start">
-            <IonBackButton />
+          <IonBackButton>
+              <IonIcon icon={backspaceOutline  || backspaceSharp} size='large' color='light' />
+            </IonBackButton>
           </IonButtons>
           <IonTitle><IonLabel>Rutas Metodológicas</IonLabel></IonTitle>
         </IonToolbar>
@@ -64,4 +78,4 @@ const Observacioncuan: React.FC = () => {
   );       
 };
 
-export default Observacioncuan; 
+export default ObservacionC; 

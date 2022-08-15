@@ -39,7 +39,7 @@ const Panel: React.FC = () => {
               <p> {element.Descripcion} </p>
               <p> <b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Muestra.">{element.BtnFin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Muestra">{element.BtnFin}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>

@@ -34,6 +34,7 @@ export function Archivado() {
 
    //seccion de tecnica de analisis de datos e informacion
    const [tecnicaData, setTecnicaData] = useState('');
+   const [instrumet, setInstrumet] = useState('');
    const [validez, setValidez] = useState('');
    const [confiabilidad, setConfiabilidad] = useState('');
    const [tecnicaInfo, setTecnicaInfo] = useState('');
@@ -64,6 +65,8 @@ export function Archivado() {
       //seccion de tecnica de analisis de datos e informacion
       const tecnicaData = await Storage.get({ key: 'selectTecnicaData' });
       setTecnicaData(tecnicaData);
+      const instrumet = await Storage.get({ key: 'selectInstrumet' });
+      setInstrumet(instrumet);
       const validez = await Storage.get({ key: 'selectValidez' });
       setValidez(validez);
       const confiabilidad = await Storage.get({ key: 'selectConfiabilidad' });
@@ -162,7 +165,8 @@ export function Archivado() {
                            </IonCardTitle>
                         </IonCardHeader>
                         <IonCardContent>
-                           <IonItem><p>Intrumento: {tecnicaData.value}</p></IonItem>
+                           <IonItem><p>Tecnica: {tecnicaData.value}</p></IonItem>
+                           <IonItem><p>Intrumento: {instrumet.value}</p></IonItem>
                            <IonItem><p>Validez: {validez.value}</p></IonItem>
                            <IonItem><p>Confiabilidad: {confiabilidad.value}</p></IonItem>
                            <IonItem><p>Técnica de análisis de datos</p></IonItem>

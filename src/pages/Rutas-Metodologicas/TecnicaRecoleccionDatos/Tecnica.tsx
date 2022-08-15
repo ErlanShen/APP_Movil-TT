@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader,  IonCardContent,IonButton,IonBackButton,IonButtons, IonLabel, IonContent} from '@ionic/react';
 import { firestore } from '../../../database/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { useHistory } from 'react-router';
+import { Storage } from '@capacitor/storage';
 
 const db = firestore;
 const fireStoreFunction = async () => {
@@ -17,7 +19,7 @@ const Tecnica: React.FC = () => {
     const data = await fireStoreFunction();
     data.forEach(element => {
       const fire = element.data();
-      if (fire.id === "Tecnica")
+      if (fire.id === "TecnicaRdeDatos")
         dataArray.push(element.data());
     })
     setData(dataArray);
@@ -26,7 +28,16 @@ const Tecnica: React.FC = () => {
     dataExtract();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+  const history = useHistory();
+  const buttonHandler = async (event: any) => {
+    event.preventDefault();
+    const button: HTMLButtonElement = event.currentTarget;
+    await Storage.set({
+      key: 'tecnicaData',
+      value: button.id
+    });
+    history.push('/'+button.id);
+  };
 
   let contenido = data.map((element, index) => {
     return (
@@ -40,7 +51,9 @@ const Tecnica: React.FC = () => {
               <p> {element.descripcion} </p>
               <p> <b> {element.pregunta} </b></p>
             </div>
-            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" routerLink="/Instrumento">{element.btnin}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="La observación científica">{element.btn.inst1}</IonButton></div>
+             <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Revisión documental.">{element.btn.inst2}</IonButton></div>
+            <div id='buttoncenter'><IonButton  className='tbut' color="tertiary" onClick={buttonHandler} id="Encuesta">{element.btn.inst3}</IonButton></div>
           </IonCardContent>
       </IonCard>
       </div>
